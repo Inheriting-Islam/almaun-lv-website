@@ -394,6 +394,18 @@
         </button>
       </div>
 
+      <div class="gv-slider">
+        <div class="gv-slider__head">
+          <span class="gv-slider__lbl">Slide to choose your gift</span>
+          <span class="gv-slider__amt" id="sliderAmt">$50</span>
+        </div>
+        <input type="range" id="gvRange" min="10" max="500" step="5" value="50" aria-label="Choose your gift amount in US dollars">
+        <div class="gv-slider__impact">
+          <span class="gv-slider__big">&asymp;&nbsp;<b id="impactNum">10</b> <span id="impactUnit">hot meals</span></span>
+          <div class="gv-slider__dots" id="impactDots" aria-hidden="true"></div>
+        </div>
+      </div>
+
       <div class="gv-custom">
         <label class="gv-custom__lbl" for="gvCustom">Or give another amount</label>
         <div class="gv-custom__field">
@@ -968,6 +980,36 @@
   });
 
   render();
+
+  /* ---------- IMPACT SLIDER (drag to see live impact) ---------- */
+  (function(){
+    var range = document.getElementById('gvRange');
+    if(!range) return;
+    var sAmt = document.getElementById('sliderAmt'), num = document.getElementById('impactNum'),
+        unit = document.getElementById('impactUnit'), dots = document.getElementById('impactDots');
+    function syncSlider(){
+      var a = state.amt || 0;
+      if(a >= 10 && a <= 500) range.value = a;
+      var pct = (Math.min(Math.max(a,10),500) - 10) / 490 * 100;
+      range.style.setProperty('--_pct', pct.toFixed(1) + '%');
+      sAmt.textContent = '$' + fmt(a || 0);
+      range.setAttribute('aria-valuetext', '$' + fmt(a || 0) + ' donation');
+      var m = Math.max(1, Math.round((a || 0) / 5));
+      num.textContent = m; unit.textContent = (m === 1 ? 'hot meal' : 'hot meals');
+      var show = Math.min(m, 24), html = '';
+      for(var i = 0; i < show; i++) html += '<i></i>';
+      if(m > 24) html += '<span class="more">+ ' + (m - 24) + ' more</span>';
+      dots.innerHTML = html;
+    }
+    range.addEventListener('input', function(){
+      state.amt = parseInt(range.value, 10);
+      tierBtns.forEach(function(b){ b.setAttribute('aria-pressed', 'false'); });
+      if(customInput) customInput.value = '';
+      render();
+    });
+    var _render = render; render = function(){ _render(); syncSlider(); };
+    syncSlider();
+  })();
 
   /* ---------- ZAKAT CALCULATOR ---------- */
   var zAssets = document.getElementById('zAssets');
