@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Story — Al-Maun Neighborly Needs · Historic Westside, Las Vegas</title>
+<meta name="description" content="How Al-Maun Neighborly Needs began: a few neighbors, a real need, and no excuse not to help. The humanitarian arm of Masjid As-Sabur — the oldest mosque in Las Vegas — serving the Historic Westside since 2003.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Shared Block Party design system (fonts, tokens, all components) -->
+<link rel="stylesheet" href="assets/bp.css">
+
+<!-- Page-specific additions (reuse existing classes; new names prefixed ab-) -->
+<style>
+/* nav current-page marker + header social cluster now come from assets/bp.css */
+
+/* band helpers (mirror homepage section backgrounds) */
+.ab-band-cream{background:var(--band-cream)}
+.ab-band-mint{background:var(--band-mint)}
+.ab-band-marigold{background:var(--band-marigold)}
+.ab-band-deep{background:var(--band-deep);color:var(--text-invert)}
+
+/* generic two-column split, reused by several sections */
+.ab-split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.6rem,4vw,3.6rem);align-items:center}
+@media(max-width:900px){.ab-split{grid-template-columns:1fr}}
+
+/* section copy blocks (borrow the story/sec-head accent styling) */
+.ab-copy h2{font-size:var(--fs-h2);font-weight:800;margin-bottom:1rem;max-width:20ch}
+.ab-copy h2 em{font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--brand-strong)}
+.ab-copy p+p{margin-top:1.05rem}
+.ab-copy .heritage{margin-top:1.4rem}
+
+/* ---------------- TIMELINE ---------------- */
+.ab-tl{position:relative;margin-top:.5rem}
+.ab-tl::before{content:"";position:absolute;left:19px;top:10px;bottom:10px;width:3px;border-radius:3px;
+  background:linear-gradient(var(--brand),var(--accent),var(--cta),var(--green-deep));opacity:.55}
+@media(max-width:560px){.ab-tl::before{left:15px}}
+.ab-tl-item{position:relative;padding-left:64px;padding-bottom:2rem}
+@media(max-width:560px){.ab-tl-item{padding-left:52px}}
+.ab-tl-item:last-child{padding-bottom:0}
+.ab-tl-dot{position:absolute;left:8px;top:2px;width:24px;height:24px;border-radius:50%;
+  background:var(--_dot,var(--brand));box-shadow:0 0 0 5px var(--band-cream),var(--shadow-sm);
+  display:grid;place-items:center}
+@media(max-width:560px){.ab-tl-dot{left:4px}}
+.ab-tl-dot::after{content:"";width:8px;height:8px;border-radius:50%;background:#fff}
+.ab-tl-item:nth-child(1){--_dot:var(--brand)}
+.ab-tl-item:nth-child(2){--_dot:var(--accent)}
+.ab-tl-item:nth-child(3){--_dot:var(--cta)}
+.ab-tl-item:nth-child(4){--_dot:var(--green-deep)}
+.ab-tl-item:nth-child(5){--_dot:var(--brand)}
+.ab-tl-year{font-family:var(--font-head);font-weight:800;font-size:.78rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--brand-strong);display:inline-flex;align-items:center;gap:.5rem;margin-bottom:.55rem}
+.ab-tl-year::before{content:"";width:18px;height:3px;border-radius:3px;background:var(--_dot,var(--brand))}
+.ab-tl-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);
+  padding:1.3rem 1.4rem;box-shadow:var(--shadow-sm)}
+.ab-tl-card h3{font-size:var(--fs-h3);font-weight:700;margin-bottom:.5rem}
+.ab-tl-card p{color:var(--text-muted);font-size:.98rem}
+.ab-tl-card p+p{margin-top:.7rem}
+.ab-tl-card b{color:var(--text)}
+.ab-tl-media{margin-top:1.1rem;border-radius:14px;overflow:hidden;aspect-ratio:16/9;box-shadow:var(--shadow-sm)}
+.ab-tl-media img{width:100%;height:100%;object-fit:cover}
+.ab-tl-note{margin-top:.9rem;font-family:var(--font-accent);font-style:italic;font-size:1rem;color:var(--brand-strong)}
+
+/* timeline side photos (desktop rail) */
+.ab-tl-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(1.6rem,4vw,3.4rem);align-items:start}
+@media(max-width:900px){.ab-tl-wrap{grid-template-columns:1fr}}
+.ab-tl-rail{position:sticky;top:96px;display:grid;gap:1.4rem}
+@media(max-width:900px){.ab-tl-rail{position:static;grid-template-columns:1fr 1fr;gap:1rem}}
+@media(max-width:560px){.ab-tl-rail{grid-template-columns:1fr}}
+
+/* ---------------- VALUES ---------------- */
+.ab-values{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1rem,2.2vw,1.5rem)}
+@media(max-width:980px){.ab-values{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.ab-values{grid-template-columns:1fr}}
+.ab-values .inv:nth-child(1) .inv__ic{--_bg:color-mix(in srgb,var(--brand) 18%,var(--surface))}
+.ab-values .inv:nth-child(2) .inv__ic{--_bg:color-mix(in srgb,var(--accent) 24%,var(--surface))}
+.ab-values .inv:nth-child(3) .inv__ic{--_bg:color-mix(in srgb,var(--cta) 16%,var(--surface))}
+.ab-values .inv:nth-child(4) .inv__ic{--_bg:color-mix(in srgb,var(--green-deep) 22%,var(--surface))}
+
+/* ---------------- PEOPLE ---------------- */
+.ab-people{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2.2vw,1.5rem)}
+@media(max-width:820px){.ab-people{grid-template-columns:1fr}}
+.ab-person{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);
+  padding:1.9rem 1.6rem;box-shadow:var(--shadow-sm);text-align:center;display:flex;flex-direction:column;align-items:center}
+.ab-avatar{width:84px;height:84px;border-radius:50%;
+  background:linear-gradient(150deg,var(--green) 0%,var(--green-deep) 100%);color:#fff;
+  display:grid;place-items:center;font-family:var(--font-head);font-weight:800;font-size:1.7rem;letter-spacing:.02em;
+  box-shadow:var(--shadow-sm);margin-bottom:1.1rem}
+.ab-avatar svg{width:36px;height:36px;stroke:#fff}
+.ab-person h3{font-size:1.2rem;font-weight:700;margin-bottom:.25rem}
+.ab-person .ab-role{font-family:var(--font-head);font-weight:700;font-size:.74rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--brand-strong);margin-bottom:.75rem}
+.ab-person p{color:var(--text-muted);font-size:.95rem}
+.ab-soon{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.6rem;
+  font-family:var(--font-head);font-weight:600;font-size:.82rem;color:var(--text-muted);
+  background:var(--surface);border-radius:var(--r-pill);padding:.5rem .95rem;box-shadow:inset 0 0 0 1.5px var(--border)}
+.ab-soon svg{width:15px;height:15px;color:var(--brand)}
+.ab-people-photo{margin-top:2.4rem;max-width:640px;margin-inline:auto}
+.ab-people-photo .photo-frame{transform:rotate(-1.2deg)}
+
+/* ---------------- TRANSPARENCY ---------------- */
+.ab-trust{background:var(--surface);border:1px solid var(--border);border-left:6px solid var(--accent);
+  border-radius:var(--r-lg);padding:clamp(1.6rem,3.4vw,2.6rem);box-shadow:var(--shadow-sm);
+  max-width:860px;margin-inline:auto;text-align:center}
+.ab-trust h2{font-size:var(--fs-h2);font-weight:800;margin:.4rem 0 .9rem}
+.ab-trust h2 em{font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--cta)}
+.ab-trust .lead{margin-inline:auto;margin-bottom:1.5rem}
+.ab-trust-chips{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-bottom:1.7rem}
+.ab-ein{font-family:var(--font-head);font-weight:700;letter-spacing:.02em}
+
+/* ---------------- CLOSING CTA ---------------- */
+.ab-band-deep .eyebrow{color:var(--accent)}
+.ab-band-deep h2{color:var(--text-invert);font-size:var(--fs-h2);font-weight:800}
+.ab-band-deep h2 em{font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--accent)}
+.ab-band-deep .lead{color:color-mix(in srgb,var(--text-invert) 80%,transparent);max-width:56ch}
+.ab-cta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2.2vw,1.5rem);margin-top:2.4rem}
+@media(max-width:820px){.ab-cta-grid{grid-template-columns:1fr}}
+.ab-cta-card{background:rgba(255,246,233,.08);border:1px solid rgba(255,246,233,.2);border-radius:var(--r-lg);
+  padding:1.7rem 1.6rem;display:flex;flex-direction:column}
+.ab-cta-card__ic{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;margin-bottom:1.1rem;
+  background:rgba(255,246,233,.1)}
+.ab-cta-card__ic svg{width:26px;height:26px}
+.ab-cta-card h3{color:var(--text-invert);font-size:var(--fs-h3);font-weight:700;margin-bottom:.5rem}
+.ab-cta-card p{color:color-mix(in srgb,var(--text-invert) 80%,transparent);font-size:.96rem;flex:1;margin-bottom:1.3rem}
+.ab-cta-card p b{color:#fff}
+.ab-cta-card .btn{align-self:flex-start}
+.ab-jum{display:block;font-size:.9rem;color:color-mix(in srgb,var(--text-invert) 66%,transparent);margin-top:.9rem}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ===================== HEADER (shared template — identical on every page) ===================== -->
+<header class="header" id="top">
+  <div class="container header__in">
+    <a class="brand" href="blockparty.html" aria-label="Al-Maun Neighborly Needs, home">
+      <img class="brand__logo brand__logo--light" src="images/logo-green.png" alt="Al-Maun Neighborly Needs" width="667" height="266">
+      <img class="brand__logo brand__logo--dark" src="images/logo-white.png" alt="" aria-hidden="true" width="800" height="305">
+    </a>
+    <nav class="nav" id="nav" aria-label="Primary">
+      <ul class="nav__list">
+        <li class="nav__item has-dd">
+          <a class="nav__link" href="about.html" aria-current="page">Our Story</a>
+          <button class="nav__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Our Story submenu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd">
+            <a class="dd__link" href="about.html#ab-name">Mission</a>
+            <a class="dd__link" href="about.html#ab-heritage">Our History</a>
+            <a class="dd__link" href="about.html#ab-people">Leadership</a>
+            <a class="dd__link" href="about.html#ab-trust">Transparency</a>
+          </div>
+        </li>
+        <li class="nav__item has-dd">
+          <a class="nav__link" href="programs.html">Programs</a>
+          <button class="nav__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Programs submenu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd dd--programs">
+            <a class="dd__link" href="programs.html#food"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11h17a8.5 8.5 0 0 1-17 0Z"/><path d="M8 7.5c0-1 1-1.2 1-2.2M12 7c0-1 1-1.2 1-2.2M16 7.5c0-1 1-1.2 1-2.2"/></svg></span>Food &amp; Nutrition</a>
+            <a class="dd__link" href="programs.html#health"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></span>Free Health Clinic</a>
+            <a class="dd__link" href="programs.html#education"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9 12 5l9.5 4L12 13 2.5 9Z"/><path d="M6.5 10.7V15c0 1.2 2.5 2.2 5.5 2.2s5.5-1 5.5-2.2v-4.3"/></svg></span>Education &amp; Workshops</a>
+            <a class="dd__link" href="programs.html#reentry"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 5l8 6"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg></span>Stabilization &amp; Reentry</a>
+            <a class="dd__link" href="programs.html#youth"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M8.5 14a4 4 0 0 0 7 0"/></svg></span>Youth Development</a>
+            <a class="dd__link" href="programs.html#community"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 18.5V20"/><circle cx="10" cy="8" r="3"/><path d="M20 20v-1.5a3.5 3.5 0 0 0-2.6-3.4M15.5 5.2a3 3 0 0 1 0 5.6"/></svg></span>Community &amp; Culture</a>
+          </div>
+        </li>
+        <li class="nav__item"><a class="nav__link" href="impact.html">Impact</a></li>
+        <li class="nav__item has-dd">
+          <a class="nav__link" href="get-involved.html">Get Involved</a>
+          <button class="nav__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Get Involved submenu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd">
+            <a class="dd__link" href="get-involved.html#volunteer">Volunteer</a>
+            <a class="dd__link" href="get-involved.html#goods">Donate Goods</a>
+            <a class="dd__link" href="get-involved.html#partners">Partners</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="header__cta">
+      <button class="icon-btn theme-toggle" id="themeBtn" type="button" aria-label="Toggle dark mode">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <span class="header__soc">
+        <a class="icon-btn" href="https://instagram.com/almaunlv_official" target="_blank" rel="noopener" aria-label="Al-Maun on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a class="icon-btn" href="https://www.facebook.com/almaun.org/" target="_blank" rel="noopener" aria-label="Al-Maun on Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3l.5-3H14V4.5c0-.9.3-1.5 1.7-1.5H18V.2C17.5.1 16.3 0 15 0c-2.7 0-4.5 1.6-4.5 4.6V6H8v3h2.5v9H14z"/></svg></a>
+      </span>
+      <a class="btn btn--cta" href="give.html">Donate</a>
+      <button class="icon-btn burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="hero">
+  <svg class="bunting" viewBox="0 0 1200 30" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 4 H1200" stroke="rgba(43,38,32,.28)" stroke-width="2" fill="none"/>
+    <g>
+      <polygon points="20,5 60,5 40,30" fill="#2E9E5B"/>
+      <polygon points="80,5 120,5 100,30" fill="#F5A623"/>
+      <polygon points="140,5 180,5 160,30" fill="#EE5B3B"/>
+      <polygon points="200,5 240,5 220,30" fill="#1F7A44"/>
+      <polygon points="260,5 300,5 280,30" fill="#2E9E5B"/>
+      <polygon points="320,5 360,5 340,30" fill="#F5A623"/>
+      <polygon points="380,5 420,5 400,30" fill="#EE5B3B"/>
+      <polygon points="440,5 480,5 460,30" fill="#1F7A44"/>
+      <polygon points="500,5 540,5 520,30" fill="#2E9E5B"/>
+      <polygon points="560,5 600,5 580,30" fill="#F5A623"/>
+      <polygon points="620,5 660,5 640,30" fill="#EE5B3B"/>
+      <polygon points="680,5 720,5 700,30" fill="#1F7A44"/>
+      <polygon points="740,5 780,5 760,30" fill="#2E9E5B"/>
+      <polygon points="800,5 840,5 820,30" fill="#F5A623"/>
+      <polygon points="860,5 900,5 880,30" fill="#EE5B3B"/>
+      <polygon points="920,5 960,5 940,30" fill="#1F7A44"/>
+      <polygon points="980,5 1020,5 1000,30" fill="#2E9E5B"/>
+      <polygon points="1040,5 1080,5 1060,30" fill="#F5A623"/>
+      <polygon points="1100,5 1140,5 1120,30" fill="#EE5B3B"/>
+      <polygon points="1160,5 1200,5 1180,30" fill="#1F7A44"/>
+    </g>
+  </svg>
+
+  <div class="container hero__in">
+    <div class="hero__copy">
+      <span class="hero__kicker">
+        <span class="pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1F7A44" stroke-width="2.4"><path d="M12 21s7-6.6 7-11a7 7 0 1 0-14 0c0 4.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.2" fill="#1F7A44" stroke="none"/></svg></span>
+        Our Story &middot; <b>Since 2003</b>
+      </span>
+
+      <h1>
+        <span class="soft">A few neighbors, a real need,</span><br>
+        <span class="soft">and </span><span class="mark"><span class="accent">no excuse</span>
+          <svg class="mark__line" viewBox="0 0 320 24" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M6 15 C 70 5, 130 22, 190 12 S 292 6, 314 17"/>
+          </svg>
+        </span><span class="soft"> not to help.</span>
+      </h1>
+
+      <p class="hero__sub">For more than twenty years, a handful of volunteers on Morgan Avenue have answered one plain question with their hands: <em>who&#39;s looking after the neighbor nobody else is?</em> This is how it started &mdash; and why it hasn&#39;t stopped.</p>
+
+      <div class="hero__cta">
+        <a class="btn btn--cta btn--lg" href="give.html">Give a small kindness</a>
+        <a class="btn btn--ghost btn--lg" href="#ab-heritage">Read our history</a>
+      </div>
+
+      <div class="hero__badges">
+        <span class="chip chip--mint"><span class="dot" aria-hidden="true"></span>Oldest mosque in Las Vegas</span>
+        <span class="chip">20+ years of service</span>
+        <span class="chip">Everyone welcome</span>
+      </div>
+    </div>
+
+    <div class="hero__media">
+      <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true">
+        <g class="stamp__ring">
+          <circle class="stamp__disc" cx="60" cy="60" r="56"/>
+          <circle class="stamp__edge" cx="60" cy="60" r="51"/>
+          <defs><path id="ring" d="M60,60 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs>
+          <text><textPath href="#ring" startOffset="0">CELEBRATING 20+ YEARS &#183; SINCE 2003 &#183; </textPath></text>
+        </g>
+        <text class="stamp__star" x="60" y="50" text-anchor="middle" font-size="14">&#10022;</text>
+        <text class="stamp__center" x="60" y="70" text-anchor="middle">AL-MAUN</text>
+      </svg>
+      <figure class="photo-frame">
+        <span class="tape tape--tl" aria-hidden="true"></span>
+        <span class="tape tape--br" aria-hidden="true"></span>
+        <img src="images/story-banner.jpg" alt="Al-Maun volunteers in green shirts proudly hanging a large banner reading &lsquo;Celebrating Over 20 Years&rsquo; under a bright blue Las Vegas sky." width="1200" height="800">
+        <figcaption class="hero__cap">Twenty years on the block.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== OUR NAME ===================== -->
+<section class="section ab-band-mint" id="ab-name" aria-labelledby="name-h">
+  <div class="container ab-split">
+    <div class="ab-copy reveal">
+      <p class="eyebrow">Our name</p>
+      <h2 id="name-h">Named for the chapter that measures your <em>faith by your neighbor.</em></h2>
+      <p class="lead" style="color:var(--text);max-width:none">Al-Ma&#39;un is the 107th chapter of the Qur&#39;an &mdash; short, and pointed. It warns that prayer without mercy is empty, and it names the failing plainly: turning away the orphan, and withholding <em>al-ma&#39;un</em>.</p>
+      <p>Al-Ma&#39;un is the little stuff of daily life &mdash; a bucket someone borrows, a cup of salt, a bit of help you could easily give and simply choose not to. The surah says: withhold even that, and something is wrong at the root.</p>
+      <p>So we took the name as our whole job description. Not grand gestures &mdash; the small kindnesses, handed neighbor to neighbor, day after day.</p>
+    </div>
+
+    <div class="reveal" data-d="2">
+      <blockquote class="ayah">
+        <p class="ayah__ar" lang="ar" dir="rtl">فَوَيْلٌ لِّلْمُصَلِّينَ &hellip; وَيَمْنَعُونَ الْمَاعُونَ</p>
+        <p class="ayah__tr">&ldquo;&hellip;who are heedless of their prayer &mdash; and withhold al-Ma&#39;un, small kindnesses.&rdquo;</p>
+        <p class="ayah__src">Qur&#39;an &middot; Surah Al-Ma&#39;un 107</p>
+      </blockquote>
+      <div class="heritage">
+        <span class="chip chip--mint"><span class="dot" aria-hidden="true"></span>&ldquo;Neighborly Needs&rdquo;</span>
+        <span class="chip">Faith you can see</span>
+        <span class="chip">Mercy, made practical</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HERITAGE &amp; HISTORY (TIMELINE) ===================== -->
+<section class="section ab-band-cream" id="ab-heritage" aria-labelledby="heritage-h">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Heritage &amp; history</p>
+      <h2 id="heritage-h" style="font-size:var(--fs-h2);font-weight:800;margin-bottom:.8rem">Half a century on the <em style="font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--cta)">Westside.</em></h2>
+      <p class="lead">Al-Maun didn&#39;t come from nowhere. It grew out of a house of worship that has stood with this neighborhood since long before it had many friends downtown.</p>
+    </div>
+
+    <div class="ab-tl-wrap">
+      <!-- photo rail -->
+      <div class="ab-tl-rail reveal">
+        <figure class="photo-frame" style="transform:rotate(-1.8deg)">
+          <span class="tape tape--tl" aria-hidden="true"></span>
+          <img src="images/feature-hug.jpg" alt="An older neighbor warmly embracing two smiling young women volunteers in green Al-Maun aprons at a Humanitarian Day tent." width="1099" height="732">
+          <figcaption class="hero__cap" style="right:14px;left:auto;bottom:22px">Same corner, same welcome.</figcaption>
+        </figure>
+        <figure class="polaroid" style="--rot:2deg">
+          <span class="tape" aria-hidden="true"></span>
+          <img src="images/hero-line.jpg" alt="A long line of neighbors receiving bags of supplies from Al-Maun volunteers at outdoor tables, with partner tents and the masjid wall behind them." width="1300" height="866">
+          <figcaption>Doors open to the whole block</figcaption>
+        </figure>
+      </div>
+
+      <!-- the timeline -->
+      <ol class="ab-tl" style="list-style:none;padding:0;margin:0">
+        <li class="ab-tl-item reveal" data-d="1">
+          <span class="ab-tl-dot" aria-hidden="true"></span>
+          <span class="ab-tl-year">Early 1970s</span>
+          <div class="ab-tl-card">
+            <h3>Roots on the Westside</h3>
+            <p>Long before the strip malls and the freeway, a small Muslim community put down roots in the Historic Westside &mdash; then known as <b>Masjid Muhammad</b>. From the start, faith here meant showing up for the block.</p>
+          </div>
+        </li>
+        <li class="ab-tl-item reveal" data-d="2">
+          <span class="ab-tl-dot" aria-hidden="true"></span>
+          <span class="ab-tl-year">1975</span>
+          <div class="ab-tl-card">
+            <h3>Becoming Masjid As-Sabur</h3>
+            <p>Under the leadership of <b>Imam W. Deen Mohammed</b>, the community transitioned into mainstream Sunni Islam and took the name <b>Masjid As-Sabur</b> &mdash; &ldquo;the Patient.&rdquo; It stands today as the <b>oldest mosque in Las Vegas.</b></p>
+            <p class="ab-tl-note">Over the years its doors have welcomed neighbors and notables alike &mdash; among them Muhammad Ali.</p>
+          </div>
+        </li>
+        <li class="ab-tl-item reveal" data-d="3">
+          <span class="ab-tl-dot" aria-hidden="true"></span>
+          <span class="ab-tl-year">2003</span>
+          <div class="ab-tl-card">
+            <h3>Al-Maun is founded</h3>
+            <p><b>Imam Fateen</b> and <b>Sister Nisaa Seifullah</b> launched Al-Maun (Neighborly Needs) as the masjid&#39;s service arm &mdash; a way to answer Surah Al-Ma&#39;un with hot meals, groceries, and a hand up for anyone who knocked. Muslim or not.</p>
+          </div>
+        </li>
+        <li class="ab-tl-item reveal" data-d="1">
+          <span class="ab-tl-dot" aria-hidden="true"></span>
+          <span class="ab-tl-year">After Hurricane Katrina</span>
+          <div class="ab-tl-card">
+            <h3>Relief that got noticed</h3>
+            <p>When Katrina displaced families across the Gulf, Al-Maun mobilized &mdash; and the relief work earned <b>national recognition.</b> The attention was never the point; the neighbor in front of us always was.</p>
+          </div>
+        </li>
+        <li class="ab-tl-item reveal" data-d="2">
+          <span class="ab-tl-dot" aria-hidden="true"></span>
+          <span class="ab-tl-year">Today</span>
+          <div class="ab-tl-card">
+            <h3>Twenty years &amp; counting</h3>
+            <p>Two decades on, Al-Maun runs <b>six core programs</b>, a <b>free health clinic</b> built hand-in-hand with UNLV, and a Humanitarian Day that serves <b>500+ neighbors</b> in a single afternoon &mdash; still powered by volunteers, still on Morgan Avenue.</p>
+            <div class="ab-tl-media">
+              <img src="images/story-banner.jpg" alt="Volunteers holding the green Al-Maun banner celebrating over twenty years of neighborly service." width="1200" height="800">
+            </div>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MISSION &amp; VALUES ===================== -->
+<section class="section ab-band-marigold" id="ab-values" aria-labelledby="values-h">
+  <div class="container">
+    <div class="sec-head reveal" style="text-align:center;margin-inline:auto">
+      <p class="eyebrow" style="justify-content:center">What we stand on</p>
+      <h2 id="values-h" style="font-size:var(--fs-h2);font-weight:800;margin-bottom:.8rem">A short list we <em style="font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--cta)">actually live by.</em></h2>
+      <p class="lead" style="margin-inline:auto">No mission statement gathering dust on a wall. Four ideas, and you can watch us keep them every single week.</p>
+    </div>
+
+    <div class="ab-values">
+      <article class="inv reveal" data-d="1">
+        <div class="inv__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1F7A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5 5 0 0 0-7 0L12 7.3l-1.8-1.7a5 5 0 0 0-7 7l1.7 1.8L12 21l7.1-6.6 1.7-1.8a5 5 0 0 0 0-7Z"/></svg></div>
+        <h3>Neighbors helping neighbors</h3>
+        <p>Not clients and case files &mdash; people and their neighbors. We help the way you&#39;d help someone on your own street: quickly, and without a lecture.</p>
+      </article>
+      <article class="inv reveal" data-d="2">
+        <div class="inv__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#B67908" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 21l-4.9 2.6.9-5.5-4-3.9 5.5-.8Z"/></svg></div>
+        <h3>Dignity first</h3>
+        <p>A hot plate served with a smile, not a sigh. No means test at the door, no hoops to jump through &mdash; just care handed over like you matter, because you do.</p>
+      </article>
+      <article class="inv reveal" data-d="3">
+        <div class="inv__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#C0421E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="3.5"/><path d="M17 4a3.5 3.5 0 0 1 0 6.6M22 20v-2a4 4 0 0 0-3-3.8"/></svg></div>
+        <h3>Everyone&#39;s welcome</h3>
+        <p>Muslim &amp; non-Muslim, housed &amp; unhoused, neighbor &amp; stranger. If you&#39;re hungry or hurting, you&#39;re exactly who we&#39;re here for. No questions asked.</p>
+      </article>
+      <article class="inv reveal" data-d="4">
+        <div class="inv__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1F7A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"/></svg></div>
+        <h3>Community-led, not bureaucratic</h3>
+        <p>Run by the block, for the block. Decisions get made by the people doing the work &mdash; so help moves at the speed of a neighbor, not a form in triplicate.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== THE PEOPLE ===================== -->
+<section class="section ab-band-cream" id="ab-people" aria-labelledby="people-h">
+  <div class="container">
+    <div class="sec-head reveal" style="text-align:center;margin-inline:auto">
+      <p class="eyebrow" style="justify-content:center">The people</p>
+      <h2 id="people-h" style="font-size:var(--fs-h2);font-weight:800;margin-bottom:.8rem">Founded by neighbors. Still <em style="font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--brand-strong)">run by them.</em></h2>
+      <p class="lead" style="margin-inline:auto">Al-Maun has never had a corner office. It has an imam, a co-founder, a board, and a whole lot of people in green aprons who keep showing up.</p>
+    </div>
+
+    <div class="ab-people">
+      <article class="ab-person reveal" data-d="1">
+        <div class="ab-avatar" aria-hidden="true">FS</div>
+        <h3>Imam Fateen Seifullah</h3>
+        <p class="ab-role">Imam &amp; Co-founder</p>
+        <p>Spiritual leader of Masjid As-Sabur and a co-founder of Al-Maun &mdash; the steady voice behind &ldquo;serve the neighbor first, ask questions never.&rdquo;</p>
+      </article>
+      <article class="ab-person reveal" data-d="2">
+        <div class="ab-avatar" aria-hidden="true">NS</div>
+        <h3>Sister Nisaa Seifullah</h3>
+        <p class="ab-role">Co-founder</p>
+        <p>Co-founder and the organizing heart of the work &mdash; from the pantry to Nisaa&#39;s Academy, she&#39;s spent two decades turning compassion into logistics.</p>
+      </article>
+      <article class="ab-person reveal" data-d="3">
+        <div class="ab-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="3.5"/><path d="M17 4a3.5 3.5 0 0 1 0 6.6M23 20v-2a4 4 0 0 0-3-3.8"/></svg></div>
+        <h3>Our board &amp; volunteers</h3>
+        <p class="ab-role">The green aprons</p>
+        <p>A volunteer board and dozens of neighbors &mdash; teens sorting kits, seniors staffing the pantry, families serving meals. This is who Al-Maun really is.</p>
+      </article>
+    </div>
+
+    <div style="text-align:center">
+      <span class="ab-soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.5"/><path d="M21 17l-5-4-4 3"/></svg> Team photos coming soon</span>
+    </div>
+
+    <div class="ab-people-photo reveal" data-d="2">
+      <figure class="photo-frame">
+        <span class="tape tape--tl" aria-hidden="true"></span>
+        <img src="images/g-volunteers.jpg" alt="Two women volunteers in green Al-Maun aprons smiling side by side at a booth under a tent." width="1000" height="667">
+        <figcaption class="hero__cap" style="right:14px;left:auto;bottom:22px">The team, mid-shift.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRANSPARENCY ===================== -->
+<section class="section ab-band-mint" id="ab-trust" aria-labelledby="trust-h">
+  <div class="container">
+    <div class="ab-trust reveal">
+      <p class="eyebrow" style="justify-content:center">Where the money goes</p>
+      <h2 id="trust-h">Every dollar stays on the <em>Westside.</em></h2>
+      <p class="lead">We under-ask and over-deliver. Al-Maun is a registered non-profit, stewarded by volunteers &mdash; so your gift doesn&#39;t vanish into overhead. It becomes a meal, a clinic visit, a family kept in their home, right here on the block.</p>
+      <div class="ab-trust-chips">
+        <span class="chip chip--mint"><span class="dot" aria-hidden="true"></span>Registered 501(c)(3)</span>
+        <span class="chip ab-ein">EIN 32-0087926</span>
+        <span class="chip">Zakat-eligible &amp; tax-deductible</span>
+      </div>
+      <a class="btn btn--cta btn--lg" href="give.html">See how your gift helps</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CLOSING CTA ===================== -->
+<section class="section ab-band-deep" id="ab-cta" aria-labelledby="cta-h">
+  <div class="container">
+    <div class="reveal" style="max-width:60ch">
+      <p class="eyebrow">Join the story</p>
+      <h2 id="cta-h">You&#39;re a neighbor too. <em>Pull up a chair.</em></h2>
+      <p class="lead">Give, serve, or simply come pray with us. There&#39;s a place for you in the next twenty years.</p>
+    </div>
+
+    <div class="ab-cta-grid">
+      <article class="ab-cta-card reveal" data-d="1">
+        <div class="ab-cta-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5 5 0 0 0-7 0L12 7.3l-1.8-1.7a5 5 0 0 0-7 7l1.7 1.8L12 21l7.1-6.6 1.7-1.8a5 5 0 0 0 0-7Z"/></svg></div>
+        <h3>Donate</h3>
+        <p>Turn a small kindness into a hot meal, a clinic visit, or a cooling fan in a 110&deg; desert. <b>Every dollar stays local.</b></p>
+        <a class="btn btn--cta" href="give.html">Give now</a>
+      </article>
+      <article class="ab-cta-card reveal" data-d="2">
+        <div class="ab-cta-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#48B978" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h3>Volunteer</h3>
+        <p>Pull on a green apron. Serve meals, sort kits, staff the pantry &mdash; <b>first-timers and families welcome.</b></p>
+        <a class="btn btn--ghost" href="blockparty.html#involved" style="--_fg:var(--text-invert);box-shadow:inset 0 0 0 2px rgba(255,246,233,.35)">Get involved</a>
+      </article>
+      <article class="ab-cta-card reveal" data-d="3">
+        <div class="ab-cta-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#EE5B3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"/></svg></div>
+        <h3>Worship with us</h3>
+        <p>All are welcome at Masjid As-Sabur. Come as a guest, come as a neighbor.</p>
+        <span class="ab-jum"><b style="color:#fff">Jumu&#39;ah &middot; Fridays 1:00 PM</b><br>711 Morgan Ave, Las Vegas</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <img class="footer__logo" src="images/logo-white.png" alt="Al-Maun Neighborly Needs">
+        <p class="footer__tag">The humanitarian arm of Masjid As-Sabur, serving the Historic Westside of Las Vegas since 2003. Neighbors helping neighbors &mdash; measured in small kindnesses.</p>
+        <a class="footer__soc" href="https://instagram.com/almaunlv_official" target="_blank" rel="noopener" aria-label="Al-Maun on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> @almaunlv_official</a>
+        <a class="footer__soc" href="https://www.facebook.com/almaun.org/" target="_blank" rel="noopener" aria-label="Al-Maun on Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3l.5-3H14V4.5c0-.9.3-1.5 1.7-1.5H18V.2C17.5.1 16.3 0 15 0c-2.7 0-4.5 1.6-4.5 4.6V6H8v3h2.5v9H14z"/></svg> facebook.com/almaun.org</a>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <nav class="footer__nav" aria-label="Footer">
+          <a href="about.html">Our Story</a>
+          <a href="programs.html">Programs</a>
+          <a href="impact.html">Impact</a>
+          <a href="events.html">Events &amp; Prayer</a>
+          <a href="get-involved.html">Get Involved</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <h4>Visit &amp; Contact</h4>
+        <address>
+          711 Morgan Ave<br>
+          Las Vegas, NV 89106<br>
+          <a href="tel:+17026472500">(702) 647-2500</a><br>
+          <a href="mailto:almaun@gmail.com">almaun@gmail.com</a>
+        </address>
+        <div class="footer__jum"><b>Jumu&#39;ah &middot; Fridays 1:00 PM</b><span>All are welcome at Masjid As-Sabur.</span></div>
+      </div>
+      <div>
+        <h4>Give &amp; Support</h4>
+        <address>
+          Registered 501(c)(3)<br>
+          EIN 32-0087926<br>
+          Zakat-eligible &amp; tax-deductible<br>
+          <a href="give.html">Make a donation &rarr;</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <span>&copy; 2003&ndash;2026 Al-Maun Neighborly Needs. All kindnesses welcome.</span>
+      <span class="proto">Redesign prototype &mdash; not the official Al-Maun website</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- THEME (shared key with the rest of the site) ---------- */
+  var root = document.documentElement;
+  var themeBtn = document.getElementById('themeBtn');
+  try{
+    var saved = localStorage.getItem('almaun-theme');
+    if(saved){ root.setAttribute('data-theme', saved); }
+  }catch(e){}
+  if(themeBtn){
+    themeBtn.addEventListener('click', function(){
+      var cur = root.getAttribute('data-theme');
+      var isDark = cur ? cur === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var next = isDark ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try{ localStorage.setItem('almaun-theme', next); }catch(e){}
+    });
+  }
+
+  /* Dropdown + mobile nav now live in assets/site.js (shared) */
+
+  /* ---------- HEADER SHADOW ---------- */
+  var header = document.querySelector('.header');
+  if(header){
+    var onScroll = function(){ header.classList.toggle('scrolled', window.scrollY > 8); };
+    onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+  }
+
+  /* ---------- SCROLL REVEAL + hero marker ---------- */
+  var heroSec = document.getElementById('hero');
+  if(reduce){
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+    if(heroSec) heroSec.classList.add('revealed');
+  } else {
+    if(heroSec) setTimeout(function(){ heroSec.classList.add('revealed'); }, 200);
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, {threshold:0.14, rootMargin:'0px 0px -8% 0px'});
+      document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+    } else {
+      document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+    }
+  }
+})();
+</script>
+</body>
+</html>

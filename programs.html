@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Programs — Al-Maun Neighborly Needs · Historic Westside, Las Vegas</title>
+<meta name="description" content="Six ways Al-Maun shows up for the Historic Westside of Las Vegas: food, a free health clinic, education, reentry, youth, and community. Walk in at 711 Morgan Ave — no neighbor turned away.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Shared Block Party design system (fonts, tokens, all components) -->
+<link rel="stylesheet" href="assets/bp.css">
+<!-- Apply saved theme before paint to avoid a dark-mode flash (toggle handler lives at end of body) -->
+<script>try{var t=localStorage.getItem('almaun-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+
+<!-- Page-specific additions (reuse existing classes; new names prefixed pr-) -->
+<style>
+/* four-column footer (this page uses the canonical brand / Explore / Visit / Give layout) */
+.footer__top{grid-template-columns:1.6fr 1fr 1fr 1fr}
+@media (max-width:900px){.footer__top{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.footer__top{grid-template-columns:1fr}}
+/* footer Explore link list (not styled in bp.css) */
+.footer__nav{display:grid;gap:.55rem}
+.footer__nav a{color:rgba(237,228,214,.86);font-size:.95rem;width:max-content}
+.footer__nav a:hover{color:#fff;text-decoration:underline}
+
+/* let anchored program cards clear the sticky header */
+.card[id]{scroll-margin-top:100px}
+
+/* "Learn more" button pinned to the bottom of each card */
+.card .pr-more{margin-top:auto;align-self:flex-start;padding-top:.7rem}
+.card .pr-more .btn{margin-top:.9rem}
+
+/* ---------------- PROGRAM DETAIL MODALS ---------------- */
+.modal--prog .modal__panel{max-width:min(40rem,94vw)}
+.pr-modal-img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r-md);
+  margin:.25rem 0 1.15rem;box-shadow:var(--shadow-sm)}
+.pr-modal-eyebrow{font-family:var(--font-head);font-weight:700;font-size:.72rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--brand-strong);margin:0}
+.pr-label{font-family:var(--font-head);font-weight:700;font-size:.76rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--text);margin:1.3rem 0 .55rem}
+.pr-offer{list-style:none;padding:0;margin:.4rem 0 0;display:grid;gap:.6rem}
+.pr-offer li{display:flex;gap:.65rem;align-items:flex-start;font-size:.96rem;color:var(--text);line-height:1.5}
+.pr-offer li::before{content:"";flex:none;width:9px;height:9px;margin-top:.5rem;border-radius:50%;
+  background:var(--brand);box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 18%,transparent)}
+.pr-help{display:flex;gap:.65rem;align-items:flex-start;margin-top:1.35rem;
+  background:var(--band-mint);border:1px solid rgba(46,158,91,.32);border-radius:var(--r-md);
+  padding:.9rem 1.05rem;font-size:.92rem;color:var(--text);line-height:1.55}
+.pr-help svg{flex:none;width:20px;height:20px;color:var(--brand-strong);margin-top:2px}
+.pr-help b{color:var(--text)}
+.pr-help a{color:var(--brand-strong);font-weight:700}
+.pr-modal-cta{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.45rem}
+.pr-modal-cta .btn{margin-top:0}
+
+/* ---------------- CLOSING BAND ---------------- */
+.pr-close{background:var(--band-deep);color:var(--text-invert);text-align:center}
+.pr-close .container{max-width:64ch}
+.pr-close .eyebrow{color:var(--accent);justify-content:center}
+.pr-close .eyebrow::before{background:var(--accent)}
+.pr-close h2{font-size:var(--fs-h2);font-weight:800;color:var(--text-invert);margin-bottom:1rem}
+.pr-close h2 em{font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--accent)}
+.pr-close p{color:color-mix(in srgb,var(--text-invert) 84%,transparent);
+  font-size:var(--fs-lead);line-height:1.7;margin-inline:auto;max-width:58ch}
+.pr-close__cta{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:2rem}
+/* ghost button that reads on the dark closing band */
+.pr-ghost-invert{color:#fff;background:rgba(255,246,233,.1);box-shadow:inset 0 0 0 2px rgba(255,246,233,.55)}
+.pr-ghost-invert:hover{background:rgba(255,246,233,.2);box-shadow:inset 0 0 0 2px #fff}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ===================== HEADER (shared template — identical on every page) ===================== -->
+<header class="header" id="top">
+  <div class="container header__in">
+    <a class="brand" href="blockparty.html" aria-label="Al-Maun Neighborly Needs, home">
+      <img class="brand__logo brand__logo--light" src="images/logo-green.png" alt="Al-Maun Neighborly Needs" width="667" height="266">
+      <img class="brand__logo brand__logo--dark" src="images/logo-white.png" alt="" aria-hidden="true" width="800" height="305">
+    </a>
+    <nav class="nav" id="nav" aria-label="Primary">
+      <ul class="nav__list">
+        <li class="nav__item has-dd">
+          <a class="nav__link" href="about.html">Our Story</a>
+          <button class="nav__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Our Story submenu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd">
+            <a class="dd__link" href="about.html#ab-name">Mission</a>
+            <a class="dd__link" href="about.html#ab-heritage">Our History</a>
+            <a class="dd__link" href="about.html#ab-people">Leadership</a>
+            <a class="dd__link" href="about.html#ab-trust">Transparency</a>
+          </div>
+        </li>
+        <li class="nav__item has-dd">
+          <a class="nav__link" href="programs.html" aria-current="page">Programs</a>
+          <button class="nav__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Programs submenu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd dd--programs">
+            <a class="dd__link" href="programs.html#food"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11h17a8.5 8.5 0 0 1-17 0Z"/><path d="M8 7.5c0-1 1-1.2 1-2.2M12 7c0-1 1-1.2 1-2.2M16 7.5c0-1 1-1.2 1-2.2"/></svg></span>Food &amp; Nutrition</a>
+            <a class="dd__link" href="programs.html#health"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></span>Free Health Clinic</a>
+            <a class="dd__link" href="programs.html#education"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9 12 5l9.5 4L12 13 2.5 9Z"/><path d="M6.5 10.7V15c0 1.2 2.5 2.2 5.5 2.2s5.5-1 5.5-2.2v-4.3"/></svg></span>Education &amp; Workshops</a>
+            <a class="dd__link" href="programs.html#reentry"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 5l8 6"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg></span>Stabilization &amp; Reentry</a>
+            <a class="dd__link" href="programs.html#youth"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M8.5 14a4 4 0 0 0 7 0"/></svg></span>Youth Development</a>
+            <a class="dd__link" href="programs.html#community"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 18.5V20"/><circle cx="10" cy="8" r="3"/><path d="M20 20v-1.5a3.5 3.5 0 0 0-2.6-3.4M15.5 5.2a3 3 0 0 1 0 5.6"/></svg></span>Community &amp; Culture</a>
+          </div>
+        </li>
+        <li class="nav__item"><a class="nav__link" href="impact.html">Impact</a></li>
+        <li class="nav__item has-dd">
+          <a class="nav__link" href="get-involved.html">Get Involved</a>
+          <button class="nav__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Get Involved submenu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd">
+            <a class="dd__link" href="get-involved.html#volunteer">Volunteer</a>
+            <a class="dd__link" href="get-involved.html#goods">Donate Goods</a>
+            <a class="dd__link" href="get-involved.html#partners">Partners</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="header__cta">
+      <button class="icon-btn theme-toggle" id="themeBtn" type="button" aria-label="Toggle dark mode">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <span class="header__soc">
+        <a class="icon-btn" href="https://instagram.com/almaunlv_official" target="_blank" rel="noopener" aria-label="Al-Maun on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a class="icon-btn" href="https://www.facebook.com/almaun.org/" target="_blank" rel="noopener" aria-label="Al-Maun on Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3l.5-3H14V4.5c0-.9.3-1.5 1.7-1.5H18V.2C17.5.1 16.3 0 15 0c-2.7 0-4.5 1.6-4.5 4.6V6H8v3h2.5v9H14z"/></svg></a>
+      </span>
+      <a class="btn btn--cta" href="give.html">Donate</a>
+      <button class="icon-btn burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===================== PAGE HERO (compact) ===================== -->
+<section class="hero" id="hero" aria-labelledby="hero-h">
+  <svg class="bunting" viewBox="0 0 1200 30" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 4 H1200" stroke="rgba(43,38,32,.28)" stroke-width="2" fill="none"/>
+    <g>
+      <polygon points="20,5 60,5 40,30" fill="#2E9E5B"/><polygon points="80,5 120,5 100,30" fill="#F5A623"/>
+      <polygon points="140,5 180,5 160,30" fill="#EE5B3B"/><polygon points="200,5 240,5 220,30" fill="#1F7A44"/>
+      <polygon points="260,5 300,5 280,30" fill="#2E9E5B"/><polygon points="320,5 360,5 340,30" fill="#F5A623"/>
+      <polygon points="380,5 420,5 400,30" fill="#EE5B3B"/><polygon points="440,5 480,5 460,30" fill="#1F7A44"/>
+      <polygon points="500,5 540,5 520,30" fill="#2E9E5B"/><polygon points="560,5 600,5 580,30" fill="#F5A623"/>
+      <polygon points="620,5 660,5 640,30" fill="#EE5B3B"/><polygon points="680,5 720,5 700,30" fill="#1F7A44"/>
+      <polygon points="740,5 780,5 760,30" fill="#2E9E5B"/><polygon points="800,5 840,5 820,30" fill="#F5A623"/>
+      <polygon points="860,5 900,5 880,30" fill="#EE5B3B"/><polygon points="920,5 960,5 940,30" fill="#1F7A44"/>
+      <polygon points="980,5 1020,5 1000,30" fill="#2E9E5B"/><polygon points="1040,5 1080,5 1060,30" fill="#F5A623"/>
+      <polygon points="1100,5 1140,5 1120,30" fill="#EE5B3B"/><polygon points="1160,5 1200,5 1180,30" fill="#1F7A44"/>
+    </g>
+  </svg>
+
+  <div class="container hero__in">
+    <div class="hero__copy">
+      <span class="hero__kicker">
+        <span class="pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1F7A44" stroke-width="2.4"><path d="M12 21s7-6.6 7-11a7 7 0 1 0-14 0c0 4.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.2" fill="#1F7A44" stroke="none"/></svg></span>
+        Our Programs
+      </span>
+
+      <h1 id="hero-h">
+        <span class="soft">Six front doors.</span><br>
+        <span class="soft">One promise: no neighbor </span><span class="mark">turned away<svg class="mark__line" viewBox="0 0 320 24" preserveAspectRatio="none" aria-hidden="true"><path d="M6 15 C 70 5, 130 22, 190 12 S 292 6, 314 17"/></svg></span><span class="soft">.</span>
+      </h1>
+
+      <p class="hero__sub">Food, health, learning, a second chance, our young people, and the block itself &mdash; six ways we show up. Walk in hungry, hurting, or just looking to help. There&#39;s no means test at the door, and everyone is welcome &mdash; Muslim or not.</p>
+
+      <div class="hero__cta">
+        <a class="btn btn--cta btn--lg" href="give.html">Donate</a>
+        <a class="btn btn--ghost btn--lg" href="get-involved.html#volunteer">Volunteer</a>
+      </div>
+
+      <div class="hero__badges">
+        <span class="chip chip--mint"><span class="dot" aria-hidden="true"></span>Everyone welcome</span>
+        <span class="chip">No paperwork at the door</span>
+        <span class="chip">Serving since 2003</span>
+      </div>
+    </div>
+
+    <div class="hero__media">
+      <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true">
+        <g class="stamp__ring">
+          <circle class="stamp__disc" cx="60" cy="60" r="56"/>
+          <circle class="stamp__edge" cx="60" cy="60" r="51"/>
+          <defs><path id="ring" d="M60,60 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs>
+          <text><textPath href="#ring" startOffset="0">SIX PROGRAMS &#183; ONE PROMISE &#183; </textPath></text>
+        </g>
+        <text class="stamp__star" x="60" y="50" text-anchor="middle" font-size="14">&#10022;</text>
+        <text class="stamp__center" x="60" y="70" text-anchor="middle">AL-MAUN</text>
+      </svg>
+      <figure class="photo-frame">
+        <span class="tape tape--tl" aria-hidden="true"></span>
+        <span class="tape tape--br" aria-hidden="true"></span>
+        <img src="images/feature-hug.jpg" alt="Three Al-Maun volunteers in green Humanitarian Day aprons, arms around each other and smiling, at an outdoor community event." width="1100" height="733">
+        <figcaption class="hero__cap">One block, one family.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROGRAM GRID ===================== -->
+<section class="section programs" id="programs" aria-labelledby="prog-h">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Choose a door</p>
+      <h2 id="prog-h">Six programs, one <em>promise.</em></h2>
+      <p class="lead">Each one covers a gap the system leaves behind &mdash; from a hot plate of food to a second chance. Tap <b>Learn more</b> on any card to see who it serves, what we offer, and how to get help.</p>
+    </div>
+
+    <div class="prog-grid">
+      <!-- 1 · FOOD -->
+      <article class="card reveal" id="food" data-d="1" style="--_c:var(--brand)">
+        <div class="card__bar"></div>
+        <div class="card__media"><img src="images/prog-food.jpg" alt="Volunteers handing out fresh food and sack lunches at an Al-Maun distribution table." width="378" height="252" loading="lazy"></div>
+        <div class="card__body">
+          <span class="card__kicker">Program 01</span>
+          <h3>Food &amp; Nutrition</h3>
+          <p class="card__blurb">Nobody goes to bed hungry on our watch.</p>
+          <div class="tags"><span class="tag">Food pantry</span><span class="tag">Hot meals</span><span class="tag">Grocery delivery</span></div>
+          <div class="pr-more"><button class="btn btn--ghost" type="button" data-modal-open="prog-food" aria-label="Learn more about Food &amp; Nutrition">Learn more</button></div>
+        </div>
+      </article>
+
+      <!-- 2 · HEALTH -->
+      <article class="card reveal" id="health" data-d="2" style="--_c:var(--cta)">
+        <div class="card__bar"></div>
+        <div class="card__media"><img src="images/prog-health.jpg" alt="A neighbor receiving care at the Al-Maun free health clinic built with UNLV." width="378" height="252" loading="lazy"></div>
+        <div class="card__body">
+          <span class="card__kicker">Program 02</span>
+          <h3>Free Health Clinic</h3>
+          <p class="card__blurb">A community clinic, built with UNLV, for those with nowhere to turn.</p>
+          <div class="tags"><span class="tag">Check-ups</span><span class="tag">Wound care</span><span class="tag">Rx help</span></div>
+          <div class="pr-more"><button class="btn btn--ghost" type="button" data-modal-open="prog-health" aria-label="Learn more about the Free Health Clinic">Learn more</button></div>
+        </div>
+      </article>
+
+      <!-- 3 · EDUCATION -->
+      <article class="card reveal" id="education" data-d="3" style="--_c:var(--accent)">
+        <div class="card__bar"></div>
+        <div class="card__media"><img src="images/prog-education.jpg" alt="A community education workshop hosted by Al-Maun volunteers." width="378" height="252" loading="lazy"></div>
+        <div class="card__body">
+          <span class="card__kicker">Program 03</span>
+          <h3>Education &amp; Workshops</h3>
+          <p class="card__blurb">Knowledge that protects &amp; heals.</p>
+          <div class="tags"><span class="tag">Legal rights</span><span class="tag">Trauma support</span><span class="tag">Nisaa&#39;s Academy</span></div>
+          <div class="pr-more"><button class="btn btn--ghost" type="button" data-modal-open="prog-education" aria-label="Learn more about Education &amp; Workshops">Learn more</button></div>
+        </div>
+      </article>
+
+      <!-- 4 · REENTRY -->
+      <article class="card reveal" id="reentry" data-d="1" style="--_c:var(--green-deep)">
+        <div class="card__bar"></div>
+        <div class="card__media"><img src="images/prog-reentry.jpg" alt="A mentor and participant in the Al-Maun stabilization and reentry program." width="378" height="252" loading="lazy"></div>
+        <div class="card__body">
+          <span class="card__kicker">Program 04</span>
+          <h3>Stabilization &amp; Reentry</h3>
+          <p class="card__blurb">A second chance is sacred.</p>
+          <div class="tags"><span class="tag">Reentry (CHANCES)</span><span class="tag">Recovery</span><span class="tag">Rent &amp; utility aid</span></div>
+          <div class="pr-more"><button class="btn btn--ghost" type="button" data-modal-open="prog-reentry" aria-label="Learn more about Stabilization &amp; Reentry">Learn more</button></div>
+        </div>
+      </article>
+
+      <!-- 5 · YOUTH -->
+      <article class="card reveal" id="youth" data-d="2" style="--_c:var(--cta)">
+        <div class="card__bar"></div>
+        <div class="card__media"><img src="images/prog-youth.jpg" alt="Young people being mentored through Al-Maun youth development." width="378" height="252" loading="lazy"></div>
+        <div class="card__body">
+          <span class="card__kicker">Program 05</span>
+          <h3>Youth Development</h3>
+          <p class="card__blurb">The next generation &mdash; mentored &amp; believed in.</p>
+          <div class="tags"><span class="tag">Mentorship</span><span class="tag">Chess club</span><span class="tag">Youth talks</span></div>
+          <div class="pr-more"><button class="btn btn--ghost" type="button" data-modal-open="prog-youth" aria-label="Learn more about Youth Development">Learn more</button></div>
+        </div>
+      </article>
+
+      <!-- 6 · COMMUNITY -->
+      <article class="card reveal" id="community" data-d="3" style="--_c:var(--brand)">
+        <div class="card__bar"></div>
+        <div class="card__media"><img src="images/g-volunteers.jpg" alt="Two women volunteers in green Al-Maun aprons smiling side by side at a booth under a tent." width="1000" height="667" loading="lazy"></div>
+        <div class="card__body">
+          <span class="card__kicker">Program 06</span>
+          <h3>Community &amp; Culture</h3>
+          <p class="card__blurb">The glue of a neighborhood.</p>
+          <div class="tags"><span class="tag">Arts &amp; culture</span><span class="tag">Interfaith</span><span class="tag">Cleanups</span></div>
+          <div class="pr-more"><button class="btn btn--ghost" type="button" data-modal-open="prog-community" aria-label="Learn more about Community &amp; Culture">Learn more</button></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CLOSING BAND ===================== -->
+<section class="section pr-close" aria-labelledby="together-h">
+  <div class="container">
+    <p class="eyebrow">How it all works together</p>
+    <h2 id="together-h">One neighbor, <em>the whole circle.</em></h2>
+    <p>Real life doesn&#39;t come in tidy boxes. The family that walks in for groceries might also need the clinic; the person coming home from prison needs a bed, a sponsor, and a warm meal all at once. So we treat these six programs as one set of hands, not six departments &mdash; wraparound care that meets the whole person, offered with dignity, and never rationed by paperwork or belief. You come as you are. We take it from there.</p>
+    <div class="pr-close__cta">
+      <a class="btn btn--cta btn--lg" href="give.html">Donate</a>
+      <a class="btn btn--lg pr-ghost-invert" href="get-involved.html#volunteer">Volunteer with us</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <img class="footer__logo" src="images/logo-white.png" alt="Al-Maun Neighborly Needs">
+        <p class="footer__tag">The humanitarian arm of Masjid As-Sabur, serving the Historic Westside of Las Vegas since 2003. Neighbors helping neighbors &mdash; measured in small kindnesses.</p>
+        <a class="footer__soc" href="https://instagram.com/almaunlv_official" target="_blank" rel="noopener" aria-label="Al-Maun on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> @almaunlv_official</a>
+        <a class="footer__soc" href="https://www.facebook.com/almaun.org/" target="_blank" rel="noopener" aria-label="Al-Maun on Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3l.5-3H14V4.5c0-.9.3-1.5 1.7-1.5H18V.2C17.5.1 16.3 0 15 0c-2.7 0-4.5 1.6-4.5 4.6V6H8v3h2.5v9H14z"/></svg> facebook.com/almaun.org</a>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <nav class="footer__nav" aria-label="Footer">
+          <a href="about.html">Our Story</a>
+          <a href="programs.html">Programs</a>
+          <a href="impact.html">Impact</a>
+          <a href="events.html">Events &amp; Prayer</a>
+          <a href="get-involved.html">Get Involved</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <h4>Visit &amp; Contact</h4>
+        <address>
+          711 Morgan Ave<br>
+          Las Vegas, NV 89106<br>
+          <a href="tel:+17026472500">(702) 647-2500</a><br>
+          <a href="mailto:almaun@gmail.com">almaun@gmail.com</a>
+        </address>
+        <div class="footer__jum"><b>Jumu&#39;ah &middot; Fridays 1:00 PM</b><span>All are welcome at Masjid As-Sabur.</span></div>
+      </div>
+      <div>
+        <h4>Give &amp; Support</h4>
+        <address>
+          Registered 501(c)(3)<br>
+          EIN 32-0087926<br>
+          Zakat-eligible &amp; tax-deductible<br>
+          <a href="give.html">Make a donation &rarr;</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <span>&copy; 2003&ndash;2026 Al-Maun Neighborly Needs. All kindnesses welcome.</span>
+      <span class="proto">Redesign prototype &mdash; not the official Al-Maun website</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== PROGRAM DETAIL MODALS ===================== -->
+
+<!-- FOOD -->
+<div class="modal modal--prog" id="prog-food" role="dialog" aria-modal="true" aria-labelledby="prog-food-title" hidden>
+  <div class="modal__backdrop" data-modal-close></div>
+  <div class="modal__panel" role="document">
+    <button class="modal__x" type="button" data-modal-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <img class="pr-modal-img" src="images/prog-food.jpg" alt="Volunteers handing out fresh food and sack lunches at an Al-Maun distribution table." width="378" height="252">
+    <p class="pr-modal-eyebrow">Program 01 &middot; Food &amp; Nutrition</p>
+    <h2 id="prog-food-title">Nobody goes to bed <em>hungry.</em></h2>
+    <p>The pantry on Morgan Avenue is open to anyone who&#39;s short this week &mdash; no ID, no means test, no lecture. We hand out groceries, cook hot meals, and deliver to folks who can&#39;t get out. Some of the produce is grown right here in our own community garden, so the food that reaches your table is food we&#39;d serve our own family.</p>
+    <p class="pr-label">Who it serves</p>
+    <p>Families stretching the last days of the month, homebound seniors, folks between paychecks, and anyone who walks up hungry &mdash; Muslim or not.</p>
+    <p class="pr-label">What we offer</p>
+    <ul class="pr-offer">
+      <li>Food pantry &mdash; groceries to take home, no questions asked</li>
+      <li>Hot meals cooked and served on-site</li>
+      <li>Grocery delivery for homebound seniors and neighbors</li>
+      <li>A community garden and farmers market with fresh produce</li>
+      <li>The Nutrition Passport &mdash; learning to cook and eat well</li>
+    </ul>
+    <p class="pr-help"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.6 7-11a7 7 0 1 0-14 0c0 4.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span><b>How to get help:</b> Walk in at 711 Morgan Ave during open hours, or call <a href="tel:+17026472500">(702) 647-2500</a>.</span></p>
+    <div class="pr-modal-cta">
+      <a class="btn btn--cta" href="give.html">Donate</a>
+      <a class="btn btn--ghost" href="get-involved.html#volunteer">Volunteer</a>
+    </div>
+  </div>
+</div>
+
+<!-- HEALTH -->
+<div class="modal modal--prog" id="prog-health" role="dialog" aria-modal="true" aria-labelledby="prog-health-title" hidden>
+  <div class="modal__backdrop" data-modal-close></div>
+  <div class="modal__panel" role="document">
+    <button class="modal__x" type="button" data-modal-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <img class="pr-modal-img" src="images/prog-health.jpg" alt="A neighbor receiving care at the Al-Maun free health clinic built with UNLV." width="378" height="252">
+    <p class="pr-modal-eyebrow">Program 02 &middot; Free Health Clinic</p>
+    <h2 id="prog-health-title">Care for those with <em>nowhere to turn.</em></h2>
+    <p>We built a free health clinic hand-in-hand with UNLV so a neighbor without insurance still has somewhere to go. Volunteer clinicians handle the everyday things that get dangerous when ignored &mdash; a check-up, a wound that won&#39;t heal, an eye exam, help affording a prescription.</p>
+    <p class="pr-label">Who it serves</p>
+    <p>Uninsured and underinsured neighbors, seniors, returning citizens, and anyone the healthcare system has quietly left behind.</p>
+    <p class="pr-label">What we offer</p>
+    <ul class="pr-offer">
+      <li>General check-ups and health screenings</li>
+      <li>Wound care and follow-up</li>
+      <li>Eye exams and vision help</li>
+      <li>Prescription assistance</li>
+    </ul>
+    <p class="pr-help"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.6 7-11a7 7 0 1 0-14 0c0 4.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span><b>How to get help:</b> Walk in at 711 Morgan Ave during clinic hours, or call <a href="tel:+17026472500">(702) 647-2500</a> to ask when the clinic is open.</span></p>
+    <div class="pr-modal-cta">
+      <a class="btn btn--cta" href="give.html">Donate</a>
+      <a class="btn btn--ghost" href="get-involved.html#volunteer">Volunteer</a>
+    </div>
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<div class="modal modal--prog" id="prog-education" role="dialog" aria-modal="true" aria-labelledby="prog-education-title" hidden>
+  <div class="modal__backdrop" data-modal-close></div>
+  <div class="modal__panel" role="document">
+    <button class="modal__x" type="button" data-modal-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <img class="pr-modal-img" src="images/prog-education.jpg" alt="A community education workshop hosted by Al-Maun volunteers." width="378" height="252">
+    <p class="pr-modal-eyebrow">Program 03 &middot; Education &amp; Workshops</p>
+    <h2 id="prog-education-title">Knowledge that <em>protects &amp; heals.</em></h2>
+    <p>Some of the deepest needs on the block aren&#39;t material &mdash; they&#39;re a person carrying grief with no one to carry it with, or a family who doesn&#39;t know their rights until it&#39;s too late. Our workshops meet those needs plainly, led by neighbors and trusted professionals, including the classes we run through Nisaa&#39;s Academy.</p>
+    <p class="pr-label">Who it serves</p>
+    <p>Neighbors healing from trauma or loss, families who need to understand their legal rights, and lifelong learners of every age.</p>
+    <p class="pr-label">What we offer</p>
+    <ul class="pr-offer">
+      <li>Trauma-informed support groups</li>
+      <li>Know-your-rights and legal workshops</li>
+      <li>Grief and bereavement support</li>
+      <li>Classes and mentoring through Nisaa&#39;s Academy</li>
+    </ul>
+    <p class="pr-help"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.6 7-11a7 7 0 1 0-14 0c0 4.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span><b>How to get help:</b> Walk in at 711 Morgan Ave during open hours, or call <a href="tel:+17026472500">(702) 647-2500</a> for the next workshop schedule.</span></p>
+    <div class="pr-modal-cta">
+      <a class="btn btn--cta" href="give.html">Donate</a>
+      <a class="btn btn--ghost" href="get-involved.html#volunteer">Volunteer</a>
+    </div>
+  </div>
+</div>
+
+<!-- REENTRY -->
+<div class="modal modal--prog" id="prog-reentry" role="dialog" aria-modal="true" aria-labelledby="prog-reentry-title" hidden>
+  <div class="modal__backdrop" data-modal-close></div>
+  <div class="modal__panel" role="document">
+    <button class="modal__x" type="button" data-modal-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <img class="pr-modal-img" src="images/prog-reentry.jpg" alt="A mentor and participant in the Al-Maun stabilization and reentry program." width="378" height="252">
+    <p class="pr-modal-eyebrow">Program 04 &middot; Stabilization &amp; Reentry</p>
+    <h2 id="prog-reentry-title">A second chance is <em>sacred.</em></h2>
+    <p>When someone comes home from incarceration, gets clean, or is one late bill from losing their home, the first ninety days decide everything. We walk alongside people through that stretch &mdash; our CHANCES reentry program, Millati Islami recovery support, and direct help with rent and utilities so a hard month doesn&#39;t become a lost home.</p>
+    <p class="pr-label">Who it serves</p>
+    <p>Returning citizens rebuilding after incarceration, neighbors in recovery, and families facing eviction or a shut-off notice.</p>
+    <p class="pr-label">What we offer</p>
+    <ul class="pr-offer">
+      <li>CHANCES reentry support for returning citizens</li>
+      <li>Millati Islami recovery and sobriety fellowship</li>
+      <li>Emergency rent assistance</li>
+      <li>Utility assistance to keep the lights and water on</li>
+    </ul>
+    <p class="pr-help"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.6 7-11a7 7 0 1 0-14 0c0 4.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span><b>How to get help:</b> Walk in at 711 Morgan Ave during open hours, or call <a href="tel:+17026472500">(702) 647-2500</a> to speak with someone.</span></p>
+    <div class="pr-modal-cta">
+      <a class="btn btn--cta" href="give.html">Donate</a>
+      <a class="btn btn--ghost" href="get-involved.html#volunteer">Volunteer</a>
+    </div>
+  </div>
+</div>
+
+<!-- YOUTH -->
+<div class="modal modal--prog" id="prog-youth" role="dialog" aria-modal="true" aria-labelledby="prog-youth-title" hidden>
+  <div class="modal__backdrop" data-modal-close></div>
+  <div class="modal__panel" role="document">
+    <button class="modal__x" type="button" data-modal-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <img class="pr-modal-img" src="images/prog-youth.jpg" alt="Young people being mentored through Al-Maun youth development." width="378" height="252">
+    <p class="pr-modal-eyebrow">Program 05 &middot; Youth Development</p>
+    <h2 id="prog-youth-title">The next generation, <em>believed in.</em></h2>
+    <p>The surest way to change a block is to invest in the kids growing up on it. We pair young people with mentors, run a chess club that teaches patience and strategy, host real talks about the things teens actually face, and sponsor youth who need a hand to reach the next thing.</p>
+    <p class="pr-label">Who it serves</p>
+    <p>Kids and teens across the Historic Westside &mdash; and the parents raising them.</p>
+    <p class="pr-label">What we offer</p>
+    <ul class="pr-offer">
+      <li>One-on-one mentorship</li>
+      <li>Chess club &mdash; focus, patience, and strategy</li>
+      <li>Youth talks on real-life challenges</li>
+      <li>Sponsorship for youth activities and opportunities</li>
+    </ul>
+    <p class="pr-help"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.6 7-11a7 7 0 1 0-14 0c0 4.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span><b>How to get help:</b> Walk in at 711 Morgan Ave during open hours, or call <a href="tel:+17026472500">(702) 647-2500</a> to get a young person connected.</span></p>
+    <div class="pr-modal-cta">
+      <a class="btn btn--cta" href="give.html">Donate</a>
+      <a class="btn btn--ghost" href="get-involved.html#volunteer">Volunteer</a>
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="modal modal--prog" id="prog-community" role="dialog" aria-modal="true" aria-labelledby="prog-community-title" hidden>
+  <div class="modal__backdrop" data-modal-close></div>
+  <div class="modal__panel" role="document">
+    <button class="modal__x" type="button" data-modal-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <img class="pr-modal-img" src="images/g-volunteers.jpg" alt="Two women volunteers in green Al-Maun aprons smiling side by side at a booth under a tent." width="1000" height="667">
+    <p class="pr-modal-eyebrow">Program 06 &middot; Community &amp; Culture</p>
+    <h2 id="prog-community-title">The glue of a <em>neighborhood.</em></h2>
+    <p>A neighborhood is more than its needs &mdash; it&#39;s its people, its art, its shared table. We host cultural and interfaith gatherings that bring folks together across every line, and we organize cleanups that let neighbors take visible pride in the block they call home.</p>
+    <p class="pr-label">Who it serves</p>
+    <p>Everyone on the Historic Westside &mdash; and every guest, of every faith, who wants to be a good neighbor.</p>
+    <p class="pr-label">What we offer</p>
+    <ul class="pr-offer">
+      <li>Arts and culture events</li>
+      <li>Interfaith gatherings and dialogue</li>
+      <li>Neighborhood cleanups</li>
+      <li>Community celebrations like Humanitarian Day</li>
+    </ul>
+    <p class="pr-help"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.6 7-11a7 7 0 1 0-14 0c0 4.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg><span><b>How to get help:</b> Walk in at 711 Morgan Ave during open hours, or call <a href="tel:+17026472500">(702) 647-2500</a> to join the next gathering.</span></p>
+    <div class="pr-modal-cta">
+      <a class="btn btn--cta" href="give.html">Donate</a>
+      <a class="btn btn--ghost" href="get-involved.html#volunteer">Volunteer</a>
+    </div>
+  </div>
+</div>
+
+<script src="assets/site.js" defer></script>
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- THEME (shared key with the rest of the site; initial value already applied in <head>) ---------- */
+  var root = document.documentElement;
+  var themeBtn = document.getElementById('themeBtn');
+  if(themeBtn){
+    themeBtn.addEventListener('click', function(){
+      var cur = root.getAttribute('data-theme');
+      var isDark = cur ? cur === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var next = isDark ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try{ localStorage.setItem('almaun-theme', next); }catch(e){}
+    });
+  }
+
+  /* Dropdown + mobile nav + modal system live in assets/site.js (shared) */
+
+  /* ---------- HEADER SHADOW ---------- */
+  var header = document.querySelector('.header');
+  if(header){
+    var onScroll = function(){ header.classList.toggle('scrolled', window.scrollY > 8); };
+    onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+  }
+
+  /* ---------- SCROLL REVEAL + hero marker ---------- */
+  var heroSec = document.getElementById('hero');
+  if(reduce){
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+    if(heroSec) heroSec.classList.add('revealed');
+  } else {
+    if(heroSec) setTimeout(function(){ heroSec.classList.add('revealed'); }, 200);
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, {threshold:0.14, rootMargin:'0px 0px -8% 0px'});
+      document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+    } else {
+      document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+    }
+  }
+})();
+</script>
+</body>
+</html>

@@ -47,4 +47,23 @@ Then open <http://localhost:8137/>.
 - The donation widgets are **interactive previews** — in production they connect to Al-Maun's payment processor (e.g. a fee-free platform like Zeffy) and the impact figures should be confirmed by Al-Maun.
 - 501(c)(3) · EIN 32-0087926.
 
+## The chosen build — "Block Party" complete site
+
+`blockparty.html` is the lead direction, built out into a **complete, clickable multi-page prototype** with the org's real logo, a designed mark + favicon, and working modals:
+
+| Page | File |
+|------|------|
+| Home (full-width hero) | `blockparty.html` |
+| Our Story | `about.html` |
+| Programs (+ 6 detail modals) | `programs.html` |
+| Impact (+ image lightbox) | `impact.html` |
+| Events & Prayer (+ RSVP modals) | `events.html` |
+| Get Involved (+ volunteer modal) | `get-involved.html` |
+| Give (donation module + Zakat) | `give.html` |
+| Contact (+ form modal) | `contact.html` |
+
+Shared system: `assets/bp.css` (styles + dropdown nav + modal/lightbox), `assets/site.js` (nav, modals, lightbox), `assets/_buildkit.md` (canonical header/footer + verified facts). Brand: `images/logo-green.png` / `logo-white.png` / `logo-dark.png` (their real wordmark) + `favicon.svg`, `logo-mark.svg`, `apple-touch-icon.png` (designed mark).
+
+**To confirm with Al-Maun before launch:** the ZIP on their contact page reads 89121 but the Historic Westside is 89106 (used 89106 here); daily prayer times are sample values; donation impact figures are illustrative.
+
 *Redesign concept — not the official live site.*

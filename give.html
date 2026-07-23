@@ -1,0 +1,1031 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Give — Al-Maun Neighborly Needs · Las Vegas</title>
+<meta name="description" content="Give to Al-Maun Neighborly Needs — the humanitarian arm of Masjid As-Sabur. Zakat-eligible, tax-deductible, and every dollar stays on the Historic Westside of Las Vegas. Turn a small kindness into someone's whole week.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/bp.css">
+<style>
+/* ============================================================
+   GIVE PAGE — page-specific styles (reuse bp.css; new classes = gv-)
+   ============================================================ */
+
+/* --- hero photo tilt --- */
+.gv-hero .photo-frame{transform:rotate(-1.7deg)}
+.gv-hero .hero__cap{left:auto;right:14px}
+
+/* header social cluster now comes from assets/bp.css */
+
+/* small "most give here" nudge above the widget */
+.gv-nudge{display:inline-flex;align-items:center;gap:.5rem;margin-bottom:.9rem;
+  font-family:var(--font-head);font-weight:700;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--cta-strong)}
+.gv-nudge .dot{width:9px;height:9px;border-radius:50%;background:var(--cta);position:relative;flex:none}
+.gv-nudge .dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--cta);opacity:.5;animation:ping 1.8s ease-out infinite}
+
+/* --- custom amount field --- */
+.gv-custom{margin-top:.7rem}
+.gv-custom__lbl{display:block;font-family:var(--font-head);font-weight:700;font-size:.78rem;
+  letter-spacing:.04em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.4rem}
+.gv-custom__field{display:flex;align-items:center;gap:.2rem;background:var(--surface-2);
+  border:2px solid var(--border);border-radius:var(--r-md);padding:.15rem .95rem;transition:border-color .2s,background .2s}
+.gv-custom__field:focus-within{border-color:var(--cta);background:color-mix(in srgb,var(--cta) 6%,var(--surface))}
+.gv-custom__cur{font-family:var(--font-head);font-weight:800;font-size:1.15rem;color:var(--text-muted)}
+.gv-custom__field input{flex:1;border:none;background:transparent;color:var(--text);
+  font-family:var(--font-head);font-weight:800;font-size:1.15rem;padding:.7rem .2rem;outline:none;min-width:0}
+.gv-custom__field input::placeholder{font-weight:600;color:var(--text-muted);letter-spacing:0}
+.gv-custom__field input:focus-visible{outline:none}
+
+/* --- designation radios (Zakat vs Sadaqah) --- */
+.gv-desig{margin-top:1.15rem}
+.gv-desig__lbl{display:block;font-family:var(--font-head);font-weight:700;font-size:.78rem;
+  letter-spacing:.04em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.5rem}
+.gv-desig__row{display:flex;gap:.55rem;flex-wrap:wrap}
+.gv-desig__opt{flex:1;min-width:130px;display:flex;align-items:center;gap:.55rem;cursor:pointer;
+  background:var(--surface-2);border:2px solid var(--border);border-radius:var(--r-md);
+  padding:.7rem .85rem;font-family:var(--font-head);font-weight:700;font-size:.95rem;color:var(--text);
+  transition:border-color .2s,background .2s}
+.gv-desig__opt:hover{border-color:var(--brand)}
+.gv-desig__opt input{accent-color:var(--brand);width:18px;height:18px;flex:none}
+.gv-desig__opt:has(input:checked){border-color:var(--brand);background:var(--band-mint)}
+.gv-desig__opt small{display:block;font-family:var(--font-body);font-weight:500;font-size:.74rem;color:var(--text-muted);letter-spacing:0}
+
+/* --- goal bar: projected "with your gift" ghost fill --- */
+.goal__track{position:relative}
+.goal__fill{position:relative;z-index:2}
+.gv-goalghost{position:absolute;left:0;top:0;bottom:0;width:40%;z-index:1;border-radius:var(--r-pill);
+  background:repeating-linear-gradient(45deg,
+    color-mix(in srgb,var(--cta) 34%,transparent) 0 8px,
+    color-mix(in srgb,var(--cta) 15%,transparent) 8px 16px);
+  transition:width 1s cubic-bezier(.2,.7,.2,1)}
+.goal__cap b.gv-proj{color:var(--cta-strong)}
+
+/* ============================================================
+   WHERE YOUR GIFT GOES — tier cards + honest split
+   ============================================================ */
+.gv-goes{background:var(--band-cream)}
+.gv-goes .sec-head{text-align:center;margin-inline:auto}
+.gv-tiers{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(.7rem,1.5vw,1.1rem)}
+@media(max-width:1000px){.gv-tiers{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.gv-tiers{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:400px){.gv-tiers{grid-template-columns:1fr}}
+.gv-tcard{position:relative;overflow:hidden;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:1.6rem 1.25rem 1.4rem;
+  display:flex;flex-direction:column;gap:.45rem;transition:transform .22s ease,box-shadow .3s ease}
+.gv-tcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
+.gv-tcard::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:var(--_c,var(--brand))}
+.gv-tcard:nth-child(1){--_c:var(--brand)}
+.gv-tcard:nth-child(2){--_c:var(--accent)}
+.gv-tcard:nth-child(3){--_c:var(--cta)}
+.gv-tcard:nth-child(4){--_c:var(--green-deep)}
+.gv-tcard:nth-child(5){--_c:var(--brand-strong)}
+.gv-tcard__amt{font-family:var(--font-head);font-weight:800;font-size:clamp(1.7rem,3vw,2.1rem);
+  letter-spacing:-.03em;line-height:1;color:var(--text)}
+.gv-tcard__ttl{font-family:var(--font-head);font-weight:700;font-size:1.02rem;margin-top:.15rem}
+.gv-tcard__txt{font-family:var(--font-accent);font-style:italic;color:var(--text-muted);font-size:.94rem;line-height:1.45}
+
+/* honest allocation split */
+.gv-split{margin-top:clamp(2rem,4vw,3rem);background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:clamp(1.3rem,2.5vw,1.9rem)}
+.gv-split__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.5rem;margin-bottom:1rem}
+.gv-split__head h3{font-size:1.15rem;font-weight:800}
+.gv-split__head span{font-family:var(--font-head);font-weight:600;font-size:.8rem;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--text-muted)}
+.gv-split__bar{display:flex;height:26px;border-radius:var(--r-pill);overflow:hidden;box-shadow:inset 0 0 0 1px var(--border)}
+.gv-split__seg{height:100%}
+.gv-split__legend{display:flex;flex-wrap:wrap;gap:.7rem 1.6rem;margin-top:1.1rem}
+.gv-split__item{display:flex;align-items:center;gap:.55rem;font-size:.92rem;color:var(--text)}
+.gv-split__item b{font-family:var(--font-head)}
+.gv-split__sw{width:15px;height:15px;border-radius:5px;flex:none}
+.gv-split__note{margin-top:1.1rem;font-size:.85rem;color:var(--text-muted);font-style:italic;font-family:var(--font-accent)}
+
+/* ============================================================
+   ZAKAT & SADAQAH
+   ============================================================ */
+.gv-zakat{background:var(--band-marigold)}
+.gv-zgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1.6rem,4vw,3.2rem);align-items:start}
+@media(max-width:940px){.gv-zgrid{grid-template-columns:1fr}}
+.gv-zakat h2{font-size:var(--fs-h2);font-weight:800;margin-bottom:1rem}
+.gv-zakat h2 em{font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--cta)}
+.gv-zakat p+p{margin-top:1rem}
+.gv-how{list-style:none;padding:0;margin:1.5rem 0 0;display:grid;gap:.7rem}
+.gv-how li{display:flex;gap:.7rem;align-items:flex-start;font-size:.98rem;color:var(--text)}
+.gv-how .num{flex:none;width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;
+  display:grid;place-items:center;font-family:var(--font-head);font-weight:800;font-size:.82rem;margin-top:1px}
+
+/* calculator — reuses .widget shell */
+.gv-calc{position:sticky;top:88px}
+@media(max-width:940px){.gv-calc{position:static}}
+.gv-field{margin-top:1.1rem}
+.gv-field label{display:block;font-family:var(--font-head);font-weight:700;font-size:.82rem;
+  letter-spacing:.03em;color:var(--text);margin-bottom:.45rem}
+.gv-field .gv-custom__field{border-radius:var(--r-md)}
+.gv-hint{font-size:.82rem;color:var(--text-muted);margin-top:.5rem;line-height:1.5}
+.gv-result{margin-top:1.15rem;background:var(--band-mint);border:1px solid rgba(46,158,91,.28);
+  border-radius:var(--r-md);padding:1rem 1.15rem;text-align:center}
+.gv-result__lbl{font-family:var(--font-head);font-weight:700;font-size:.74rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--brand-strong)}
+.gv-result__num{font-family:var(--font-head);font-weight:800;font-size:clamp(2rem,5vw,2.6rem);
+  letter-spacing:-.03em;color:var(--text);line-height:1.1;margin-top:.2rem}
+.gv-result__sub{font-size:.86rem;color:var(--text-muted);margin-top:.25rem}
+
+/* ============================================================
+   OTHER WAYS TO GIVE  (reuses .inv-grid / .inv)
+   ============================================================ */
+.gv-ways{background:var(--band-mint)}
+.gv-ways .sec-head{text-align:center;margin-inline:auto}
+.gv-ways .inv-grid{grid-template-columns:repeat(3,1fr)}
+@media(max-width:860px){.gv-ways .inv-grid{grid-template-columns:1fr}}
+.gv-ways .inv:nth-child(4) .inv__ic{--_bg:color-mix(in srgb,var(--green-deep) 18%,var(--surface))}
+.gv-ways .inv:nth-child(5) .inv__ic{--_bg:color-mix(in srgb,var(--brand) 15%,var(--surface))}
+.gv-ways .inv:nth-child(6) .inv__ic{--_bg:color-mix(in srgb,var(--accent) 22%,var(--surface))}
+
+/* ============================================================
+   TRUST & TRANSPARENCY
+   ============================================================ */
+.gv-trust{background:var(--band-cream)}
+.gv-trust-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1.6rem,4vw,3rem);align-items:center}
+@media(max-width:900px){.gv-trust-wrap{grid-template-columns:1fr}}
+.gv-trust h2{font-size:var(--fs-h2);font-weight:800;margin-bottom:1rem}
+.gv-trust h2 em{font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--brand-strong)}
+.gv-trust__badges{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.5rem}
+.gv-fee{margin-top:1.5rem;background:var(--surface);border:1px solid var(--border);border-left:6px solid var(--accent);
+  border-radius:var(--r-md);padding:1.1rem 1.3rem;box-shadow:var(--shadow-sm)}
+.gv-fee b{color:var(--brand-strong)}
+/* receipt card */
+.gv-receipt{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);
+  box-shadow:var(--shadow-md);padding:0;overflow:hidden}
+.gv-receipt__top{background:var(--band-deep);color:var(--text-invert);padding:1.2rem 1.4rem;
+  display:flex;align-items:center;gap:.7rem}
+.gv-receipt__top svg{width:26px;height:26px;flex:none;color:var(--accent)}
+.gv-receipt__top b{font-family:var(--font-head);font-weight:800;font-size:1.05rem}
+.gv-receipt__rows{padding:.6rem 1.4rem 1.2rem}
+.gv-receipt__row{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;
+  padding:.85rem 0;border-bottom:1.5px dashed var(--border)}
+.gv-receipt__row:last-child{border-bottom:none}
+.gv-receipt__k{font-family:var(--font-head);font-weight:600;font-size:.8rem;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--text-muted)}
+.gv-receipt__v{font-family:var(--font-head);font-weight:700;color:var(--text);text-align:right}
+
+/* ============================================================
+   DONOR FAQ — accordion
+   ============================================================ */
+.gv-faq{background:var(--band-marigold)}
+.gv-faq .sec-head{text-align:center;margin-inline:auto}
+.gv-acc{max-width:780px;margin-inline:auto;display:grid;gap:.75rem}
+.gv-acc__item{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);
+  box-shadow:var(--shadow-sm);overflow:hidden;transition:box-shadow .25s ease}
+.gv-acc__item.open{box-shadow:var(--shadow-md)}
+.gv-acc__btn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  text-align:left;background:transparent;border:none;padding:1.15rem 1.3rem;
+  font-family:var(--font-head);font-weight:700;font-size:1.04rem;color:var(--text);transition:background .2s ease}
+.gv-acc__btn:hover{background:var(--band-mint)}
+.gv-acc__ic{flex:none;width:26px;height:26px;border-radius:50%;background:var(--band-mint);
+  display:grid;place-items:center;transition:transform .3s ease,background .2s}
+.gv-acc__ic svg{width:15px;height:15px;stroke:var(--brand-strong)}
+.gv-acc__item.open .gv-acc__ic{transform:rotate(180deg);background:color-mix(in srgb,var(--cta) 16%,var(--surface))}
+.gv-acc__item.open .gv-acc__ic svg{stroke:var(--cta-strong)}
+.gv-acc__panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .32s ease}
+.gv-acc__item.open .gv-acc__panel{grid-template-rows:1fr}
+.gv-acc__panel-inner{overflow:hidden;visibility:hidden;transition:visibility .32s}
+.gv-acc__item.open .gv-acc__panel-inner{visibility:visible}
+.gv-acc__panel-inner p{padding:0 1.3rem 1.25rem;color:var(--text-muted);font-size:.98rem;line-height:1.65}
+.gv-acc__panel-inner p a{color:var(--brand-strong);font-weight:600;text-decoration:underline}
+
+/* ============================================================
+   FINAL — testimonial + CTA over photo
+   ============================================================ */
+.gv-final{background:var(--band-deep);color:var(--text-invert)}
+.gv-final__grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(1.6rem,4vw,3.4rem);align-items:center}
+@media(max-width:880px){.gv-final__grid{grid-template-columns:1fr}}
+.gv-final .photo-frame{transform:rotate(-1.8deg);max-width:440px}
+.gv-final__q{font-family:var(--font-accent);font-style:italic;font-weight:400;
+  font-size:clamp(1.5rem,3.4vw,2.3rem);line-height:1.35;color:var(--text-invert)}
+.gv-final__q .mk{color:var(--accent);font-weight:600}
+.gv-final__by{margin-top:1.2rem;font-family:var(--font-head);font-weight:600;font-size:.92rem;
+  letter-spacing:.02em;color:color-mix(in srgb,var(--text-invert) 78%,transparent)}
+.gv-final__cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.gv-final .btn--ghost{--_fg:var(--text-invert);box-shadow:inset 0 0 0 2px rgba(255,246,233,.4)}
+.gv-final .btn--ghost:hover{--_bg:rgba(255,246,233,.1);box-shadow:inset 0 0 0 2px var(--accent)}
+.gv-final__note{margin-top:1.2rem;font-size:.85rem;color:color-mix(in srgb,var(--text-invert) 65%,transparent)}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .gv-nudge .dot::after{animation:none}
+  .gv-tcard:hover{transform:none}
+  .gv-goalghost,.gv-acc__panel,.gv-acc__ic,.goal__fill{transition:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ===================== HEADER ===================== -->
+<header class="header" id="top">
+  <div class="container header__in">
+    <a class="brand" href="blockparty.html" aria-label="Al-Maun Neighborly Needs, home">
+      <img class="brand__logo brand__logo--light" src="images/logo-green.png" alt="Al-Maun Neighborly Needs" width="667" height="266">
+      <img class="brand__logo brand__logo--dark" src="images/logo-white.png" alt="" aria-hidden="true" width="800" height="305">
+    </a>
+    <nav class="nav" id="nav" aria-label="Primary">
+      <ul class="nav__list">
+        <li class="nav__item has-dd">
+          <a class="nav__link" href="about.html">Our Story</a>
+          <button class="nav__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Our Story submenu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd">
+            <a class="dd__link" href="about.html#ab-name">Mission</a>
+            <a class="dd__link" href="about.html#ab-heritage">Our History</a>
+            <a class="dd__link" href="about.html#ab-people">Leadership</a>
+            <a class="dd__link" href="about.html#ab-trust">Transparency</a>
+          </div>
+        </li>
+        <li class="nav__item has-dd">
+          <a class="nav__link" href="programs.html">Programs</a>
+          <button class="nav__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Programs submenu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd dd--programs">
+            <a class="dd__link" href="programs.html#food"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11h17a8.5 8.5 0 0 1-17 0Z"/><path d="M8 7.5c0-1 1-1.2 1-2.2M12 7c0-1 1-1.2 1-2.2M16 7.5c0-1 1-1.2 1-2.2"/></svg></span>Food &amp; Nutrition</a>
+            <a class="dd__link" href="programs.html#health"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></span>Free Health Clinic</a>
+            <a class="dd__link" href="programs.html#education"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9 12 5l9.5 4L12 13 2.5 9Z"/><path d="M6.5 10.7V15c0 1.2 2.5 2.2 5.5 2.2s5.5-1 5.5-2.2v-4.3"/></svg></span>Education &amp; Workshops</a>
+            <a class="dd__link" href="programs.html#reentry"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 5l8 6"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg></span>Stabilization &amp; Reentry</a>
+            <a class="dd__link" href="programs.html#youth"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M8.5 14a4 4 0 0 0 7 0"/></svg></span>Youth Development</a>
+            <a class="dd__link" href="programs.html#community"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 18.5V20"/><circle cx="10" cy="8" r="3"/><path d="M20 20v-1.5a3.5 3.5 0 0 0-2.6-3.4M15.5 5.2a3 3 0 0 1 0 5.6"/></svg></span>Community &amp; Culture</a>
+          </div>
+        </li>
+        <li class="nav__item"><a class="nav__link" href="impact.html">Impact</a></li>
+        <li class="nav__item has-dd">
+          <a class="nav__link" href="get-involved.html">Get Involved</a>
+          <button class="nav__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Get Involved submenu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd">
+            <a class="dd__link" href="get-involved.html#volunteer">Volunteer</a>
+            <a class="dd__link" href="get-involved.html#goods">Donate Goods</a>
+            <a class="dd__link" href="get-involved.html#partners">Partners</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="header__cta">
+      <button class="icon-btn theme-toggle" id="themeBtn" type="button" aria-label="Toggle dark mode">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <span class="header__soc">
+        <a class="icon-btn" href="https://instagram.com/almaunlv_official" target="_blank" rel="noopener" aria-label="Al-Maun on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a class="icon-btn" href="https://www.facebook.com/almaun.org/" target="_blank" rel="noopener" aria-label="Al-Maun on Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3l.5-3H14V4.5c0-.9.3-1.5 1.7-1.5H18V.2C17.5.1 16.3 0 15 0c-2.7 0-4.5 1.6-4.5 4.6V6H8v3h2.5v9H14z"/></svg></a>
+      </span>
+      <a class="btn btn--cta" href="give.html" aria-current="page">Donate</a>
+      <button class="icon-btn burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===================== HERO ===================== -->
+<section class="hero gv-hero" id="hero">
+  <svg class="bunting" viewBox="0 0 1200 30" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 4 H1200" stroke="rgba(43,38,32,.28)" stroke-width="2" fill="none"/>
+    <g>
+      <polygon points="20,5 60,5 40,30" fill="#2E9E5B"/>
+      <polygon points="80,5 120,5 100,30" fill="#F5A623"/>
+      <polygon points="140,5 180,5 160,30" fill="#EE5B3B"/>
+      <polygon points="200,5 240,5 220,30" fill="#1F7A44"/>
+      <polygon points="260,5 300,5 280,30" fill="#2E9E5B"/>
+      <polygon points="320,5 360,5 340,30" fill="#F5A623"/>
+      <polygon points="380,5 420,5 400,30" fill="#EE5B3B"/>
+      <polygon points="440,5 480,5 460,30" fill="#1F7A44"/>
+      <polygon points="500,5 540,5 520,30" fill="#2E9E5B"/>
+      <polygon points="560,5 600,5 580,30" fill="#F5A623"/>
+      <polygon points="620,5 660,5 640,30" fill="#EE5B3B"/>
+      <polygon points="680,5 720,5 700,30" fill="#1F7A44"/>
+      <polygon points="740,5 780,5 760,30" fill="#2E9E5B"/>
+      <polygon points="800,5 840,5 820,30" fill="#F5A623"/>
+      <polygon points="860,5 900,5 880,30" fill="#EE5B3B"/>
+      <polygon points="920,5 960,5 940,30" fill="#1F7A44"/>
+      <polygon points="980,5 1020,5 1000,30" fill="#2E9E5B"/>
+      <polygon points="1040,5 1080,5 1060,30" fill="#F5A623"/>
+      <polygon points="1100,5 1140,5 1120,30" fill="#EE5B3B"/>
+      <polygon points="1160,5 1200,5 1180,30" fill="#1F7A44"/>
+    </g>
+  </svg>
+
+  <div class="container hero__in">
+    <div class="hero__copy">
+      <p class="eyebrow">Give</p>
+
+      <h1>
+        <span class="soft">Turn a small kindness</span><br>
+        <span class="soft">into someone&#39;s whole</span>
+        <span class="mark"><span class="accent">week.</span>
+          <svg class="mark__line" viewBox="0 0 320 24" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M6 15 C 70 5, 130 22, 190 12 S 292 6, 314 17"/>
+          </svg>
+        </span>
+      </h1>
+
+      <p class="hero__sub">A hot meal. A cooling kit for a 110&deg; afternoon. A clinic visit for someone the system forgot. On the Historic Westside, small gifts land as real relief the very same week &mdash; handed neighbor-to-neighbor, no paperwork, no judgment.</p>
+
+      <div class="hero__cta">
+        <a class="btn btn--cta btn--lg" href="#give">Give now</a>
+        <a class="btn btn--ghost btn--lg" href="#gv-ways">More ways to give</a>
+      </div>
+
+      <div class="hero__badges">
+        <span class="chip chip--mint"><span class="dot" aria-hidden="true"></span>Zakat-eligible</span>
+        <span class="chip">Tax-deductible 501(c)(3)</span>
+        <span class="chip">100% stays on the Westside</span>
+      </div>
+    </div>
+
+    <div class="hero__media">
+      <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true">
+        <g class="stamp__ring">
+          <circle class="stamp__disc" cx="60" cy="60" r="56"/>
+          <circle class="stamp__edge" cx="60" cy="60" r="51"/>
+          <defs><path id="ring" d="M60,60 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs>
+          <text><textPath href="#ring" startOffset="0">EVERY DOLLAR STAYS ON THE BLOCK &#183; SINCE 2003 &#183; </textPath></text>
+        </g>
+        <text class="stamp__star" x="60" y="50" text-anchor="middle" font-size="14">&#10022;</text>
+        <text class="stamp__center" x="60" y="70" text-anchor="middle">AL-MAUN</text>
+      </svg>
+      <figure class="photo-frame">
+        <span class="tape tape--tl" aria-hidden="true"></span>
+        <span class="tape tape--br" aria-hidden="true"></span>
+        <img src="images/g-haircut.jpg" alt="A young boy beaming with the biggest smile of the day while a barber gives him a fresh free haircut outdoors at an Al-Maun event." width="1000" height="667">
+        <figcaption class="hero__cap">This is what your $25 looks like.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DONATION MODULE (centerpiece) ===================== -->
+<section class="section donate" id="give" aria-labelledby="don-h">
+  <div class="container donate__grid">
+    <div class="donate__intro reveal">
+      <p class="eyebrow">The giving that does the work</p>
+      <h2 id="don-h">Choose an amount &mdash; watch <em>exactly</em> what it does.</h2>
+      <p class="lead" style="color:var(--text);max-width:none">We under-ask and over-deliver. But a hot meal still costs money, and a cooling fan in July isn&#39;t free. Pick a tier and see the neighbor down the street it reaches this week &mdash; then give in about ten seconds.</p>
+      <ul class="give-list">
+        <li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span> Stewarded by volunteers &mdash; your gift becomes relief, not overhead.</li>
+        <li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span> Zakat-eligible &amp; tax-deductible &mdash; a registered 501(c)(3).</li>
+        <li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span> Serves everyone &mdash; Muslim &amp; non-Muslim, no questions at the door.</li>
+      </ul>
+      <figure class="photo-frame">
+        <span class="tape tape--tl" aria-hidden="true"></span>
+        <img src="images/donate.jpg" alt="Hands offering food and supplies at an Al-Maun giving station on the Historic Westside." width="600" height="400">
+        <figcaption class="hero__cap" style="left:auto;right:14px">Handed over, neighbor to neighbor.</figcaption>
+      </figure>
+    </div>
+
+    <div class="widget reveal" data-d="2" aria-labelledby="widget-h">
+      <span class="widget__flag" aria-hidden="true">Preview</span>
+      <p class="gv-nudge"><span class="dot" aria-hidden="true"></span>Most neighbors give $50</p>
+      <h3 class="widget__title" id="widget-h">Fund a kindness</h3>
+      <p class="widget__sub">Design preview &mdash; choose an amount to see what it does. No card is captured.</p>
+
+      <div class="seg" role="group" aria-label="Giving frequency">
+        <button type="button" id="freqOnce" aria-pressed="true">One-time</button>
+        <button type="button" id="freqMonthly" aria-pressed="false">Monthly</button>
+      </div>
+
+      <div class="tiers" id="tiers" role="group" aria-label="Choose a donation amount">
+        <button type="button" class="tier" data-amt="25" aria-pressed="false">
+          <span class="tier__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
+          <span class="tier__amt">$25</span><span class="tier__note">Hot meals for a family this week</span>
+        </button>
+        <button type="button" class="tier" data-amt="50" aria-pressed="true">
+          <span class="tier__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
+          <span class="tier__amt">$50</span><span class="tier__note">A cooling &amp; hygiene kit for a 110&deg; day</span>
+        </button>
+        <button type="button" class="tier" data-amt="100" aria-pressed="false">
+          <span class="tier__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
+          <span class="tier__amt">$100</span><span class="tier__note">A free clinic visit</span>
+        </button>
+        <button type="button" class="tier" data-amt="250" aria-pressed="false">
+          <span class="tier__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
+          <span class="tier__amt">$250</span><span class="tier__note">A week of groceries for a homebound senior</span>
+        </button>
+        <button type="button" class="tier" data-amt="500" aria-pressed="false">
+          <span class="tier__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
+          <span class="tier__amt">$500</span><span class="tier__note">Keep a family in their home &mdash; rent &amp; utility</span>
+        </button>
+      </div>
+
+      <div class="gv-custom">
+        <label class="gv-custom__lbl" for="gvCustom">Or give another amount</label>
+        <div class="gv-custom__field">
+          <span class="gv-custom__cur" aria-hidden="true">$</span>
+          <input type="number" id="gvCustom" inputmode="numeric" min="1" step="1" placeholder="Enter an amount" aria-label="Custom donation amount in US dollars">
+        </div>
+      </div>
+
+      <fieldset class="gv-desig" style="border:none;margin-inline:0;padding:0">
+        <legend class="gv-desig__lbl" style="padding:0">Designate this gift</legend>
+        <div class="gv-desig__row">
+          <label class="gv-desig__opt">
+            <input type="radio" name="gvDesig" value="Sadaqah" checked>
+            <span>Sadaqah<small>General charity</small></span>
+          </label>
+          <label class="gv-desig__opt">
+            <input type="radio" name="gvDesig" value="Zakat">
+            <span>Zakat<small>Obligatory alms</small></span>
+          </label>
+        </div>
+      </fieldset>
+
+      <p class="impact-line" id="impactLine" aria-live="polite"></p>
+
+      <div class="goal">
+        <div class="goal__row">
+          <span>2026 goal progress</span>
+          <span><b id="goalNum">$20,000</b> of $50,000</span>
+        </div>
+        <div class="goal__track">
+          <div class="gv-goalghost" id="goalGhost" aria-hidden="true"></div>
+          <div class="goal__fill" id="goalFill"></div>
+        </div>
+        <p class="goal__cap" id="goalCap">In 2025 you helped us invest <b>$20,000+</b> back into the block. Help us reach <b>$50,000</b> in 2026.</p>
+      </div>
+
+      <div class="widget__give" id="giveWrap">
+        <button type="button" class="btn btn--cta btn--lg btn--block" id="giveBtn">Give $50</button>
+        <div class="badges">
+          <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Secure</span>
+          <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v18M7 8h7a3 3 0 0 1 0 6H7"/></svg>Zakat-eligible</span>
+          <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>Tax-deductible 501(c)(3)</span>
+        </div>
+      </div>
+
+      <div class="thanks" id="thanks" role="status" aria-live="polite">
+        <p class="thanks__ar" lang="ar" dir="rtl">&#1580;&#1614;&#1586;&#1614;&#1575;&#1603;&#1614; &#1575;&#1604;&#1604;&#1607;&#1615; &#1582;&#1614;&#1610;&#1618;&#1585;&#1611;&#1575;</p>
+        <p class="thanks__en">Jaz&#257;k All&#257;hu khayran &mdash; thank you for your kindness.</p>
+        <p class="thanks__sm" id="thanksSm"></p>
+        <button type="button" class="btn btn--ghost" id="giveAgain">Choose another amount</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHERE YOUR GIFT GOES ===================== -->
+<section class="section gv-goes" id="gv-goes" aria-labelledby="goes-h">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow" style="justify-content:center">Where your gift goes</p>
+      <h2 id="goes-h">Every dollar stays on <em style="font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--brand-strong)">the block.</em></h2>
+      <p class="lead" style="margin-inline:auto">No far-off headquarters. No layers to pass through. Your gift travels a few blocks &mdash; from this page to a table on Morgan Avenue &mdash; and turns into something a neighbor can hold the same week.</p>
+    </div>
+
+    <div class="gv-tiers">
+      <article class="gv-tcard reveal" data-d="1">
+        <span class="gv-tcard__amt">$25</span>
+        <h3 class="gv-tcard__ttl">Hot meals</h3>
+        <p class="gv-tcard__txt">A warm plate for a family this week &mdash; nobody goes to bed hungry on our watch.</p>
+      </article>
+      <article class="gv-tcard reveal" data-d="2">
+        <span class="gv-tcard__amt">$50</span>
+        <h3 class="gv-tcard__ttl">Cooling &amp; hygiene kit</h3>
+        <p class="gv-tcard__txt">A fan, water, and hygiene basics for someone facing a 110&deg; Las Vegas afternoon.</p>
+      </article>
+      <article class="gv-tcard reveal" data-d="3">
+        <span class="gv-tcard__amt">$100</span>
+        <h3 class="gv-tcard__ttl">A free clinic visit</h3>
+        <p class="gv-tcard__txt">Care at the clinic we built with UNLV &mdash; for a neighbor with nowhere else to turn.</p>
+      </article>
+      <article class="gv-tcard reveal" data-d="4">
+        <span class="gv-tcard__amt">$250</span>
+        <h3 class="gv-tcard__ttl">Groceries, delivered</h3>
+        <p class="gv-tcard__txt">A full week of groceries carried to the door of a homebound senior.</p>
+      </article>
+      <article class="gv-tcard reveal" data-d="5">
+        <span class="gv-tcard__amt">$500</span>
+        <h3 class="gv-tcard__ttl">A home, kept</h3>
+        <p class="gv-tcard__txt">Rent or utility help that keeps a family under their own roof one more month.</p>
+      </article>
+    </div>
+
+    <div class="gv-split reveal">
+      <div class="gv-split__head">
+        <h3>How a typical dollar is stewarded</h3>
+        <span>Illustrative</span>
+      </div>
+      <div class="gv-split__bar" role="img" aria-label="Illustrative allocation: about 85 percent to direct neighbor aid, 10 percent to food and supplies, 5 percent to keeping the doors open.">
+        <span class="gv-split__seg" style="width:85%;background:var(--brand)"></span>
+        <span class="gv-split__seg" style="width:10%;background:var(--accent)"></span>
+        <span class="gv-split__seg" style="width:5%;background:var(--cta)"></span>
+      </div>
+      <div class="gv-split__legend">
+        <span class="gv-split__item"><span class="gv-split__sw" style="background:var(--brand)"></span><b>~85&cent;</b>&nbsp;Direct aid to a neighbor</span>
+        <span class="gv-split__item"><span class="gv-split__sw" style="background:var(--accent)"></span><b>~10&cent;</b>&nbsp;Food, kits &amp; supplies</span>
+        <span class="gv-split__item"><span class="gv-split__sw" style="background:var(--cta)"></span><b>~5&cent;</b>&nbsp;Keeping the doors open</span>
+      </div>
+      <p class="gv-split__note">These figures are illustrative of how we aim to steward a gift &mdash; not a live audited total. Because the work is volunteer-run, overhead stays remarkably small, and the overwhelming share reaches the block.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ZAKAT & SADAQAH ===================== -->
+<section class="section gv-zakat" id="gv-zakat" aria-labelledby="zak-h">
+  <div class="container gv-zgrid">
+    <div class="reveal">
+      <p class="eyebrow">Zakat &amp; Sadaqah</p>
+      <h2 id="zak-h">Yes &mdash; this is <em>zakat-eligible.</em></h2>
+      <p class="lead" style="color:var(--text);max-width:none">Feeding the poor, helping the needy, and supporting the wayfarer are named in the Qur&#39;an as the very purposes of zakat. That is precisely the work Al-Maun does, every week, on the Westside &mdash; so your zakat can be given here with confidence.</p>
+
+      <blockquote class="ayah reveal" style="margin-top:1.6rem">
+        <p class="ayah__ar" lang="ar" dir="rtl">&#1573;&#1616;&#1606;&#1617;&#1614;&#1605;&#1614;&#1575; &#1575;&#1604;&#1589;&#1617;&#1614;&#1583;&#1614;&#1602;&#1614;&#1575;&#1578;&#1615; &#1604;&#1616;&#1604;&#1618;&#1601;&#1615;&#1602;&#1614;&#1585;&#1614;&#1575;&#1569;&#1616; &#1608;&#1614;&#1575;&#1604;&#1618;&#1605;&#1614;&#1587;&#1614;&#1575;&#1603;&#1616;&#1610;&#1606;&#1616;</p>
+        <p class="ayah__tr">&ldquo;Charity is only for the poor and the needy&hellip;&rdquo;</p>
+        <p class="ayah__src">Qur&#39;an &middot; Surah At-Tawbah 9:60</p>
+      </blockquote>
+
+      <ol class="gv-how">
+        <li><span class="num">1</span><span>Decide what you owe. Use the quick calculator &mdash; zakat is <b>2.5%</b> of the wealth you&#39;ve held for a full lunar year, once it&#39;s above nisab.</span></li>
+        <li><span class="num">2</span><span>In the donation form, set <b>&ldquo;Designate this gift&rdquo;</b> to <b>Zakat</b> (or leave it on Sadaqah for general charity). Your choice is noted with the gift.</span></li>
+        <li><span class="num">3</span><span>Give &mdash; and know it flows straight to eligible neighbors: meals, essentials, and a hand up for the needy and the wayfarer.</span></li>
+      </ol>
+    </div>
+
+    <div class="widget gv-calc reveal" data-d="2" aria-labelledby="calc-h">
+      <span class="widget__flag" aria-hidden="true">Tool</span>
+      <h3 class="widget__title" id="calc-h">Quick zakat calculator</h3>
+      <p class="widget__sub">A simple 2.5% estimate &mdash; not formal fiqh advice.</p>
+
+      <div class="gv-field">
+        <label for="zAssets">Your zakatable assets (USD)</label>
+        <div class="gv-custom__field">
+          <span class="gv-custom__cur" aria-hidden="true">$</span>
+          <input type="number" id="zAssets" inputmode="numeric" min="0" step="1" placeholder="e.g. 10,000" aria-describedby="zHint">
+        </div>
+        <p class="gv-hint" id="zHint">Cash, savings, gold &amp; silver, and other wealth held for a full lunar year (hawl), above the nisab threshold.</p>
+      </div>
+
+      <div class="gv-result" aria-live="polite">
+        <p class="gv-result__lbl">Zakat due (2.5%)</p>
+        <p class="gv-result__num" id="zResult">$0</p>
+        <p class="gv-result__sub" id="zSub">Enter an amount to estimate your zakat.</p>
+      </div>
+
+      <button type="button" class="btn btn--cta btn--lg btn--block" id="zGive" style="margin-top:1.2rem">Give this as Zakat</button>
+      <p class="gv-hint" style="text-align:center;margin-top:.7rem">This carries your estimate up to the donation form and marks it as Zakat.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== OTHER WAYS TO GIVE ===================== -->
+<section class="section gv-ways" id="gv-ways" aria-labelledby="ways-h">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow" style="justify-content:center">More ways to give</p>
+      <h2 id="ways-h">Six ways to be a <em style="font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--cta)">good neighbor.</em></h2>
+      <p class="lead" style="margin-inline:auto">A one-time gift is beautiful. So is a standing order, a bag of groceries, or a matched check from your employer. Pick whatever fits your life.</p>
+    </div>
+
+    <div class="inv-grid">
+      <article class="inv reveal" data-d="1">
+        <div class="inv__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1F7A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-9.2-8.6C1.3 9.3 3 5.5 6.4 5.5c1.9 0 3.4 1.1 4.3 2.4l.4.6.4-.6c.9-1.3 2.4-2.4 4.3-2.4 3.4 0 5.1 3.8 3.6 6.9C19 16.6 12 21 12 21Z"/><path d="M12 8.5v8"/></svg></div>
+        <h3>Become a monthly neighbor</h3>
+        <p>The quiet backbone of the work. A steady $25 or $50 a month lets us plan meals, kits, and clinic days ahead &mdash; and you can pause or cancel anytime.</p>
+        <a class="link" href="#give">Set up monthly <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+
+      <article class="inv reveal" data-d="2">
+        <div class="inv__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#B67908" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l1 12H5L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></div>
+        <h3>Donate goods &amp; the needs list</h3>
+        <p>Food, hygiene supplies, jackets, diapers, backpacks &mdash; the everyday stuff neighbors need. Drop it by <b>711 Morgan Ave</b> anytime we&#39;re open.</p>
+        <a class="link" href="blockparty.html#involved">See what we need <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+
+      <article class="inv reveal" data-d="3">
+        <div class="inv__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#C0421E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 21.6 7.1 18.2l.9-5.5-4-3.9L9.5 8 12 3Z"/></svg></div>
+        <h3>LaunchGood campaign</h3>
+        <p>Rally your circle around a specific push &mdash; a Humanitarian Day, a winter coat drive &mdash; on the platform built for Muslim giving. Share it and watch it grow.</p>
+        <a class="link" href="https://www.launchgood.com" target="_blank" rel="noopener">Find our campaign <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+
+      <article class="inv reveal" data-d="1">
+        <div class="inv__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1F7A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/><path d="M12 3v5"/></svg></div>
+        <h3>Employer matching</h3>
+        <p>Thousands of companies double their employees&#39; gifts. Ask your HR team to match &mdash; it can turn your $50 into $100 for a neighbor at no extra cost to you.</p>
+        <a class="link" href="mailto:almaun@gmail.com?subject=Employer%20matching">Ask us how <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+
+      <article class="inv reveal" data-d="2">
+        <div class="inv__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1F7A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M7 20V10M12 20V5M17 20v-7"/><path d="M4 8l6-4 5 3 5-4"/></svg></div>
+        <h3>Stock &amp; legacy giving</h3>
+        <p>Give appreciated stock and skip the capital-gains tax, or name Al-Maun in your will. A generous way to make the work outlast us all.</p>
+        <a class="link" href="mailto:almaun@gmail.com?subject=Stock%20or%20legacy%20gift">Start a conversation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+
+      <article class="inv reveal" data-d="3">
+        <div class="inv__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#B67908" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 18h4"/></svg></div>
+        <h3>Text-to-give</h3>
+        <p>The quickest kindness there is. Text <b>GIVE</b> to our number and follow the link &mdash; a neighbor is helped before your bus reaches the next stop.</p>
+        <a class="link" href="#give">Try it here <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRUST & TRANSPARENCY ===================== -->
+<section class="section gv-trust" id="gv-trust" aria-labelledby="trust-h">
+  <div class="container gv-trust-wrap">
+    <div class="reveal">
+      <p class="eyebrow">Trust &amp; transparency</p>
+      <h2 id="trust-h">Give with a <em>clear conscience.</em></h2>
+      <p class="lead" style="color:var(--text);max-width:none">Al-Maun Neighborly Needs is a registered 501(c)(3) non-profit &mdash; so your gift is tax-deductible, and you&#39;ll have the paperwork to prove it. We keep our promises small and our books honest.</p>
+
+      <div class="gv-fee">
+        <p><b>A gentle tip:</b> where you&#39;re given the option, choose a <b>fee-free processor</b> &mdash; or add the small fee to your gift &mdash; so that close to <b>100% of what you give</b> reaches the work instead of a payment company.</p>
+      </div>
+
+      <div class="gv-trust__badges">
+        <span class="chip chip--mint"><span class="dot" aria-hidden="true"></span>Registered 501(c)(3)</span>
+        <span class="chip">EIN 32-0087926</span>
+        <span class="chip">Zakat-eligible</span>
+        <span class="chip">Secure giving</span>
+      </div>
+    </div>
+
+    <div class="gv-receipt reveal" data-d="2" role="group" aria-label="Al-Maun giving details">
+      <div class="gv-receipt__top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4Z"/></svg>
+        <b>Your giving, on the record</b>
+      </div>
+      <div class="gv-receipt__rows">
+        <div class="gv-receipt__row"><span class="gv-receipt__k">Legal name</span><span class="gv-receipt__v">Al-Maun Neighborly Needs</span></div>
+        <div class="gv-receipt__row"><span class="gv-receipt__k">Tax status</span><span class="gv-receipt__v">501(c)(3) non-profit</span></div>
+        <div class="gv-receipt__row"><span class="gv-receipt__k">EIN</span><span class="gv-receipt__v">32-0087926</span></div>
+        <div class="gv-receipt__row"><span class="gv-receipt__k">Deductible</span><span class="gv-receipt__v">Yes &mdash; keep your receipt</span></div>
+        <div class="gv-receipt__row"><span class="gv-receipt__k">Zakat</span><span class="gv-receipt__v">Eligible</span></div>
+        <div class="gv-receipt__row"><span class="gv-receipt__k">Reaches</span><span class="gv-receipt__v">The Historic Westside, LV</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DONOR FAQ ===================== -->
+<section class="section gv-faq" id="gv-faq" aria-labelledby="faq-h">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow" style="justify-content:center">Donor FAQ</p>
+      <h2 id="faq-h">Good questions, <em style="font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--cta)">honest answers.</em></h2>
+    </div>
+
+    <div class="gv-acc reveal">
+      <div class="gv-acc__item">
+        <h3 style="margin:0">
+          <button type="button" class="gv-acc__btn" id="faq1-btn" aria-expanded="false" aria-controls="faq1-panel">
+            Is my donation tax-deductible?
+            <span class="gv-acc__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+        </h3>
+        <div class="gv-acc__panel" id="faq1-panel" role="region" aria-labelledby="faq1-btn">
+          <div class="gv-acc__panel-inner"><p>Yes. Al-Maun Neighborly Needs is a registered 501(c)(3) non-profit (EIN 32-0087926), so gifts are tax-deductible to the extent allowed by law. Keep your receipt &mdash; a real donation platform emails one automatically.</p></div>
+        </div>
+      </div>
+
+      <div class="gv-acc__item">
+        <h3 style="margin:0">
+          <button type="button" class="gv-acc__btn" id="faq2-btn" aria-expanded="false" aria-controls="faq2-panel">
+            Is my gift zakat-eligible?
+            <span class="gv-acc__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+        </h3>
+        <div class="gv-acc__panel" id="faq2-panel" role="region" aria-labelledby="faq2-btn">
+          <div class="gv-acc__panel-inner"><p>Yes. Our core work &mdash; feeding the poor and helping the needy and the wayfarer &mdash; falls squarely within the categories of zakat named in the Qur&#39;an (Surah At-Tawbah 9:60). Simply set <b>&ldquo;Designate this gift&rdquo;</b> to <b>Zakat</b> in the form above, and it&#39;s directed to eligible recipients.</p></div>
+        </div>
+      </div>
+
+      <div class="gv-acc__item">
+        <h3 style="margin:0">
+          <button type="button" class="gv-acc__btn" id="faq3-btn" aria-expanded="false" aria-controls="faq3-panel">
+            Where does my money actually go?
+            <span class="gv-acc__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+        </h3>
+        <div class="gv-acc__panel" id="faq3-panel" role="region" aria-labelledby="faq3-btn">
+          <div class="gv-acc__panel-inner"><p>Straight to a neighbor on the Historic Westside &mdash; hot meals, cooling &amp; hygiene kits, free clinic visits, grocery deliveries to seniors, and rent or utility help. Because the work is volunteer-run, overhead stays small and the overwhelming share reaches the block. See <a href="#gv-goes">Where your gift goes</a> for the breakdown.</p></div>
+        </div>
+      </div>
+
+      <div class="gv-acc__item">
+        <h3 style="margin:0">
+          <button type="button" class="gv-acc__btn" id="faq4-btn" aria-expanded="false" aria-controls="faq4-panel">
+            Can I give monthly &mdash; and cancel anytime?
+            <span class="gv-acc__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+        </h3>
+        <div class="gv-acc__panel" id="faq4-panel" role="region" aria-labelledby="faq4-btn">
+          <div class="gv-acc__panel-inner"><p>Absolutely. Flip the toggle to <b>Monthly</b> in the form above. Monthly neighbors are the steady backbone that lets us plan ahead &mdash; and you&#39;re always free to pause, change the amount, or cancel whenever you like. No guilt, no phone calls.</p></div>
+        </div>
+      </div>
+
+      <div class="gv-acc__item">
+        <h3 style="margin:0">
+          <button type="button" class="gv-acc__btn" id="faq5-btn" aria-expanded="false" aria-controls="faq5-panel">
+            Is my payment secure?
+            <span class="gv-acc__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+        </h3>
+        <div class="gv-acc__panel" id="faq5-panel" role="region" aria-labelledby="faq5-btn">
+          <div class="gv-acc__panel-inner"><p>On the live site, giving runs through an encrypted, PCI-compliant processor &mdash; card details never touch our servers. <b>This page is a design preview:</b> the form here is for illustration only and never captures or transmits any card information.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FINAL: TESTIMONIAL + CTA ===================== -->
+<section class="section gv-final" id="gv-final" aria-labelledby="final-h">
+  <div class="container gv-final__grid">
+    <div class="reveal">
+      <figure class="photo-frame">
+        <span class="tape tape--tl" aria-hidden="true"></span>
+        <img src="images/feature-hug.jpg" alt="An older neighbor warmly embracing two smiling young women volunteers in green Al-Maun aprons at a Humanitarian Day tent." width="1099" height="732">
+        <figcaption class="hero__cap">This is what neighbors look like.</figcaption>
+      </figure>
+    </div>
+    <div class="reveal" data-d="2">
+      <p class="eyebrow" style="color:var(--accent)">Give today</p>
+      <blockquote class="gv-final__q">
+        &ldquo;I came for a hot plate and left with a <span class="mk">haircut, a fan for the heat, and people who knew my name.</span> That&#39;s not charity. That&#39;s neighbors.&rdquo;
+      </blockquote>
+      <p class="gv-final__by">&mdash; A neighbor served on Humanitarian Day, Historic Westside</p>
+      <div class="gv-final__cta">
+        <a class="btn btn--cta btn--lg" href="#give">Give a small kindness</a>
+        <a class="btn btn--ghost btn--lg" href="mailto:almaun@gmail.com?subject=A%20question%20about%20giving">Ask a question</a>
+      </div>
+      <p class="gv-final__note">Zakat-eligible &middot; Tax-deductible 501(c)(3) &middot; Every dollar stays on the Westside.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <img class="footer__logo" src="images/logo-white.png" alt="Al-Maun Neighborly Needs">
+        <p class="footer__tag">The humanitarian arm of Masjid As-Sabur, serving the Historic Westside of Las Vegas since 2003. Neighbors helping neighbors &mdash; measured in small kindnesses.</p>
+        <a class="footer__soc" href="https://instagram.com/almaunlv_official" target="_blank" rel="noopener" aria-label="Al-Maun on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> @almaunlv_official</a>
+        <a class="footer__soc" href="https://www.facebook.com/almaun.org/" target="_blank" rel="noopener" aria-label="Al-Maun on Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3l.5-3H14V4.5c0-.9.3-1.5 1.7-1.5H18V.2C17.5.1 16.3 0 15 0c-2.7 0-4.5 1.6-4.5 4.6V6H8v3h2.5v9H14z"/></svg> facebook.com/almaun.org</a>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <nav class="footer__nav" aria-label="Footer">
+          <a href="about.html">Our Story</a>
+          <a href="programs.html">Programs</a>
+          <a href="impact.html">Impact</a>
+          <a href="events.html">Events &amp; Prayer</a>
+          <a href="get-involved.html">Get Involved</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <h4>Visit &amp; Contact</h4>
+        <address>
+          711 Morgan Ave<br>
+          Las Vegas, NV 89106<br>
+          <a href="tel:+17026472500">(702) 647-2500</a><br>
+          <a href="mailto:almaun@gmail.com">almaun@gmail.com</a>
+        </address>
+        <div class="footer__jum"><b>Jumu&#39;ah &middot; Fridays 1:00 PM</b><span>All are welcome at Masjid As-Sabur.</span></div>
+      </div>
+      <div>
+        <h4>Give &amp; Support</h4>
+        <address>
+          Registered 501(c)(3)<br>
+          EIN 32-0087926<br>
+          Zakat-eligible &amp; tax-deductible<br>
+          <a href="give.html">Make a donation &rarr;</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <span>&copy; 2003&ndash;2026 Al-Maun Neighborly Needs. All kindnesses welcome.</span>
+      <span class="proto">Redesign prototype &mdash; not the official Al-Maun website</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+
+  /* ---------- THEME ---------- */
+  var themeBtn = document.getElementById('themeBtn');
+  try{ var saved = localStorage.getItem('almaun-theme'); if(saved){ root.setAttribute('data-theme', saved); } }catch(e){}
+  themeBtn.addEventListener('click', function(){
+    var cur = root.getAttribute('data-theme'), isDark;
+    if(cur){ isDark = cur === 'dark'; }
+    else { isDark = window.matchMedia('(prefers-color-scheme: dark)').matches; }
+    var next = isDark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try{ localStorage.setItem('almaun-theme', next); }catch(e){}
+  });
+
+  /* Dropdown + mobile nav now live in assets/site.js (shared) */
+
+  /* ---------- HEADER SHADOW ---------- */
+  var header = document.querySelector('.header');
+  var onScroll = function(){ header.classList.toggle('scrolled', window.scrollY > 8); };
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* ---------- REVEAL + hero marker ---------- */
+  var heroSec = document.getElementById('hero');
+  if(reduce){
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+    if(heroSec) heroSec.classList.add('revealed');
+  } else {
+    setTimeout(function(){ if(heroSec) heroSec.classList.add('revealed'); }, 200);
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+      }, {threshold:0.14, rootMargin:'0px 0px -8% 0px'});
+      document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+    } else {
+      document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+    }
+  }
+
+  /* ---------- helpers ---------- */
+  function fmt(n){ return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+
+  /* ---------- GOAL BAR ---------- */
+  var BASE = 20000, GOAL = 50000;
+  var goalFill = document.getElementById('goalFill');
+  var goalGhost = document.getElementById('goalGhost');
+  var goalCap = document.getElementById('goalCap');
+  var goalReady = false;
+  function fillGoal(){ goalReady = true; goalFill.style.width = '40%'; render(); }
+  if('IntersectionObserver' in window){
+    var go = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ fillGoal(); go.unobserve(en.target); } });
+    }, {threshold:0.4});
+    go.observe(goalFill);
+  } else { fillGoal(); }
+
+  /* ---------- DONATION WIDGET ---------- */
+  var tiersWrap = document.getElementById('tiers');
+  var tierBtns = Array.prototype.slice.call(tiersWrap.querySelectorAll('.tier'));
+  var customInput = document.getElementById('gvCustom');
+  var impactLine = document.getElementById('impactLine');
+  var giveBtn = document.getElementById('giveBtn');
+  var onceBtn = document.getElementById('freqOnce');
+  var monthlyBtn = document.getElementById('freqMonthly');
+  var giveWrap = document.getElementById('giveWrap');
+  var thanks = document.getElementById('thanks');
+  var thanksSm = document.getElementById('thanksSm');
+  var giveAgain = document.getElementById('giveAgain');
+
+  var TIERS = [
+    {a:25,  long:'funds <b>hot meals for a family</b> this week', short:'hot meals for a family'},
+    {a:50,  long:'sends a <b>summer cooling &amp; hygiene kit</b> into a 110&deg; day', short:'a cooling &amp; hygiene kit'},
+    {a:100, long:'covers <b>a visit to our free health clinic</b> for someone with nowhere to turn', short:'a free clinic visit'},
+    {a:250, long:'delivers <b>a week of groceries</b> to a homebound senior', short:'a week of delivered groceries'},
+    {a:500, long:'helps <b>keep a family in their home</b> with rent &amp; utility aid', short:'a family kept in their home'}
+  ];
+  function impactFor(amt){
+    var exact = null, best = null;
+    for(var i=0;i<TIERS.length;i++){
+      if(TIERS[i].a === amt) exact = TIERS[i];
+      if(amt >= TIERS[i].a) best = TIERS[i];
+    }
+    if(exact) return {long:exact.long, short:exact.short};
+    if(!best) return {long:'goes <b>straight to a neighbor</b> &mdash; a warm meal and a little dignity', short:'a neighbor’s next meal'};
+    if(amt > 500) return {long:'keeps <b>whole families housed</b> &mdash; and then some: meals, care, and rent aid across the block', short:'families housed, and then some'};
+    return {long:'covers <b>' + best.short + '</b> &mdash; and then some', short:best.short + ', and then some'};
+  }
+
+  var state = { amt: 50, monthly: false };
+
+  function desig(){ var r = document.querySelector('input[name="gvDesig"]:checked'); return r ? r.value : 'Sadaqah'; }
+
+  function render(){
+    var amt = state.amt;
+    var per = state.monthly ? '/mo' : '';
+    var every = state.monthly ? ' <strong>every month</strong>' : '';
+    if(!amt || amt < 1){
+      impactLine.innerHTML = 'Enter an amount above to see your impact.';
+      giveBtn.textContent = 'Give';
+      giveBtn.disabled = true; giveBtn.style.opacity = '.55'; giveBtn.style.pointerEvents = 'none';
+    } else {
+      var imp = impactFor(amt);
+      impactLine.innerHTML = 'Your <b>$' + fmt(amt) + per + '</b> ' + imp.long + every + '.';
+      giveBtn.textContent = 'Give $' + fmt(amt) + per;
+      giveBtn.disabled = false; giveBtn.style.opacity = ''; giveBtn.style.pointerEvents = '';
+    }
+    /* goal ghost + caption */
+    if(goalReady){
+      var add = (amt && amt >= 1) ? (state.monthly ? amt * 12 : amt) : 0;
+      var projected = Math.min(BASE + add, GOAL);
+      var projPct = Math.min(projected / GOAL * 100, 100);
+      goalGhost.style.width = projPct + '%';
+      if(add > 0){
+        if(state.monthly){
+          goalCap.innerHTML = 'Raised so far: <b>$' + fmt(BASE) + '</b> of $' + fmt(GOAL) + '. Your <b>$' + fmt(amt) + '/mo</b> adds <b class="gv-proj">$' + fmt(add) + '</b> over a year &mdash; toward <b class="gv-proj">$' + fmt(projected) + '</b>.';
+        } else {
+          goalCap.innerHTML = 'Raised so far: <b>$' + fmt(BASE) + '</b> of $' + fmt(GOAL) + '. Your <b>$' + fmt(amt) + '</b> would push us toward <b class="gv-proj">$' + fmt(projected) + '</b>.';
+        }
+      } else {
+        goalCap.innerHTML = 'In 2025 you helped us invest <b>$20,000+</b> back into the block. Help us reach <b>$50,000</b> in 2026.';
+      }
+    }
+  }
+
+  function selectTier(btn){
+    var amt = parseInt(btn.getAttribute('data-amt'), 10);
+    tierBtns.forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+    customInput.value = '';
+    state.amt = amt;
+    render();
+  }
+  tierBtns.forEach(function(b){ b.addEventListener('click', function(){ selectTier(b); }); });
+
+  customInput.addEventListener('input', function(){
+    var v = parseInt(customInput.value, 10);
+    tierBtns.forEach(function(b){ b.setAttribute('aria-pressed', 'false'); });
+    state.amt = (isNaN(v) || v < 1) ? 0 : v;
+    render();
+  });
+
+  function setFreq(monthly){
+    state.monthly = monthly;
+    onceBtn.setAttribute('aria-pressed', monthly ? 'false' : 'true');
+    monthlyBtn.setAttribute('aria-pressed', monthly ? 'true' : 'false');
+    render();
+  }
+  onceBtn.addEventListener('click', function(){ setFreq(false); });
+  monthlyBtn.addEventListener('click', function(){ setFreq(true); });
+
+  document.querySelectorAll('input[name="gvDesig"]').forEach(function(r){
+    r.addEventListener('change', render);
+  });
+
+  giveBtn.addEventListener('click', function(){
+    if(!state.amt || state.amt < 1){ customInput.focus(); return; }
+    var per = state.monthly ? ' every month' : ' one time';
+    var imp = impactFor(state.amt);
+    thanksSm.innerHTML = 'Your gift of <b>$' + fmt(state.amt) + per + '</b>, given as <b>' + desig() + '</b>, would fund ' + imp.short + '.<br><em style="font-style:italic">(This is a design preview &mdash; no payment was taken.)</em>';
+    giveWrap.style.display = 'none';
+    thanks.classList.add('show');
+    thanks.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center'});
+  });
+  giveAgain.addEventListener('click', function(){
+    thanks.classList.remove('show');
+    giveWrap.style.display = '';
+  });
+
+  render();
+
+  /* ---------- ZAKAT CALCULATOR ---------- */
+  var zAssets = document.getElementById('zAssets');
+  var zResult = document.getElementById('zResult');
+  var zSub = document.getElementById('zSub');
+  var zGive = document.getElementById('zGive');
+  var lastZakat = 0;
+  function money(n){
+    return '$' + fmt((Math.round(n * 100) / 100).toFixed(2).replace(/\.00$/, ''));
+  }
+  zAssets.addEventListener('input', function(){
+    var v = parseFloat(zAssets.value);
+    if(isNaN(v) || v <= 0){ lastZakat = 0; zResult.textContent = '$0'; zSub.textContent = 'Enter an amount to estimate your zakat.'; return; }
+    lastZakat = v * 0.025;
+    zResult.textContent = money(lastZakat);
+    zSub.innerHTML = '2.5% of <b>$' + fmt(Math.round(v)) + '</b> in zakatable wealth.';
+  });
+  zGive.addEventListener('click', function(){
+    var amt = Math.max(1, Math.round(lastZakat));
+    /* set Zakat designation */
+    var zradio = document.querySelector('input[name="gvDesig"][value="Zakat"]');
+    if(zradio) zradio.checked = true;
+    /* clear tiers, set custom amount */
+    tierBtns.forEach(function(b){ b.setAttribute('aria-pressed', 'false'); });
+    customInput.value = String(amt);
+    state.amt = amt;
+    render();
+    var giveSec = document.getElementById('give');
+    if(giveSec) giveSec.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'start'});
+    setTimeout(function(){ try{ giveBtn.focus({preventScroll:true}); }catch(e){ giveBtn.focus(); } }, reduce ? 0 : 600);
+  });
+
+  /* ---------- FAQ ACCORDION ---------- */
+  var accBtns = document.querySelectorAll('.gv-acc__btn');
+  accBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.closest('.gv-acc__item');
+      var open = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+})();
+</script>
+</body>
+</html>
