@@ -1,19 +1,61 @@
-# Al-Maun site — BUILD KIT (canonical header/footer, modal API, verified facts)
-
-Use this verbatim when building any new page so the whole site is consistent. Skin = "Block Party" (warm cream/green/marigold/tomato, Sora + DM Sans, rounded cards, tape/stamp/marker accents). All shared CSS is in `assets/bp.css`; all shared JS (dropdown nav, mobile nav, modals, lightbox) is in `assets/site.js`.
-
-## <head> — include on every page
-```html
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — Al-Maun Neighborly Needs</title>
+<meta name="description" content="That page wandered off the block. Head back to the Al-Maun Neighborly Needs home page, or use the quick links to find your way.">
+<meta name="robots" content="noindex, follow">
+<meta property="og:site_name" content="Al-Maun Neighborly Needs">
+<meta property="og:title" content="Page not found — Al-Maun Neighborly Needs">
+<meta property="og:description" content="That page wandered off the block. Head back home, or use the quick links to find your way.">
+<meta property="og:type" content="website">
 <link rel="stylesheet" href="assets/bp.css">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-```
-Before `</body>`: `<script src="assets/site.js" defer></script>`
-Keep the tiny inline theme-apply script if you copy it from blockparty.html (prevents dark-mode flash). Fonts load via bp.css.
+<style>
+/* ============================================================
+   404 — page-specific styles (reuse bp.css; new classes = nf-)
+   ============================================================ */
+.nf-wrap{min-height:58vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding-block:clamp(3rem,8vw,6rem)}
+.nf{max-width:60ch;margin-inline:auto}
+.nf__eyebrow{justify-content:center}
+.nf__eyebrow svg{width:16px;height:16px}
+.nf__num{font-family:var(--font-head);font-weight:800;font-size:clamp(4.6rem,19vw,9.5rem);
+  line-height:.9;letter-spacing:-.05em;color:var(--brand-strong);display:inline-block;margin:.2rem 0 .6rem}
+.nf__num .mid{color:var(--cta)}
+.nf h1{font-size:clamp(1.9rem,5.4vw,3.1rem);font-weight:800;letter-spacing:-.03em}
+.nf h1 em{font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--brand-strong)}
+.nf__lead{font-size:var(--fs-lead);color:var(--text-muted);line-height:1.7;max-width:52ch;margin:1.1rem auto 0}
+.nf__cta{margin-top:2rem}
+.nf-links{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-top:2.4rem}
+.nf-links__lbl{width:100%;font-family:var(--font-head);font-weight:700;font-size:.76rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.3rem}
+.nf-links a{font-family:var(--font-head);font-weight:600;font-size:.9rem;color:var(--text);
+  background:var(--surface);border-radius:var(--r-pill);padding:.6rem 1.1rem;
+  box-shadow:inset 0 0 0 1.5px var(--border);
+  transition:transform .18s ease,background .2s ease,color .2s ease,box-shadow .2s ease}
+.nf-links a:hover,.nf-links a:focus-visible{background:var(--band-mint);color:var(--brand-strong);
+  transform:translateY(-2px);box-shadow:inset 0 0 0 1.5px rgba(46,158,91,.35)}
 
-## Canonical HEADER (paste verbatim; set aria-current="page" on the matching nav item for this page)
-```html
+/* ---- FOOTER: canonical footer is 4-column; widen + style the legal line ---- */
+.footer__top{grid-template-columns:1.6fr 1fr 1.1fr 1fr}
+@media (max-width:1000px){.footer__top{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.footer__top{grid-template-columns:1fr}}
+.footer__legal a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.footer__legal a:hover{color:#fff}
+
+@media (prefers-reduced-motion: reduce){
+  .nf-links a:hover,.nf-links a:focus-visible{transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ===================== HEADER (shared template — identical on every page) ===================== -->
 <header class="header" id="top">
   <div class="container header__in">
     <a class="brand" href="blockparty.html" aria-label="Al-Maun Neighborly Needs, home">
@@ -71,10 +113,44 @@ Keep the tiny inline theme-apply script if you copy it from blockparty.html (pre
     </div>
   </div>
 </header>
-```
 
-## Canonical FOOTER (paste verbatim)
-```html
+<main id="main">
+<section class="hero" aria-labelledby="nf-h">
+  <div class="container nf-wrap">
+    <div class="nf">
+      <p class="eyebrow nf__eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5 5-2Z"/></svg>
+        Lost on the block
+      </p>
+
+      <p class="nf__num" aria-hidden="true">4<span class="mid">0</span>4</p>
+
+      <h1 id="nf-h">This page <em>wandered off the block.</em></h1>
+      <p class="nf__lead">We looked up and down Morgan Avenue and couldn&#39;t find it. The link may be old, or the page may have moved &mdash; but the door&#39;s still open. Let&#39;s get you back home.</p>
+
+      <div class="nf__cta">
+        <a class="btn btn--cta btn--lg" href="blockparty.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>
+          Back to home
+        </a>
+      </div>
+
+      <nav class="nf-links" aria-label="Quick links">
+        <span class="nf-links__lbl">Or try one of these</span>
+        <a href="about.html">Our Story</a>
+        <a href="programs.html">Programs</a>
+        <a href="nutrition-passport.html">Nutrition Passport</a>
+        <a href="impact.html">Impact</a>
+        <a href="get-involved.html">Get Involved</a>
+        <a href="give.html">Give</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
 <footer class="footer">
   <div class="container">
     <div class="footer__top">
@@ -123,60 +199,34 @@ Keep the tiny inline theme-apply script if you copy it from blockparty.html (pre
     </div>
   </div>
 </footer>
-```
-Note: footer now has a 4-column top (brand / Explore / Visit / Give). If bp.css `.footer__top` is a 3-col grid, add a tiny page-scoped style so it lays out 4 across on desktop and wraps on mobile, or reuse an existing auto-fit grid.
 
-## MODAL API (assets/site.js)
-- Trigger: `data-modal-open="MODAL_ID"` on any element opens `#MODAL_ID`.
-- Form that opens a modal on submit: `<form data-modal-success="MODAL_ID"> …required fields… </form>`
-- Modal markup:
-```html
-<div class="modal" id="MODAL_ID" role="dialog" aria-modal="true" aria-labelledby="MODAL_ID-title" hidden>
-  <div class="modal__backdrop" data-modal-close></div>
-  <div class="modal__panel" role="document">
-    <button class="modal__x" type="button" data-modal-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-    <h2 id="MODAL_ID-title">Title</h2>
-    <p>Content…</p>
-  </div>
-</div>
-```
-- JS also exposes `window.AlMaun.openModal(id)` / `.closeModal(id)`. Focus-trap, scroll-lock, Esc, backdrop close, focus-restore are automatic.
-- LIGHTBOX: `<a data-lightbox href="images/x.jpg" data-gallery="NAME" data-caption="…"><img src="images/x.jpg" alt="…"></a>`. Arrow keys + chevrons page a gallery. `window.AlMaun.openLightbox(el)` exposed.
+<script src="assets/site.js" defer></script>
+<script>
+(function(){
+  "use strict";
+  var root = document.documentElement;
 
-## VERIFIED FACTS (use these; do not invent)
-- Org: **Al-Maun Neighborly Needs** — grassroots humanitarian arm of **Masjid As-Sabur**, the oldest mosque in Las Vegas, Historic Westside. Founded **2003** by **Imam Fateen** and **Sister Nisaa Seifullah**. Serves everyone, Muslim & non-Muslim. Name from **Surah Al-Ma'un (Qur'an 107)** — faith measured by small kindnesses to neighbors. Nationally recognized for **Hurricane Katrina** relief; the masjid has welcomed figures like **Muhammad Ali**.
-- Address: **711 Morgan Ave, Las Vegas, NV 89106** (use 89106). Phone **(702) 647-2500**. Email **almaun@gmail.com**. IG **@almaunlv_official** (https://instagram.com/almaunlv_official). FB **https://www.facebook.com/almaun.org/**. Jumu'ah **Fridays 1:00 PM**. **501(c)(3), EIN 32-0087926**.
-- Stats: **20+ years** · **500+** neighbors served in ONE day · **$20,000+** in aid that day · **6** core programs · a **free health clinic** (built with UNLV). Flagship event: **Humanitarian Day 2025 — March 22, 2025**.
-- 6 PROGRAMS:
-  1. **Food & Nutrition** (#food) — food pantry, hot meals, grocery delivery, community garden, farmers market, Nutrition Passport. img: images/prog-food.jpg
-  2. **Free Health Clinic** (#health) — with UNLV: check-ups, wound care, eye exams, prescription help. img: images/prog-health.jpg
-  3. **Education & Workshops** (#education) — trauma support, legal-rights workshops, grief support, Nisaa's Academy. img: images/prog-education.jpg
-  4. **Stabilization & Reentry** (#reentry) — reentry (CHANCES), recovery (Millati Islami), rent & utility assistance. img: images/prog-reentry.jpg
-  5. **Youth Development** (#youth) — mentorship, chess club, youth talks, sponsorship. img: images/prog-youth.jpg
-  6. **Community & Culture** (#community) — arts & culture, interfaith, neighborhood cleanups. img: images/g-volunteers.jpg
-- Humanitarian Day 2025 distributions (photo captions / tags): Hot meals · Medical services · Hygiene kits · Mobile showers · Shoes · Cooling fans · Baby formula · Diapers · Water · Haircuts · Jackets · Backpacks.
-- Partners: ILM Foundation · Las Vegas Raiders · Albertsons · Raising Cane's · UnitedHealthcare · Spin City · UNLV · Vituity Cares.
-- Donation impact tiers (illustrative — mark preview): $25 hot meals for a family this week · $50 summer cooling & hygiene kit · $100 a free clinic visit · $250 a week of groceries delivered · $500 keep a family in their home (rent/utility). One-time + Monthly. Zakat-eligible, tax-deductible.
-- Prayer times (ILLUSTRATIVE placeholders — label "confirm with the masjid"; Jumu'ah 1:00 PM is real): Fajr 5:15 AM · Dhuhr 1:00 PM · Asr 4:45 PM · Maghrib sunset · Isha 8:45 PM.
-- IMAGES available in images/: hero-line.jpg, story-banner.jpg, feature-hug.jpg, g-haircut.jpg, g-feeding.jpg, g-volunteers.jpg, g-serve.jpg, g-126.jpg, g-348.jpg, prog-food.jpg, prog-health.jpg, prog-education.jpg, prog-reentry.jpg, prog-youth.jpg, donate.jpg, logo-green.png, logo-white.png, logo-dark.png. (prog-*.jpg are ~378px — use small.)
-- NUTRITION PASSPORT (a real, flagship program): a FREE, hands-on program to help prevent & manage **Type 2 diabetes** in the Historic Westside — serving ZIP **89106 & 89101**. Structured as three levels + a bonus:
-  - **Level 1 — Learn:** free nutrition workshops (a **hot meal is provided**) — reading labels, portions, sugar, simple cooking.
-  - **Level 2 — Do:** put it into practice — track habits, try recipes, complete simple health activities/challenges.
-  - **Level 3 — Share:** pass it on — share what you learned with family & neighbors, or bring a friend to a workshop.
-  - **Bonus:** join the **"Get Healthy Clark County" Nutrition Challenge** (an external partner; the live site links out / shows a QR) for extra rewards.
-  Free workshops + meals · progress tracking · an email sign-up for the next workshop. NOTE: registration/"cart" is a design preview here — in production it wires to Al-Maun's system. Images to use: prog-food.jpg, prog-health.jpg, g-feeding.jpg, g-serve.jpg.
+  /* ---------- THEME (applied inline to avoid a flash; toggle lives in site.js) ---------- */
+  var themeBtn = document.getElementById('themeBtn');
+  try{ var saved = localStorage.getItem('almaun-theme'); if(saved){ root.setAttribute('data-theme', saved); } }catch(e){}
+  if(themeBtn){
+    themeBtn.addEventListener('click', function(){
+      var cur = root.getAttribute('data-theme'), isDark;
+      if(cur){ isDark = cur === 'dark'; }
+      else { isDark = window.matchMedia('(prefers-color-scheme: dark)').matches; }
+      var next = isDark ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try{ localStorage.setItem('almaun-theme', next); }catch(e){}
+    });
+  }
 
-## SEO <head> — put a proper head on every page (customize per page)
-```html
-<title>PAGE TITLE — Al-Maun Neighborly Needs</title>
-<meta name="description" content="One-sentence, specific description of THIS page (150-160 chars).">
-<link rel="canonical" href="https://www.almaunlv.org/PAGE.html">
-<meta property="og:site_name" content="Al-Maun Neighborly Needs">
-<meta property="og:title" content="PAGE TITLE — Al-Maun Neighborly Needs">
-<meta property="og:description" content="Same as meta description.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.almaunlv.org/PAGE.html">
-<meta property="og:image" content="https://www.almaunlv.org/images/hero-line.jpg">
-<meta name="twitter:card" content="summary_large_image">
-```
-(The favicon links, bp.css, and viewport from the top of this kit still apply.)
+  /* ---------- HEADER SHADOW ---------- */
+  var header = document.querySelector('.header');
+  if(header){
+    var onScroll = function(){ header.classList.toggle('scrolled', window.scrollY > 8); };
+    onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+  }
+})();
+</script>
+</body>
+</html>

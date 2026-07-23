@@ -1,0 +1,20 @@
+# 301 redirects from the old Squarespace URLs → new pages (Netlify / Cloudflare Pages format).
+# Keeps existing links, bookmarks, and Google rankings alive after launch.
+
+/home                        /                          301
+/about                       /about.html                301
+/contact                     /contact.html              301
+/donate-almaun               /give.html                 301
+/nutritionpassport           /nutrition-passport.html   301
+/nutrition-passport-misc     /nutrition-passport.html   301
+/nutrition-passport-bonus    /nutrition-passport.html   301
+/level-1                     /nutrition-passport.html   301
+/level-2                     /nutrition-passport.html   301
+/level-3                     /nutrition-passport.html   301
+/resources-workshops         /programs.html             301
+/youthconference             /youth-conference.html     301
+/survey                      /contact.html              301
+/cart                        /give.html                 301
+
+# SPA-style: serve the custom 404 for anything unmatched
+/*                           /404.html                  404

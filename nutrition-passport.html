@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nutrition Passport — Al-Maun Neighborly Needs</title>
+<meta name="description" content="A free, hands-on program to prevent &amp; manage Type 2 diabetes on the Historic Westside of Las Vegas (ZIP 89106 &amp; 89101) — nutrition workshops with a hot meal, three levels, and a bonus challenge.">
+<link rel="canonical" href="https://www.almaunlv.org/nutrition-passport.html">
+<meta property="og:site_name" content="Al-Maun Neighborly Needs">
+<meta property="og:title" content="Nutrition Passport — Al-Maun Neighborly Needs">
+<meta property="og:description" content="A free, hands-on program to prevent &amp; manage Type 2 diabetes on the Historic Westside of Las Vegas (ZIP 89106 &amp; 89101) — nutrition workshops with a hot meal, three levels, and a bonus challenge.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.almaunlv.org/nutrition-passport.html">
+<meta property="og:image" content="https://www.almaunlv.org/images/prog-health.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Shared Block Party design system (fonts, tokens, all components) -->
+<link rel="stylesheet" href="assets/bp.css">
+<!-- Apply saved theme before paint to avoid a dark-mode flash (toggle handler lives at end of body) -->
+<script>try{var t=localStorage.getItem('almaun-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+
+<!-- Page-specific additions (reuse existing classes; new names prefixed np-) -->
+<style>
+/* four-column footer (canonical brand / Explore / Visit / Give layout) */
+.footer__top{grid-template-columns:1.6fr 1fr 1fr 1fr}
+@media (max-width:900px){.footer__top{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.footer__top{grid-template-columns:1fr}}
+/* footer Explore link list + legal line (in case bp.css doesn't fully style them) */
+.footer__nav{display:grid;gap:.55rem}
+.footer__nav a{color:rgba(237,228,214,.86);font-size:.95rem;width:max-content}
+.footer__nav a:hover{color:#fff;text-decoration:underline}
+.footer__legal a{color:inherit;opacity:.82}
+.footer__legal a:hover{opacity:1;text-decoration:underline}
+
+/* let anchored sections clear the sticky header (redirect targets: /level-1 …) */
+[id="how"],[id="workshops"],[id="who"],
+.np-level[id],[id="bonus"]{scroll-margin-top:100px}
+
+/* ---------------- HOW IT WORKS + PASSPORT ---------------- */
+.np-how{background:var(--band-cream)}
+.np-how__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1.6rem,4vw,3.4rem);align-items:center}
+@media (max-width:940px){.np-how__grid{grid-template-columns:1fr}}
+.np-how h2{font-size:var(--fs-h2);font-weight:800;margin-bottom:1rem}
+.np-how h2 em{font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--brand-strong)}
+.np-steps{list-style:none;padding:0;margin:1.5rem 0 0;display:grid;gap:.9rem}
+.np-steps li{display:flex;gap:.85rem;align-items:flex-start;font-size:1rem;color:var(--text);line-height:1.55}
+.np-steps .np-stepn{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+  font-family:var(--font-head);font-weight:800;font-size:.95rem;color:#fff;background:var(--brand);box-shadow:var(--shadow-sm)}
+.np-steps li:nth-child(2) .np-stepn{background:var(--accent);color:var(--ink)}
+.np-steps li:nth-child(3) .np-stepn{background:var(--cta)}
+.np-steps b{color:var(--text)}
+.np-note{display:flex;gap:.65rem;align-items:flex-start;margin-top:1.6rem;
+  background:var(--band-mint);border:1px solid rgba(46,158,91,.32);border-radius:var(--r-md);
+  padding:.9rem 1.05rem;font-size:.92rem;color:var(--text);line-height:1.55}
+.np-note svg{flex:none;width:20px;height:20px;color:var(--brand-strong);margin-top:2px}
+.np-note b{color:var(--text)}
+
+/* the friendly "passport" card, pure CSS */
+.np-passport{position:relative;background:var(--surface-2);border:2.5px dashed var(--border-strong);
+  border-radius:var(--r-lg);padding:clamp(1.4rem,3vw,2rem);box-shadow:var(--shadow-md)}
+.np-passport__head{display:flex;align-items:center;justify-content:space-between;gap:.8rem;
+  padding-bottom:1rem;margin-bottom:1.3rem;border-bottom:2px dashed var(--border)}
+.np-passport__title{font-family:var(--font-head);font-weight:800;font-size:1.05rem;letter-spacing:-.01em;color:var(--text)}
+.np-passport__title span{display:block;font-family:var(--font-head);font-weight:700;font-size:.68rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--brand-strong);margin-top:.25rem}
+.np-passport__seal{flex:none;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;
+  border:2px dashed var(--cta);color:var(--cta-strong);transform:rotate(-6deg);
+  font-family:var(--font-head);font-weight:800;font-size:.6rem;letter-spacing:.06em;text-align:center;line-height:1.05}
+.np-stamps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.6rem,1.6vw,1rem)}
+.np-stamp{text-align:center;display:flex;flex-direction:column;align-items:center;gap:.55rem}
+.np-stamp__seal{width:clamp(66px,16vw,84px);height:clamp(66px,16vw,84px);border-radius:50%;
+  display:grid;place-items:center;border:2.5px dashed var(--_s,var(--brand));color:var(--_s,var(--brand));
+  background:color-mix(in srgb,var(--_s,var(--brand)) 9%,var(--surface));box-shadow:inset 0 0 0 4px var(--surface)}
+.np-stamp:nth-child(1){--_s:var(--brand-strong)}
+.np-stamp:nth-child(2){--_s:var(--accent)}
+.np-stamp:nth-child(3){--_s:var(--cta)}
+.np-stamp:nth-child(1) .np-stamp__seal{transform:rotate(-7deg)}
+.np-stamp:nth-child(2) .np-stamp__seal{transform:rotate(4deg)}
+.np-stamp:nth-child(3) .np-stamp__seal{transform:rotate(-3deg)}
+.np-stamp__seal svg{width:30px;height:30px}
+.np-stamp__lbl{font-family:var(--font-head);font-weight:800;font-size:.9rem;letter-spacing:.02em;color:var(--text)}
+.np-stamp__sub{font-size:.74rem;color:var(--text-muted);line-height:1.35;margin-top:-.35rem}
+
+/* ---------------- LEVELS + BONUS ---------------- */
+.np-levels-sec{background:var(--band-marigold)}
+.np-levels{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2.2vw,1.4rem)}
+@media (max-width:900px){.np-levels{grid-template-columns:1fr}}
+.np-level{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);
+  padding:1.7rem 1.5rem 1.6rem;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;
+  transition:transform .22s ease,box-shadow .3s ease;border-top:6px solid var(--_c,var(--brand))}
+.np-level:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+.np-level:nth-child(1){--_c:var(--brand)}
+.np-level:nth-child(2){--_c:var(--accent)}
+.np-level:nth-child(3){--_c:var(--cta)}
+.np-level__top{display:flex;align-items:center;gap:.85rem;margin-bottom:1rem}
+.np-level__n{flex:none;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;
+  font-family:var(--font-head);font-weight:800;font-size:1.5rem;color:#fff;background:var(--_c,var(--brand));box-shadow:var(--shadow-sm)}
+.np-level:nth-child(2) .np-level__n{color:var(--ink)}
+.np-level__tag{font-family:var(--font-head);font-weight:700;font-size:.72rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--_c,var(--brand))}
+.np-level h3{font-size:var(--fs-h3);font-weight:700;margin:.15rem 0 0}
+.np-level__blurb{color:var(--text-muted);font-family:var(--font-accent);font-style:italic;font-size:1rem;line-height:1.5;margin-bottom:.9rem}
+.np-list{list-style:none;padding:0;margin:0 0 1.2rem;display:grid;gap:.55rem}
+.np-list li{display:flex;gap:.6rem;align-items:flex-start;font-size:.95rem;color:var(--text);line-height:1.45}
+.np-list li::before{content:"";flex:none;width:9px;height:9px;margin-top:.5rem;border-radius:50%;
+  background:var(--_c,var(--brand));box-shadow:0 0 0 3px color-mix(in srgb,var(--_c,var(--brand)) 18%,transparent)}
+.np-level__cta{margin-top:auto}
+.np-more{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--font-head);font-weight:700;
+  font-size:.92rem;color:var(--_c,var(--brand));text-decoration:none}
+.np-more svg{width:16px;height:16px;transition:transform .2s}
+.np-more:hover svg{transform:translateX(3px)}
+.np-level:nth-child(2) .np-more{color:#B67908}
+
+/* bonus card */
+.np-bonus{margin-top:clamp(1rem,2.2vw,1.4rem);background:var(--band-deep);color:var(--text-invert);
+  border-radius:var(--r-lg);padding:clamp(1.6rem,3.2vw,2.2rem);box-shadow:var(--shadow-md);
+  display:grid;grid-template-columns:auto 1fr auto;gap:clamp(1.2rem,3vw,2rem);align-items:center}
+@media (max-width:820px){.np-bonus{grid-template-columns:1fr;text-align:center;justify-items:center}}
+.np-bonus__tag{font-family:var(--font-head);font-weight:700;font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:.5rem}
+.np-bonus h3{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:800;color:var(--text-invert);margin:.5rem 0 .6rem}
+.np-bonus h3 em{font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--accent)}
+.np-bonus p{color:color-mix(in srgb,var(--text-invert) 84%,transparent);line-height:1.6;max-width:52ch;margin:0 auto}
+.np-bonus__qr{flex:none;width:96px;height:96px;border-radius:16px;background:#FFF6E9;display:grid;place-items:center;
+  box-shadow:var(--shadow-sm);color:var(--ink)}
+.np-bonus__qr svg{width:66px;height:66px}
+.np-bonus__side{display:flex;flex-direction:column;align-items:center;gap:.7rem}
+.np-bonus__scan{font-size:.78rem;color:color-mix(in srgb,var(--text-invert) 72%,transparent);max-width:16ch;text-align:center;line-height:1.4}
+.np-bonus .btn{margin-top:0}
+
+/* ---------------- WORKSHOPS + SIGNUP ---------------- */
+.np-work{background:var(--band-mint)}
+.np-work__grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(1.5rem,4vw,3.2rem);align-items:center}
+@media (max-width:940px){.np-work__grid{grid-template-columns:1fr}}
+.np-work h2{font-size:var(--fs-h2);font-weight:800;margin-bottom:1rem}
+.np-work h2 em{font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--cta)}
+.np-work .photo-frame{transform:rotate(-1.4deg);max-width:460px}
+.np-work__cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.7rem}
+.np-facts{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.5rem}
+
+/* ---------------- WHO IT'S FOR ---------------- */
+.np-who{background:var(--band-cream)}
+.np-who .sec-head{text-align:center;margin-inline:auto}
+.np-who__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2.2vw,1.4rem)}
+@media (max-width:820px){.np-who__grid{grid-template-columns:1fr}}
+.np-who__card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);
+  padding:1.6rem 1.5rem;box-shadow:var(--shadow-sm);text-align:center}
+.np-who__ic{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;margin:0 auto 1rem;
+  background:var(--band-mint);color:var(--brand-strong)}
+.np-who__ic svg{width:26px;height:26px}
+.np-who__card h3{font-size:1.15rem;font-weight:700;margin-bottom:.4rem}
+.np-who__card p{color:var(--text-muted);font-size:.95rem;line-height:1.55}
+
+/* ---------------- SIGNUP MODAL FORM ---------------- */
+.modal--form .modal__panel{max-width:min(34rem,94vw)}
+.np-form{display:grid;gap:1rem;margin-top:1.3rem;text-align:left}
+.np-form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media (max-width:460px){.np-form-row{grid-template-columns:1fr}}
+.np-field{display:grid;gap:.4rem}
+.np-field label{font-family:var(--font-head);font-weight:700;font-size:.82rem;color:var(--text)}
+.np-field label .np-opt{font-family:var(--font-body);font-weight:400;color:var(--text-muted);font-size:.78rem}
+.np-field input,.np-field select{font-family:var(--font-body);font-size:1rem;color:var(--text);
+  background:var(--surface-2);border:1.5px solid var(--border-strong);border-radius:var(--r-sm);padding:.72rem .85rem;width:100%}
+.np-field input:focus-visible,.np-field select:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.np-field select{appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236E6459' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right .8rem center;background-size:16px;padding-right:2.4rem}
+.np-form .btn{margin-top:.4rem;width:100%}
+.np-form__note{font-size:.8rem;color:var(--text-muted);line-height:1.5;margin-top:.2rem}
+
+/* ---------------- CLOSING BAND ---------------- */
+.np-close{background:var(--band-deep);color:var(--text-invert);text-align:center}
+.np-close .container{max-width:64ch}
+.np-close .eyebrow{color:var(--accent);justify-content:center}
+.np-close .eyebrow::before{background:var(--accent)}
+.np-close h2{font-size:var(--fs-h2);font-weight:800;color:var(--text-invert);margin-bottom:1rem}
+.np-close h2 em{font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--accent)}
+.np-close p{color:color-mix(in srgb,var(--text-invert) 84%,transparent);
+  font-size:var(--fs-lead);line-height:1.7;margin-inline:auto;max-width:58ch}
+.np-close__cta{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:2rem}
+.np-ghost-invert{color:#fff;background:rgba(255,246,233,.1);box-shadow:inset 0 0 0 2px rgba(255,246,233,.55)}
+.np-ghost-invert:hover{background:rgba(255,246,233,.2);box-shadow:inset 0 0 0 2px #fff}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ===================== HEADER (shared template — identical on every page) ===================== -->
+<header class="header" id="top">
+  <div class="container header__in">
+    <a class="brand" href="blockparty.html" aria-label="Al-Maun Neighborly Needs, home">
+      <img class="brand__logo brand__logo--light" src="images/logo-green.png" alt="Al-Maun Neighborly Needs" width="667" height="266">
+      <img class="brand__logo brand__logo--dark" src="images/logo-white.png" alt="" aria-hidden="true" width="800" height="305">
+    </a>
+    <nav class="nav" id="nav" aria-label="Primary">
+      <ul class="nav__list">
+        <li class="nav__item has-dd">
+          <a class="nav__link" href="about.html">Our Story</a>
+          <button class="nav__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Our Story submenu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd">
+            <a class="dd__link" href="about.html#ab-name">Mission</a>
+            <a class="dd__link" href="about.html#ab-heritage">Our History</a>
+            <a class="dd__link" href="about.html#ab-people">Leadership</a>
+            <a class="dd__link" href="about.html#ab-trust">Transparency</a>
+          </div>
+        </li>
+        <li class="nav__item has-dd">
+          <a class="nav__link" href="programs.html">Programs</a>
+          <button class="nav__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Programs submenu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd dd--programs">
+            <a class="dd__link" href="programs.html#food"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11h17a8.5 8.5 0 0 1-17 0Z"/><path d="M8 7.5c0-1 1-1.2 1-2.2M12 7c0-1 1-1.2 1-2.2M16 7.5c0-1 1-1.2 1-2.2"/></svg></span>Food &amp; Nutrition</a>
+            <a class="dd__link" href="programs.html#health"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></span>Free Health Clinic</a>
+            <a class="dd__link" href="programs.html#education"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9 12 5l9.5 4L12 13 2.5 9Z"/><path d="M6.5 10.7V15c0 1.2 2.5 2.2 5.5 2.2s5.5-1 5.5-2.2v-4.3"/></svg></span>Education &amp; Workshops</a>
+            <a class="dd__link" href="programs.html#reentry"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 5l8 6"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg></span>Stabilization &amp; Reentry</a>
+            <a class="dd__link" href="programs.html#youth"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M8.5 14a4 4 0 0 0 7 0"/></svg></span>Youth Development</a>
+            <a class="dd__link" href="programs.html#community"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 18.5V20"/><circle cx="10" cy="8" r="3"/><path d="M20 20v-1.5a3.5 3.5 0 0 0-2.6-3.4M15.5 5.2a3 3 0 0 1 0 5.6"/></svg></span>Community &amp; Culture</a>
+          </div>
+        </li>
+        <li class="nav__item"><a class="nav__link" href="nutrition-passport.html" aria-current="page">Nutrition Passport</a></li>
+        <li class="nav__item"><a class="nav__link" href="impact.html">Impact</a></li>
+        <li class="nav__item has-dd">
+          <a class="nav__link" href="get-involved.html">Get Involved</a>
+          <button class="nav__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Get Involved submenu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd">
+            <a class="dd__link" href="get-involved.html#volunteer">Volunteer</a>
+            <a class="dd__link" href="get-involved.html#goods">Donate Goods</a>
+            <a class="dd__link" href="get-involved.html#partners">Partners</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="header__cta">
+      <button class="icon-btn theme-toggle" id="themeBtn" type="button" aria-label="Toggle dark mode">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <span class="header__soc">
+        <a class="icon-btn" href="https://instagram.com/almaunlv_official" target="_blank" rel="noopener" aria-label="Al-Maun on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a class="icon-btn" href="https://www.facebook.com/almaun.org/" target="_blank" rel="noopener" aria-label="Al-Maun on Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3l.5-3H14V4.5c0-.9.3-1.5 1.7-1.5H18V.2C17.5.1 16.3 0 15 0c-2.7 0-4.5 1.6-4.5 4.6V6H8v3h2.5v9H14z"/></svg></a>
+      </span>
+      <a class="btn btn--cta" href="give.html">Donate</a>
+      <button class="icon-btn burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===================== PAGE HERO (compact) ===================== -->
+<section class="hero" id="hero" aria-labelledby="hero-h">
+  <svg class="bunting" viewBox="0 0 1200 30" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 4 H1200" stroke="rgba(43,38,32,.28)" stroke-width="2" fill="none"/>
+    <g>
+      <polygon points="20,5 60,5 40,30" fill="#2E9E5B"/><polygon points="80,5 120,5 100,30" fill="#F5A623"/>
+      <polygon points="140,5 180,5 160,30" fill="#EE5B3B"/><polygon points="200,5 240,5 220,30" fill="#1F7A44"/>
+      <polygon points="260,5 300,5 280,30" fill="#2E9E5B"/><polygon points="320,5 360,5 340,30" fill="#F5A623"/>
+      <polygon points="380,5 420,5 400,30" fill="#EE5B3B"/><polygon points="440,5 480,5 460,30" fill="#1F7A44"/>
+      <polygon points="500,5 540,5 520,30" fill="#2E9E5B"/><polygon points="560,5 600,5 580,30" fill="#F5A623"/>
+      <polygon points="620,5 660,5 640,30" fill="#EE5B3B"/><polygon points="680,5 720,5 700,30" fill="#1F7A44"/>
+      <polygon points="740,5 780,5 760,30" fill="#2E9E5B"/><polygon points="800,5 840,5 820,30" fill="#F5A623"/>
+      <polygon points="860,5 900,5 880,30" fill="#EE5B3B"/><polygon points="920,5 960,5 940,30" fill="#1F7A44"/>
+      <polygon points="980,5 1020,5 1000,30" fill="#2E9E5B"/><polygon points="1040,5 1080,5 1060,30" fill="#F5A623"/>
+      <polygon points="1100,5 1140,5 1120,30" fill="#EE5B3B"/><polygon points="1160,5 1200,5 1180,30" fill="#1F7A44"/>
+    </g>
+  </svg>
+
+  <div class="container hero__in">
+    <div class="hero__copy">
+      <span class="hero__kicker">
+        <span class="pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1F7A44" stroke-width="2.4"><path d="M12 21s7-6.6 7-11a7 7 0 1 0-14 0c0 4.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.2" fill="#1F7A44" stroke="none"/></svg></span>
+        Nutrition Passport
+      </span>
+
+      <h1 id="hero-h">
+        <span class="soft">Small changes.</span><br>
+        <span class="soft">Big wins against </span><span class="mark">diabetes<svg class="mark__line" viewBox="0 0 320 24" preserveAspectRatio="none" aria-hidden="true"><path d="M6 15 C 70 5, 130 22, 190 12 S 292 6, 314 17"/></svg></span><span class="soft">.</span>
+      </h1>
+
+      <p class="hero__sub">A <b>free</b>, hands-on program to help Westside neighbors prevent &amp; manage <b>Type&nbsp;2 diabetes</b> &mdash; one workshop, one meal, one small habit at a time. Open to families in ZIP <b>89106</b> &amp; <b>89101</b>. No cost, no paperwork, everyone welcome.</p>
+
+      <div class="hero__cta">
+        <button class="btn btn--cta btn--lg" type="button" data-modal-open="signup">Join a free workshop</button>
+        <a class="btn btn--ghost btn--lg" href="#how">How it works</a>
+      </div>
+
+      <div class="hero__badges">
+        <span class="chip chip--mint"><span class="dot" aria-hidden="true"></span>Always free</span>
+        <span class="chip">Hot meal provided</span>
+        <span class="chip">3 levels &amp; a bonus</span>
+      </div>
+    </div>
+
+    <div class="hero__media">
+      <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true">
+        <g class="stamp__ring">
+          <circle class="stamp__disc" cx="60" cy="60" r="56"/>
+          <circle class="stamp__edge" cx="60" cy="60" r="51"/>
+          <defs><path id="ring" d="M60,60 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs>
+          <text><textPath href="#ring" startOffset="0">LEARN &#183; DO &#183; SHARE &#183; </textPath></text>
+        </g>
+        <text class="stamp__star" x="60" y="50" text-anchor="middle" font-size="14">&#10022;</text>
+        <text class="stamp__center" x="60" y="70" text-anchor="middle">AL-MAUN</text>
+      </svg>
+      <figure class="photo-frame">
+        <span class="tape tape--tl" aria-hidden="true"></span>
+        <span class="tape tape--br" aria-hidden="true"></span>
+        <img src="images/g-feeding.jpg" alt="Neighbors seated together at tables with green tablecloths, sharing a hot meal at an Al-Maun community gathering." width="1200" height="800">
+        <figcaption class="hero__cap" style="right:14px;left:auto;bottom:22px">Learn together. Eat together.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HOW IT WORKS ===================== -->
+<section class="section np-how" id="how" aria-labelledby="how-h">
+  <div class="container np-how__grid">
+    <div class="np-how__copy reveal">
+      <p class="eyebrow">How it works</p>
+      <h2 id="how-h">Like a passport &mdash; <em>stamp by stamp.</em></h2>
+      <p class="lead" style="color:var(--text);max-width:none">Managing your health shouldn&#39;t feel like homework. The Nutrition Passport turns it into small, doable wins. You show up, you try one thing, you pass it on &mdash; and you collect your &ldquo;stamps&rdquo; along the way.</p>
+
+      <ol class="np-steps">
+        <li><span class="np-stepn" aria-hidden="true">1</span><span><b>Learn</b> &mdash; come to a free workshop and pick up one simple idea. A <b>hot meal is provided</b>, so bring the family.</span></li>
+        <li><span class="np-stepn" aria-hidden="true">2</span><span><b>Do</b> &mdash; try it at home. Track a habit, cook a recipe, take a short walk. Small steps, real progress.</span></li>
+        <li><span class="np-stepn" aria-hidden="true">3</span><span><b>Share</b> &mdash; tell a neighbor what worked, or bring a friend to the next workshop. Kindness travels.</span></li>
+      </ol>
+
+      <p class="np-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span><b>New workshop dates are announced regularly.</b> Sign up and we&#39;ll let you know when the next one lands &mdash; no need to check back.</span></p>
+    </div>
+
+    <div class="np-passport reveal" data-d="2" role="img" aria-label="A Nutrition Passport with three stamps: Learn, Do, and Share.">
+      <div class="np-passport__head">
+        <div class="np-passport__title">Nutrition Passport<span>Al-Maun &middot; Historic Westside</span></div>
+        <div class="np-passport__seal" aria-hidden="true">FREE<br>ENTRY</div>
+      </div>
+      <div class="np-stamps">
+        <div class="np-stamp">
+          <span class="np-stamp__seal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v16H6.5A2.5 2.5 0 0 0 4 21.5Z"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H12v16h5.5A2.5 2.5 0 0 1 20 21.5Z"/></svg></span>
+          <span class="np-stamp__lbl">Learn</span>
+          <span class="np-stamp__sub">Free workshop</span>
+        </div>
+        <div class="np-stamp">
+          <span class="np-stamp__seal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+          <span class="np-stamp__lbl">Do</span>
+          <span class="np-stamp__sub">Try it at home</span>
+        </div>
+        <div class="np-stamp">
+          <span class="np-stamp__seal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></span>
+          <span class="np-stamp__lbl">Share</span>
+          <span class="np-stamp__sub">Pass it on</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== THE THREE LEVELS + BONUS ===================== -->
+<section class="section np-levels-sec" aria-labelledby="lv-h">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow">The program</p>
+      <h2 id="lv-h">Three levels, at <em>your</em> pace.</h2>
+      <p class="lead">Start wherever you are. Each level is a little step forward &mdash; and there&#39;s no wrong place to begin.</p>
+    </div>
+
+    <div class="np-levels">
+      <!-- Level 1 -->
+      <article class="np-level reveal" id="level-1" data-d="1">
+        <div class="np-level__top">
+          <span class="np-level__n" aria-hidden="true">1</span>
+          <div>
+            <p class="np-level__tag">Level 1 &middot; Learn</p>
+            <h3>Come to a workshop</h3>
+          </div>
+        </div>
+        <p class="np-level__blurb">The fundamentals, made friendly.</p>
+        <ul class="np-list">
+          <li>Reading food labels without the guesswork</li>
+          <li>Portions &amp; smart swaps for everyday meals</li>
+          <li>Spotting hidden sugar &mdash; and cutting back</li>
+          <li>Simple, affordable cooking you&#39;ll actually use</li>
+          <li>A <b>hot meal is provided</b> at every workshop</li>
+        </ul>
+        <div class="np-level__cta">
+          <button class="np-more" type="button" data-modal-open="signup">Join a free workshop <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </article>
+
+      <!-- Level 2 -->
+      <article class="np-level reveal" id="level-2" data-d="2">
+        <div class="np-level__top">
+          <span class="np-level__n" aria-hidden="true">2</span>
+          <div>
+            <p class="np-level__tag">Level 2 &middot; Do</p>
+            <h3>Put it into practice</h3>
+          </div>
+        </div>
+        <p class="np-level__blurb">Turn one idea into a habit.</p>
+        <ul class="np-list">
+          <li>Track a simple habit, one day at a time</li>
+          <li>Try a new recipe from the workshop</li>
+          <li>Finish small health activities &amp; challenges</li>
+          <li>Move a little more &mdash; a walk counts</li>
+          <li>Celebrate the wins, however small</li>
+        </ul>
+        <div class="np-level__cta">
+          <a class="np-more" href="#workshops">Practice at the next workshop <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Level 3 -->
+      <article class="np-level reveal" id="level-3" data-d="3">
+        <div class="np-level__top">
+          <span class="np-level__n" aria-hidden="true">3</span>
+          <div>
+            <p class="np-level__tag">Level 3 &middot; Share</p>
+            <h3>Pass it on</h3>
+          </div>
+        </div>
+        <p class="np-level__blurb">Health spreads best neighbor-to-neighbor.</p>
+        <ul class="np-list">
+          <li>Share what you learned with family</li>
+          <li>Cook a healthier meal for someone you love</li>
+          <li>Bring a friend or neighbor to a workshop</li>
+          <li>Encourage each other to keep going</li>
+          <li>Become a familiar, friendly face in the room</li>
+        </ul>
+        <div class="np-level__cta">
+          <button class="np-more" type="button" data-modal-open="signup">Bring a friend along <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </article>
+    </div>
+
+    <!-- Bonus -->
+    <article class="np-bonus reveal" id="bonus" aria-labelledby="bonus-h">
+      <div class="np-bonus__side">
+        <span class="np-bonus__qr" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h7v7H3V3Zm2 2v3h3V5H5Zm9-2h7v7h-7V3Zm2 2v3h3V5h-3ZM3 14h7v7H3v-7Zm2 2v3h3v-3H5Zm9 0h2v2h-2v-2Zm0 3h2v2h-2v-2Zm3-3h2v2h-2v-2Zm2 2h-2v-2h2v-2h-2v-1h2v-2h-2v2h-2v-2h-2v2h2v2h2v1h2v2Zm0 1h-2v2h2v-2Zm-4 2h2v-2h-2v2Z"/></svg>
+        </span>
+        <span class="np-bonus__scan">Scan the QR at any workshop, or tap below to join</span>
+      </div>
+      <div>
+        <p class="np-bonus__tag"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2l2.5 6.5L21 9l-5 4.2L17.6 21 12 17.1 6.4 21 8 13.2 3 9l6.5-.5L12 2Z"/></svg> Bonus level</p>
+        <h3 id="bonus-h">Go further with the <em>Nutrition Challenge</em></h3>
+        <p>Ready for more? Join the <b>&ldquo;Get Healthy Clark County&rdquo; Nutrition Challenge</b> &mdash; a free challenge run by our partners across the county, with extra activities and rewards to keep your momentum going. At the live program we share a QR code at workshops so you can jump straight in.</p>
+      </div>
+      <div>
+        <a class="btn btn--cta btn--lg" href="https://gethealthyclarkcounty.org/" target="_blank" rel="noopener">Join the challenge <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== WORKSHOPS + SIGNUP ===================== -->
+<section class="section np-work" id="workshops" aria-labelledby="work-h">
+  <div class="container np-work__grid">
+    <div class="reveal">
+      <figure class="photo-frame">
+        <span class="tape tape--tl" aria-hidden="true"></span>
+        <img src="images/prog-health.jpg" alt="A neighbor receiving friendly care at the Al-Maun free health clinic, built in partnership with UNLV." width="378" height="252">
+        <figcaption class="hero__cap" style="left:14px;bottom:22px">Free &middot; Meal provided</figcaption>
+      </figure>
+    </div>
+    <div class="reveal" data-d="2">
+      <p class="eyebrow">Free workshops</p>
+      <h2 id="work-h">Save a seat at the <em>next one.</em></h2>
+      <p class="lead" style="color:var(--text);max-width:none">Workshops are friendly, hands-on, and open to the whole family &mdash; and yes, a hot meal is always on the table. Add your name and we&#39;ll reach out when the next date is set.</p>
+
+      <div class="np-facts">
+        <span class="chip chip--mint"><span class="dot" aria-hidden="true"></span>Always free</span>
+        <span class="chip">Hot meal provided</span>
+        <span class="chip">Families welcome</span>
+        <span class="chip">89106 &amp; 89101</span>
+      </div>
+
+      <div class="np-work__cta">
+        <button class="btn btn--cta btn--lg" type="button" data-modal-open="signup">Sign up for a workshop</button>
+        <a class="btn btn--ghost btn--lg" href="#how">See how it works</a>
+      </div>
+
+      <p class="np-note" style="max-width:52ch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg><span><b>Design preview:</b> in production, sign-ups connect to Al-Maun&#39;s registration system &mdash; here the form just shows a confirmation.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHO IT'S FOR ===================== -->
+<section class="section np-who" id="who" aria-labelledby="who-h">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow" style="justify-content:center">Who it&#39;s for</p>
+      <h2 id="who-h">Open to <em>every</em> Westside neighbor.</h2>
+      <p class="lead" style="margin-inline:auto">No cost, no catch, no means test at the door. If you live nearby and want to feel better, you belong here.</p>
+    </div>
+
+    <div class="np-who__grid">
+      <article class="np-who__card reveal" data-d="1">
+        <span class="np-who__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.6 7-11a7 7 0 1 0-14 0c0 4.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+        <h3>Westside neighbors</h3>
+        <p>Built for the Historic Westside &mdash; families in ZIP <b>89106</b> &amp; <b>89101</b>, right around the corner from 711 Morgan Ave.</p>
+      </article>
+      <article class="np-who__card reveal" data-d="2">
+        <span class="np-who__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 18.5V20"/><circle cx="10" cy="8" r="3"/><path d="M20 20v-1.5a3.5 3.5 0 0 0-2.6-3.4M15.5 5.2a3 3 0 0 1 0 5.6"/></svg></span>
+        <h3>All ages &amp; families</h3>
+        <p>Bring the kids, bring grandma. Whether you&#39;re preventing diabetes or already managing it, there&#39;s a place for you.</p>
+      </article>
+      <article class="np-who__card reveal" data-d="3">
+        <span class="np-who__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg></span>
+        <h3>Completely free</h3>
+        <p>Every workshop, every meal, every level &mdash; free. Al-Maun under-asks and over-delivers, always has.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CLOSING BAND ===================== -->
+<section class="section np-close" aria-labelledby="close-h">
+  <div class="container">
+    <p class="eyebrow">Fuel the next workshop</p>
+    <h2 id="close-h">Help a neighbor take the <em>first small step.</em></h2>
+    <p>A single gift stocks a workshop table with a hot meal and the tools to fight diabetes on the block. Give what you can &mdash; or roll up your sleeves and join us.</p>
+    <div class="np-close__cta">
+      <a class="btn btn--cta btn--lg" href="give.html">Donate to fund workshops</a>
+      <a class="btn btn--lg np-ghost-invert" href="programs.html#food">See Food &amp; Nutrition</a>
+      <a class="btn btn--lg np-ghost-invert" href="get-involved.html#volunteer">Volunteer with us</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <img class="footer__logo" src="images/logo-white.png" alt="Al-Maun Neighborly Needs">
+        <p class="footer__tag">The humanitarian arm of Masjid As-Sabur, serving the Historic Westside of Las Vegas since 2003. Neighbors helping neighbors &mdash; measured in small kindnesses.</p>
+        <a class="footer__soc" href="https://instagram.com/almaunlv_official" target="_blank" rel="noopener" aria-label="Al-Maun on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> @almaunlv_official</a>
+        <a class="footer__soc" href="https://www.facebook.com/almaun.org/" target="_blank" rel="noopener" aria-label="Al-Maun on Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3l.5-3H14V4.5c0-.9.3-1.5 1.7-1.5H18V.2C17.5.1 16.3 0 15 0c-2.7 0-4.5 1.6-4.5 4.6V6H8v3h2.5v9H14z"/></svg> facebook.com/almaun.org</a>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <nav class="footer__nav" aria-label="Footer">
+          <a href="about.html">Our Story</a>
+          <a href="programs.html">Programs</a>
+          <a href="nutrition-passport.html">Nutrition Passport</a>
+          <a href="impact.html">Impact</a>
+          <a href="events.html">Events &amp; Prayer</a>
+          <a href="get-involved.html">Get Involved</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <h4>Visit &amp; Contact</h4>
+        <address>
+          711 Morgan Ave<br>
+          Las Vegas, NV 89106<br>
+          <a href="tel:+17026472500">(702) 647-2500</a><br>
+          <a href="mailto:almaun@gmail.com">almaun@gmail.com</a>
+        </address>
+        <div class="footer__jum"><b>Jumu&#39;ah &middot; Fridays 1:00 PM</b><span>All are welcome at Masjid As-Sabur.</span></div>
+      </div>
+      <div>
+        <h4>Give &amp; Support</h4>
+        <address>
+          Registered 501(c)(3)<br>
+          EIN 32-0087926<br>
+          Zakat-eligible &amp; tax-deductible<br>
+          <a href="give.html">Make a donation &rarr;</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <span>&copy; 2003&ndash;2026 Al-Maun Neighborly Needs. All kindnesses welcome.</span>
+      <span class="footer__legal"><a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="donor-policy.html">Donor Policy</a></span>
+      <span class="proto">Redesign prototype &mdash; not the official Al-Maun website</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== MODALS ===================== -->
+<!-- Workshop signup (form) -->
+<div class="modal modal--form" id="signup" role="dialog" aria-modal="true" aria-labelledby="signup-title" hidden>
+  <div class="modal__backdrop" data-modal-close></div>
+  <div class="modal__panel" role="document">
+    <button class="modal__x" type="button" data-modal-close aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <span class="modal__ic" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+    </span>
+    <h2 id="signup-title">Save your <em>seat.</em></h2>
+    <p>Add your details and we&#39;ll text or email you as soon as the next free workshop is scheduled. A hot meal is provided &mdash; the whole family is welcome.</p>
+
+    <form class="np-form" id="signupForm" data-modal-success="signup-ok" novalidate>
+      <div class="np-field">
+        <label for="su-name">Full name</label>
+        <input type="text" id="su-name" name="name" autocomplete="name" required>
+      </div>
+      <div class="np-form-row">
+        <div class="np-field">
+          <label for="su-email">Email</label>
+          <input type="email" id="su-email" name="email" autocomplete="email" required>
+        </div>
+        <div class="np-field">
+          <label for="su-phone">Phone <span class="np-opt">(optional)</span></label>
+          <input type="tel" id="su-phone" name="phone" autocomplete="tel">
+        </div>
+      </div>
+      <div class="np-form-row">
+        <div class="np-field">
+          <label for="su-lang">Preferred language <span class="np-opt">(optional)</span></label>
+          <select id="su-lang" name="language">
+            <option value="">No preference</option>
+            <option value="en">English</option>
+            <option value="es">Spanish / Español</option>
+            <option value="ar">Arabic / العربية</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="np-field">
+          <label for="su-count">How many attending?</label>
+          <select id="su-count" name="attending" required>
+            <option value="1">Just me</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 or more</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn btn--cta btn--lg" type="submit">Add me to the list</button>
+      <p class="np-form__note">Design preview &mdash; this demo form won&#39;t send anything. In production it connects to Al-Maun&#39;s registration system.</p>
+    </form>
+  </div>
+</div>
+
+<!-- Signup success -->
+<div class="modal" id="signup-ok" role="dialog" aria-modal="true" aria-labelledby="signup-ok-title" hidden>
+  <div class="modal__backdrop" data-modal-close></div>
+  <div class="modal__panel" role="document">
+    <button class="modal__x" type="button" data-modal-close aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <span class="modal__ic" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-5-5"/></svg>
+    </span>
+    <h2 id="signup-ok-title">You&#39;re <em>on the list!</em></h2>
+    <p>We&#39;ll text or email you the next free workshop, in shaa Allah &mdash; hot meal included. Bring the family, and feel free to bring a friend or neighbor too.</p>
+    <button class="btn btn--cta" type="button" data-modal-close>Done</button>
+  </div>
+</div>
+
+<script src="assets/site.js" defer></script>
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- THEME (shared key with the rest of the site; initial value already applied in <head>) ---------- */
+  var root = document.documentElement;
+  var themeBtn = document.getElementById('themeBtn');
+  if(themeBtn){
+    themeBtn.addEventListener('click', function(){
+      var cur = root.getAttribute('data-theme');
+      var isDark = cur ? cur === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var next = isDark ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try{ localStorage.setItem('almaun-theme', next); }catch(e){}
+    });
+  }
+
+  /* Dropdown + mobile nav + modal system + form→success modal live in assets/site.js (shared) */
+
+  /* ---------- HEADER SHADOW ---------- */
+  var header = document.querySelector('.header');
+  if(header){
+    var onScroll = function(){ header.classList.toggle('scrolled', window.scrollY > 8); };
+    onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+  }
+
+  /* ---------- Close the signup modal on a successful submit so only the confirmation shows ----------
+     (Native constraint validation blocks this submit event until required fields are valid.
+      This runs before site.js's handler, which then opens the #signup-ok success modal.) */
+  var signupForm = document.getElementById('signupForm');
+  if(signupForm){
+    signupForm.addEventListener('submit', function(){
+      if(signupForm.checkValidity && !signupForm.checkValidity()) return;
+      if(window.AlMaun && window.AlMaun.closeModal){ window.AlMaun.closeModal('signup'); }
+    });
+  }
+
+  /* ---------- SCROLL REVEAL ---------- */
+  if(reduce){
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  } else if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:0.14, rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>
