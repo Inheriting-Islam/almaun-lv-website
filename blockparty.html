@@ -445,6 +445,22 @@ p{margin:0}
    GALLERY / SCRAPBOOK
    ============================================================ */
 .gallery{background:var(--band-cream);position:relative}
+/* clean editorial gallery (replaces polaroid pinboard) */
+.hd-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.9rem,1.6vw,1.05rem);margin-top:clamp(1.4rem,3vw,2.2rem)}
+.hd-figure{position:relative;margin:0;overflow:hidden;border-radius:16px;background:#fff;
+  box-shadow:0 1px 2px rgba(20,24,17,.05),0 20px 38px -28px rgba(20,24,17,.34)}
+.hd-figure .hd-zoom{display:block;line-height:0;cursor:zoom-in}
+.hd-figure img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:3/2;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.hd-figure:hover img{transform:scale(1.05)}
+.hd-figure figcaption{position:absolute;left:0;right:0;bottom:0;pointer-events:none;
+  padding:1.7rem 1rem .85rem;color:#fff;font-weight:600;font-size:.9rem;font-style:normal;
+  background:linear-gradient(transparent,rgba(16,22,15,.82));
+  opacity:0;transform:translateY(8px);transition:opacity .3s ease,transform .3s ease}
+.hd-figure:hover figcaption,.hd-figure:focus-within figcaption{opacity:1;transform:none}
+.hd-more{text-align:center;margin-top:clamp(1.6rem,3vw,2.2rem)}
+@media(max-width:820px){.hd-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.hd-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.hd-figure img,.hd-figure figcaption{transition:none}.hd-figure figcaption{opacity:1;transform:none}}
 .gallery .sec-head{text-align:center;margin-inline:auto}
 .pinboard{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(.7rem,1.8vw,1.3rem);align-items:start}
 .polaroid{background:#fff;padding:11px 11px 14px;border-radius:14px;box-shadow:var(--shadow-photo);
@@ -1006,46 +1022,46 @@ p{margin:0}
       <p class="lead" style="margin-inline:auto">Hot meals, haircuts, mobile showers, medical care, cooling fans for a 110&deg; desert — over $20,000 in aid handed to real people in a single afternoon. Here&#39;s what it looked like.</p>
     </div>
 
-    <div class="pinboard">
-      <figure class="polaroid p1 reveal" data-d="1">
-        <span class="tape" aria-hidden="true"></span>
-        <a class="polaroid__zoom" data-lightbox href="images/g-haircut.jpg" data-gallery="humday" data-caption="Fresh cut, biggest smile of the day" aria-label="Enlarge photo: Fresh cut, biggest smile of the day">
+    <div class="hd-grid">
+      <figure class="hd-figure reveal">
+        <a class="hd-zoom" data-lightbox href="images/g-haircut.jpg" data-gallery="humday" data-caption="Fresh cut, biggest smile of the day" aria-label="Enlarge photo: Fresh cut, biggest smile of the day">
           <img src="images/g-haircut.jpg" alt="A young boy beaming with a huge smile while a barber gives him a fresh free haircut outdoors." width="1000" height="667">
         </a>
         <figcaption>Fresh cut, biggest smile of the day</figcaption>
       </figure>
-      <figure class="polaroid p2 reveal" data-d="2">
-        <a class="polaroid__zoom" data-lightbox href="images/g-feeding.jpg" data-gallery="humday" data-caption="A hot meal, shared at the table" aria-label="Enlarge photo: A hot meal, shared at the table">
+      <figure class="hd-figure reveal">
+        <a class="hd-zoom" data-lightbox href="images/g-feeding.jpg" data-gallery="humday" data-caption="A hot meal, shared at the table" aria-label="Enlarge photo: A hot meal, shared at the table">
           <img src="images/g-feeding.jpg" alt="Neighbors seated at tables with green tablecloths sharing a hot meal together outdoors." width="1200" height="800">
         </a>
         <figcaption>A hot meal, shared at the table</figcaption>
       </figure>
-      <figure class="polaroid p3 reveal" data-d="3">
-        <span class="tape" aria-hidden="true"></span>
-        <a class="polaroid__zoom" data-lightbox href="images/g-serve.jpg" data-gallery="humday" data-caption="Sack lunches &amp; juice, all day" aria-label="Enlarge photo: Sack lunches and juice, all day">
+      <figure class="hd-figure reveal">
+        <a class="hd-zoom" data-lightbox href="images/g-serve.jpg" data-gallery="humday" data-caption="Sack lunches &amp; juice, all day" aria-label="Enlarge photo: Sack lunches and juice, all day">
           <img src="images/g-serve.jpg" alt="A young male volunteer in a green Al-Maun shirt standing behind boxes of fresh produce beside juice and sack-lunch signs." width="1200" height="800">
         </a>
         <figcaption>Sack lunches &amp; juice, all day</figcaption>
       </figure>
-      <figure class="polaroid p4 reveal" data-d="1">
-        <a class="polaroid__zoom" data-lightbox href="images/g-126.jpg" data-gallery="humday" data-caption="Supplies with UnitedHealthcare" aria-label="Enlarge photo: Supplies with UnitedHealthcare">
+      <figure class="hd-figure reveal">
+        <a class="hd-zoom" data-lightbox href="images/g-126.jpg" data-gallery="humday" data-caption="Supplies with UnitedHealthcare" aria-label="Enlarge photo: Supplies with UnitedHealthcare">
           <img src="images/g-126.jpg" alt="Neighbors receiving supplies at a UnitedHealthcare partner booth, with a senior woman volunteer in a green apron helping." width="1200" height="800">
         </a>
         <figcaption>Supplies with UnitedHealthcare</figcaption>
       </figure>
-      <figure class="polaroid p5 reveal" data-d="2">
-        <span class="tape" aria-hidden="true"></span>
-        <a class="polaroid__zoom" data-lightbox href="images/g-348.jpg" data-gallery="humday" data-caption="Teens sorting Kits 4 Kidz" aria-label="Enlarge photo: Teens sorting Kits 4 Kidz">
+      <figure class="hd-figure reveal">
+        <a class="hd-zoom" data-lightbox href="images/g-348.jpg" data-gallery="humday" data-caption="Teens sorting Kits 4 Kidz" aria-label="Enlarge photo: Teens sorting Kits 4 Kidz">
           <img src="images/g-348.jpg" alt="Teen volunteers in green aprons sorting Kits 4 Kidz hygiene supplies at a table." width="1200" height="800">
         </a>
         <figcaption>Teens sorting Kits 4 Kidz</figcaption>
       </figure>
-      <figure class="polaroid p6 reveal" data-d="3">
-        <a class="polaroid__zoom" data-lightbox href="images/g-volunteers.jpg" data-gallery="humday" data-caption="Green aprons, ready to serve" aria-label="Enlarge photo: Green aprons, ready to serve">
+      <figure class="hd-figure reveal">
+        <a class="hd-zoom" data-lightbox href="images/g-volunteers.jpg" data-gallery="humday" data-caption="Green aprons, ready to serve" aria-label="Enlarge photo: Green aprons, ready to serve">
           <img src="images/g-volunteers.jpg" alt="Two women volunteers in green Al-Maun aprons smiling side by side at a booth under a tent." width="1000" height="667">
         </a>
         <figcaption>Green aprons, ready to serve</figcaption>
       </figure>
+    </div>
+    <div class="hd-more">
+      <a class="btn btn--ghost" href="impact.html">See all of Humanitarian Day &rarr;</a>
     </div>
   </div>
 </section>
