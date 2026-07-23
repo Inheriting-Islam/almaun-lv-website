@@ -722,3 +722,20 @@ p{margin:0}
   transition:color .18s ease,border-color .18s ease}
 .footer__theme:hover{color:#fff;border-color:rgba(237,228,214,.5)}
 .footer__theme svg{width:15px;height:15px}
+
+/* scroll progress bar */
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;
+  background:linear-gradient(90deg,var(--brand),var(--accent),var(--cta));z-index:300;pointer-events:none;will-change:transform}
+/* sticky donate bar */
+.give-bar{position:fixed;left:50%;bottom:18px;transform:translate(-50%,150%);z-index:160;display:flex;align-items:center;gap:.9rem;
+  max-width:min(94vw,620px);background:var(--ink);color:#fff;border-radius:var(--r-pill);padding:.5rem .55rem .5rem 1.35rem;
+  box-shadow:var(--shadow-lg);opacity:0;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .4s ease}
+.give-bar.is-on{transform:translate(-50%,0);opacity:1}
+.give-bar__msg{font-family:var(--font-head);font-weight:600;font-size:.95rem;letter-spacing:-.01em}
+.give-bar__cta{white-space:nowrap;padding:.62rem 1.4rem;font-size:.92rem}
+.give-bar__x{background:transparent;border:0;color:rgba(255,255,255,.6);font-size:1.5rem;line-height:1;cursor:pointer;padding:0 .35rem}
+.give-bar__x:hover{color:#fff}
+@media (max-width:560px){.give-bar{left:12px;right:12px;bottom:12px;max-width:none;transform:translateY(150%);padding-left:1.1rem}
+  .give-bar.is-on{transform:translateY(0)} .give-bar__msg{font-size:.85rem}}
+@media (prefers-reduced-motion:reduce){.scroll-progress{display:none}
+  .give-bar{transition:opacity .3s ease}}

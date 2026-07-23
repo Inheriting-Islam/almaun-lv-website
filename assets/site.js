@@ -275,3 +275,34 @@
   /* ------------------------------------------------------------ */
   window.AlMaun = { openModal: openModal, closeModal: closeModal, openLightbox: openLightbox };
 })();
+
+
+/* ===== scroll progress bar (subtle, dynamic) ===== */
+(function(){
+  var bar=document.createElement('div'); bar.className='scroll-progress'; bar.setAttribute('aria-hidden','true');
+  document.body.appendChild(bar);
+  var raf=false;
+  function upd(){ raf=false; var el=document.documentElement, max=el.scrollHeight-el.clientHeight;
+    bar.style.transform='scaleX('+(max>0?(el.scrollTop/max):0)+')'; }
+  addEventListener('scroll',function(){ if(!raf){ raf=true; requestAnimationFrame(upd); } },{passive:true});
+  addEventListener('resize',upd); upd();
+})();
+
+/* ===== sticky Donate bar (appears on scroll, hides near footer) ===== */
+(function(){
+  if(/give\.html$/.test(location.pathname)) return;            // don't show on the Give page
+  var bar=document.createElement('div'); bar.className='give-bar';
+  bar.innerHTML='<span class="give-bar__msg">Every gift stays on the Westside.</span>'+
+    '<a class="give-bar__cta btn btn--cta" href="give.html">Donate</a>'+
+    '<button class="give-bar__x" type="button" aria-label="Dismiss donate bar">\u00d7</button>';
+  document.body.appendChild(bar);
+  var off=false;
+  bar.querySelector('.give-bar__x').addEventListener('click',function(){ off=true; bar.classList.remove('is-on'); });
+  var foot=document.querySelector('.footer, footer');
+  function upd(){ if(off) return;
+    var y=window.scrollY||document.documentElement.scrollTop, near=false;
+    if(foot){ near=foot.getBoundingClientRect().top < window.innerHeight+30; }
+    bar.classList.toggle('is-on', y>640 && !near);
+  }
+  addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); upd();
+})();
