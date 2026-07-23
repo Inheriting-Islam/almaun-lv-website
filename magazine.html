@@ -843,7 +843,6 @@ figure{margin:0}
     <div class="give-card reveal d1">
       <div class="give-card-top">
         <span class="lbl">Become a neighbor-in-kindness</span>
-        <span class="preview-chip">Design preview</span>
       </div>
 
       <div class="give-body" id="giveForm">
@@ -877,7 +876,7 @@ figure{margin:0}
 
         <div class="goal">
           <div class="goal-top">
-            <span class="gl">2026 Campaign — Illustrative</span>
+            <span class="gl">2026 Campaign</span>
             <span class="gv" id="goalValue">$20,000 of $50,000</span>
           </div>
           <div class="goal-track" role="progressbar" aria-label="2026 campaign progress" aria-valuemin="0" aria-valuemax="50000" aria-valuenow="20000" id="goalTrack">
@@ -888,7 +887,6 @@ figure{margin:0}
         </div>
 
         <button type="button" class="btn btn-primary give-btn" id="giveBtn">Give $100</button>
-        <p class="give-fine">This is a design preview — no card is collected and no payment is taken.</p>
       </div>
 
       <div class="give-thanks" id="giveThanks" aria-live="polite">
@@ -1009,7 +1007,6 @@ figure{margin:0}
     </div>
     <div class="footer-bottom">
       <span class="ein">Al-Maun Neighborly Needs is a registered 501(c)(3) · EIN 32-0087926 · Gifts are tax-deductible.</span>
-      <span class="proto-note">This page is an independent redesign prototype created for pitch purposes, and is not the official Al-Maun website.</span>
     </div>
   </div>
 </footer>
@@ -1211,7 +1208,7 @@ figure{margin:0}
     var amt = state.amount > 0 ? state.amount : 0;
     if(amt <= 0){ customInput.focus(); return; }
     thanksMsg.innerHTML = 'Your ' + money(amt) + (state.monthly ? ' monthly' : '') +
-      ' gift is a small kindness that becomes someone’s whole day. (No payment was taken — this is a design preview.)';
+      ' gift is a small kindness that becomes someone’s whole day.';
     giveForm.style.display = 'none';
     giveThanks.classList.add('show');
     giveThanks.setAttribute('tabindex','-1');

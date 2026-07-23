@@ -733,7 +733,6 @@ ul.donate-why{padding:0;margin-top:1.4rem}
     <div class="widget reveal d2" id="widget">
       <div class="widget-head">
         <h3>Fund a kindness</h3>
-        <span class="preview-chip">Preview</span>
       </div>
       <div class="toggle" id="freqToggle" role="group" aria-label="Donation frequency">
         <span class="toggle-thumb" aria-hidden="true"></span>
@@ -775,7 +774,7 @@ ul.donate-why{padding:0;margin-top:1.4rem}
       <div class="thanks" id="thanks" role="status" aria-live="polite">
         <p class="ar">جَزَاكَ اللهُ خَيْرًا</p>
         <h4>Jaz&#257;k All&#257;hu khayran.</h4>
-        <p id="thanksText">Your $50 gift funds a summer cooling &amp; hygiene kit. This is a design preview — no payment was processed.</p>
+        <p id="thanksText">Your $50 gift funds a summer cooling &amp; hygiene kit. Jazāk Allāhu khayran.</p>
         <button class="btn again" id="giveAgain">Give again</button>
       </div>
     </div>
@@ -887,7 +886,6 @@ ul.donate-why{padding:0;margin-top:1.4rem}
     </div>
     <div class="footer-bottom">
       <span>© 2026 Al-Maun Neighborly Needs · Masjid As-Sabur · Las Vegas, Nevada</span>
-      <span class="proto-note">Redesign prototype — not the live site</span>
     </div>
   </div>
 </footer>
@@ -1058,7 +1056,7 @@ ul.donate-why{padding:0;margin-top:1.4rem}
   giveBtn.addEventListener("click", function(){
     if(!amount || amount <= 0){ customAmt.focus(); return; }
     thanksText.innerHTML = "Your " + amountLabel() + " gift funds " + impactText +
-      ". This is a design preview — no payment was processed.";
+      ".";
     thanks.classList.add("show");
   });
   giveAgain.addEventListener("click", function(){ thanks.classList.remove("show"); });
