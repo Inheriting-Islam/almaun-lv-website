@@ -148,6 +148,20 @@ p{margin:0}
   display:inline-flex;align-items:center;gap:.55rem;margin:0 0 1rem;
 }
 .eyebrow::before{content:"";width:26px;height:3px;border-radius:3px;background:var(--accent)}
+
+/* ============================================================
+   PAGE HEADER — standardized compact header for interior pages
+   (the home page keeps its signature full-bleed hero)
+   ============================================================ */
+.page-header{position:relative;overflow:hidden;border-bottom:1px solid var(--border);
+  background:radial-gradient(130% 130% at 88% -35%, color-mix(in srgb,var(--brand) 13%,transparent), transparent 56%), var(--band-cream);
+  padding-block:clamp(2.6rem,5.2vw,4.2rem) clamp(1.9rem,3.6vw,2.7rem)}
+.page-header__in{max-width:64ch}
+.page-header .eyebrow{margin-bottom:.9rem}
+.page-header h1{font-size:clamp(2.1rem,5vw,3.5rem);font-weight:800;letter-spacing:-.03em;line-height:1.05;text-wrap:balance;color:var(--text)}
+.page-header h1 em{font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--brand-strong)}
+.page-header .lead{margin-top:1.05rem}
+.page-header__cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.7rem}
 .lead{font-size:var(--fs-lead);color:var(--text-muted);line-height:1.7;max-width:56ch}
 .skip{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:.7rem 1.1rem;border-radius:0 0 10px 0;z-index:200}
 .skip:focus{left:0}
