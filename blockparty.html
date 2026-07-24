@@ -770,6 +770,28 @@ p{margin:0}
   .lightbox__nav{width:42px;height:42px;background:rgba(10,12,8,.72)}
 }
 @media (prefers-reduced-motion:reduce){.lightbox__nav{transition:none}}
+
+/* === sync home page with shared bp.css fixes (this page uses inline CSS) === */
+.btn svg{flex:none;width:1.15em;height:1.15em}
+.footer__soc{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;border:1px solid rgba(237,228,214,.22);color:#EDE4D6;margin-top:1.2rem;transition:background .18s ease,color .18s ease,border-color .18s ease}
+.footer__soc+.footer__soc{margin-left:.55rem}
+.footer__soc:hover{background:var(--accent);color:#120F0B;border-color:var(--accent)}
+.footer__soc svg{width:18px;height:18px}
+.footer__legal{margin-left:auto}
+.footer__theme{display:inline-flex;align-items:center;gap:.42rem;background:transparent;border:1px solid rgba(237,228,214,.22);color:rgba(237,228,214,.8);border-radius:var(--r-pill);padding:.42rem .85rem;cursor:pointer;font-family:var(--font-head);font-weight:600;font-size:.8rem;line-height:1;transition:color .18s ease,border-color .18s ease}
+.footer__theme:hover{color:#fff;border-color:rgba(237,228,214,.5)}
+.footer__theme svg{width:15px;height:15px}
+.footer__bar>.footer__theme{margin-left:.4rem}
+@media(max-width:640px){.footer__legal{margin-left:0}.footer__bar>.footer__theme{margin-left:0}}
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,var(--brand),var(--accent),var(--cta));z-index:300;pointer-events:none;will-change:transform}
+.give-bar{position:fixed;left:50%;bottom:18px;transform:translate(-50%,150%);z-index:160;display:flex;align-items:center;gap:.9rem;max-width:min(94vw,620px);background:var(--ink);color:#fff;border-radius:var(--r-pill);padding:.5rem .55rem .5rem 1.35rem;box-shadow:var(--shadow-lg);opacity:0;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .4s ease}
+.give-bar.is-on{transform:translate(-50%,0);opacity:1}
+.give-bar__msg{font-family:var(--font-head);font-weight:600;font-size:.95rem}
+.give-bar__cta{white-space:nowrap;padding:.62rem 1.4rem;font-size:.92rem}
+.give-bar__x{background:transparent;border:0;color:rgba(255,255,255,.6);font-size:1.5rem;line-height:1;cursor:pointer;padding:0 .35rem}
+.give-bar__x:hover{color:#fff}
+@media (max-width:560px){.give-bar{left:12px;right:12px;bottom:12px;max-width:none;transform:translateY(150%);padding-left:1.1rem}.give-bar.is-on{transform:translateY(0)}.give-bar__msg{font-size:.85rem}}
+@media (prefers-reduced-motion:reduce){.scroll-progress{display:none}.give-bar{transition:opacity .3s ease}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"NGO","name":"Al-Maun Neighborly Needs","alternateName":"Al-Maun LV","url":"https://www.almaunlv.org/","logo":"https://www.almaunlv.org/images/logo-green.png","email":"almaun@gmail.com","telephone":"+1-702-647-2500","foundingDate":"2003","description":"The grassroots humanitarian arm of Masjid As-Sabur, serving the Historic Westside of Las Vegas since 2003.","address":{"@type":"PostalAddress","streetAddress":"711 Morgan Ave","addressLocality":"Las Vegas","addressRegion":"NV","postalCode":"89106","addressCountry":"US"},"sameAs":["https://instagram.com/almaunlv_official","https://www.facebook.com/almaun.org/"]}
@@ -1164,23 +1186,14 @@ p{margin:0}
 <section class="section partners" id="partners" aria-label="Our partners">
   <div class="container">
     <p class="partners__lbl reveal">In good company &mdash; our partners on the block</p>
-    <div class="partners__marquee reveal" data-d="1">
-      <div class="partners__track">
-        <span class="partner">ILM Foundation</span>
-        <span class="partner">Las Vegas Raiders</span>
-        <span class="partner">Albertsons</span>
-        <span class="partner">Raising Cane&#39;s</span>
-        <span class="partner">UnitedHealthcare</span>
-        <span class="partner">UNLV</span>
-        <span class="partner">Vituity Cares</span>
-        <span class="partner" aria-hidden="true">ILM Foundation</span>
-        <span class="partner" aria-hidden="true">Las Vegas Raiders</span>
-        <span class="partner" aria-hidden="true">Albertsons</span>
-        <span class="partner" aria-hidden="true">Raising Cane&#39;s</span>
-        <span class="partner" aria-hidden="true">UnitedHealthcare</span>
-        <span class="partner" aria-hidden="true">UNLV</span>
-        <span class="partner" aria-hidden="true">Vituity Cares</span>
-      </div>
+    <div class="partners__row reveal" data-d="1">
+      <span class="partner">ILM Foundation</span>
+      <span class="partner">Las Vegas Raiders</span>
+      <span class="partner">Albertsons</span>
+      <span class="partner">Raising Cane&#39;s</span>
+      <span class="partner">UnitedHealthcare</span>
+      <span class="partner">UNLV</span>
+      <span class="partner">Vituity Cares</span>
     </div>
   </div>
 </section>
