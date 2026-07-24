@@ -22,10 +22,6 @@
    GIVE PAGE — page-specific styles (reuse bp.css; new classes = gv-)
    ============================================================ */
 
-/* --- hero photo tilt --- */
-.gv-hero .photo-frame{transform:rotate(-1.7deg)}
-.gv-hero .hero__cap{left:auto;right:14px}
-
 /* header social cluster now comes from assets/bp.css */
 
 /* small "most give here" nudge above the widget */
@@ -71,45 +67,6 @@
     color-mix(in srgb,var(--cta) 15%,transparent) 8px 16px);
   transition:width 1s cubic-bezier(.2,.7,.2,1)}
 .goal__cap b.gv-proj{color:var(--cta-strong)}
-
-/* ============================================================
-   WHERE YOUR GIFT GOES — tier cards + honest split
-   ============================================================ */
-.gv-goes{background:var(--band-cream)}
-.gv-goes .sec-head{text-align:center;margin-inline:auto}
-.gv-tiers{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(.7rem,1.5vw,1.1rem)}
-@media(max-width:1000px){.gv-tiers{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:640px){.gv-tiers{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:400px){.gv-tiers{grid-template-columns:1fr}}
-.gv-tcard{position:relative;overflow:hidden;background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:1.6rem 1.25rem 1.4rem;
-  display:flex;flex-direction:column;gap:.45rem;transition:transform .22s ease,box-shadow .3s ease}
-.gv-tcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
-.gv-tcard::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:var(--_c,var(--brand))}
-.gv-tcard:nth-child(1){--_c:var(--brand)}
-.gv-tcard:nth-child(2){--_c:var(--accent)}
-.gv-tcard:nth-child(3){--_c:var(--cta)}
-.gv-tcard:nth-child(4){--_c:var(--green-deep)}
-.gv-tcard:nth-child(5){--_c:var(--brand-strong)}
-.gv-tcard__amt{font-family:var(--font-head);font-weight:800;font-size:clamp(1.7rem,3vw,2.1rem);
-  letter-spacing:-.03em;line-height:1;color:var(--text)}
-.gv-tcard__ttl{font-family:var(--font-head);font-weight:700;font-size:1.02rem;margin-top:.15rem}
-.gv-tcard__txt{font-family:var(--font-accent);font-style:italic;color:var(--text-muted);font-size:.94rem;line-height:1.45}
-
-/* honest allocation split */
-.gv-split{margin-top:clamp(2rem,4vw,3rem);background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:clamp(1.3rem,2.5vw,1.9rem)}
-.gv-split__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.5rem;margin-bottom:1rem}
-.gv-split__head h3{font-size:1.15rem;font-weight:800}
-.gv-split__head span{font-family:var(--font-head);font-weight:600;font-size:.8rem;letter-spacing:.04em;
-  text-transform:uppercase;color:var(--text-muted)}
-.gv-split__bar{display:flex;height:26px;border-radius:var(--r-pill);overflow:hidden;box-shadow:inset 0 0 0 1px var(--border)}
-.gv-split__seg{height:100%}
-.gv-split__legend{display:flex;flex-wrap:wrap;gap:.7rem 1.6rem;margin-top:1.1rem}
-.gv-split__item{display:flex;align-items:center;gap:.55rem;font-size:.92rem;color:var(--text)}
-.gv-split__item b{font-family:var(--font-head)}
-.gv-split__sw{width:15px;height:15px;border-radius:5px;flex:none}
-.gv-split__note{margin-top:1.1rem;font-size:.85rem;color:var(--text-muted);font-style:italic;font-family:var(--font-accent)}
 
 /* ============================================================
    ZAKAT & SADAQAH
@@ -204,27 +161,9 @@
 .gv-acc__panel-inner p{padding:0 1.3rem 1.25rem;color:var(--text-muted);font-size:.98rem;line-height:1.65}
 .gv-acc__panel-inner p a{color:var(--brand-strong);font-weight:600;text-decoration:underline}
 
-/* ============================================================
-   FINAL — testimonial + CTA over photo
-   ============================================================ */
-.gv-final{background:var(--band-deep);color:var(--text-invert)}
-.gv-final__grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(1.6rem,4vw,3.4rem);align-items:center}
-@media(max-width:880px){.gv-final__grid{grid-template-columns:1fr}}
-.gv-final .photo-frame{transform:rotate(-1.8deg);max-width:440px}
-.gv-final__q{font-family:var(--font-accent);font-style:italic;font-weight:400;
-  font-size:clamp(1.5rem,3.4vw,2.3rem);line-height:1.35;color:var(--text-invert)}
-.gv-final__q .mk{color:var(--accent);font-weight:600}
-.gv-final__by{margin-top:1.2rem;font-family:var(--font-head);font-weight:600;font-size:.92rem;
-  letter-spacing:.02em;color:color-mix(in srgb,var(--text-invert) 78%,transparent)}
-.gv-final__cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
-.gv-final .btn--ghost{--_fg:var(--text-invert);box-shadow:inset 0 0 0 2px rgba(255,246,233,.4)}
-.gv-final .btn--ghost:hover{--_bg:rgba(255,246,233,.1);box-shadow:inset 0 0 0 2px var(--accent)}
-.gv-final__note{margin-top:1.2rem;font-size:.85rem;color:color-mix(in srgb,var(--text-invert) 65%,transparent)}
-
 /* reduced motion */
 @media (prefers-reduced-motion: reduce){
   .gv-nudge .dot::after{animation:none}
-  .gv-tcard:hover{transform:none}
   .gv-goalghost,.gv-acc__panel,.gv-acc__ic,.goal__fill{transition:none}
 }
 </style>
@@ -289,75 +228,18 @@
 
 <main id="main">
 
-<!-- ===================== HERO ===================== -->
-<section class="hero gv-hero" id="hero">
-
-  <div class="container hero__in">
-    <div class="hero__copy">
+<!-- ===================== DONATION MODULE (centerpiece, top-of-page) ===================== -->
+<section class="section donate" id="give" aria-labelledby="don-h">
+  <div class="container donate__grid">
+    <div class="donate__intro reveal">
       <p class="eyebrow">Give</p>
-
-      <h1>
-        <span class="soft">Turn a small kindness</span><br>
-        <span class="soft">into someone&#39;s whole</span>
-        <span class="mark"><span class="accent">week.</span>
-          <svg class="mark__line" viewBox="0 0 320 24" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M6 15 C 70 5, 130 22, 190 12 S 292 6, 314 17"/>
-          </svg>
-        </span>
-      </h1>
-
-      <p class="hero__sub">A hot meal. A cooling kit for a 110&deg; afternoon. A clinic visit for someone the system forgot. On the Historic Westside, small gifts land as real relief the very same week &mdash; handed neighbor-to-neighbor, no paperwork, no judgment.</p>
-
-      <div class="hero__cta">
-        <a class="btn btn--cta btn--lg" href="#give">Give now</a>
-        <a class="btn btn--ghost btn--lg" href="#gv-ways">More ways to give</a>
-      </div>
-
+      <h2 id="don-h">Turn a small kindness into someone&#39;s whole <em>week.</em></h2>
+      <p class="lead" style="color:var(--text);max-width:none">A hot meal, a cooling kit, a clinic visit &mdash; small gifts land as real relief the same week, handed neighbor to neighbor on the Historic Westside.</p>
       <div class="hero__badges">
         <span class="chip chip--mint"><span class="dot" aria-hidden="true"></span>Zakat-eligible</span>
         <span class="chip">Tax-deductible 501(c)(3)</span>
         <span class="chip">100% stays on the Westside</span>
       </div>
-    </div>
-
-    <div class="hero__media">
-      <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true">
-        <g class="stamp__ring">
-          <circle class="stamp__disc" cx="60" cy="60" r="56"/>
-          <circle class="stamp__edge" cx="60" cy="60" r="51"/>
-          <defs><path id="ring" d="M60,60 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs>
-          <text><textPath href="#ring" startOffset="0">EVERY DOLLAR STAYS ON THE BLOCK &#183; SINCE 2003 &#183; </textPath></text>
-        </g>
-        <text class="stamp__star" x="60" y="50" text-anchor="middle" font-size="14">&#10022;</text>
-        <text class="stamp__center" x="60" y="70" text-anchor="middle">AL-MAUN</text>
-      </svg>
-      <figure class="photo-frame">
-        <span class="tape tape--tl" aria-hidden="true"></span>
-        <span class="tape tape--br" aria-hidden="true"></span>
-        <img src="images/g-haircut.jpg" alt="A young boy beaming with the biggest smile of the day while a barber gives him a fresh free haircut outdoors at an Al-Maun event." width="1000" height="667">
-        <figcaption class="hero__cap">This is what your $25 looks like.</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== DONATION MODULE (centerpiece) ===================== -->
-<section class="section donate" id="give" aria-labelledby="don-h">
-  <div class="container donate__grid">
-    <div class="donate__intro reveal">
-      <p class="eyebrow">The giving that does the work</p>
-      <h2 id="don-h">Choose an amount &mdash; watch <em>exactly</em> what it does.</h2>
-      <p class="lead" style="color:var(--text);max-width:none">We under-ask and over-deliver. But a hot meal still costs money, and a cooling fan in July isn&#39;t free. Pick a tier and see the neighbor down the street it reaches this week &mdash; then give in about ten seconds.</p>
-      <ul class="give-list">
-        <li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span> Stewarded by volunteers &mdash; your gift becomes relief, not overhead.</li>
-        <li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span> Zakat-eligible &amp; tax-deductible &mdash; a registered 501(c)(3).</li>
-        <li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span> Serves everyone &mdash; Muslim &amp; non-Muslim, no questions at the door.</li>
-      </ul>
-      <figure class="photo-frame">
-        <span class="tape tape--tl" aria-hidden="true"></span>
-        <img src="images/prog-food.jpg" alt="An Al-Maun volunteer handing fresh food to a neighbor on the Historic Westside." width="600" height="400">
-        <figcaption class="hero__cap" style="left:auto;right:14px">Handed over, neighbor to neighbor.</figcaption>
-      </figure>
     </div>
 
     <div class="widget reveal" data-d="2" aria-labelledby="widget-h">
@@ -458,63 +340,6 @@
         <a class="btn btn--cta" href="https://www.almaunlv.org/donate-almaun" target="_blank" rel="noopener">Continue to donate securely</a>
         <button type="button" class="btn btn--ghost" id="giveAgain">Choose another amount</button>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== WHERE YOUR GIFT GOES ===================== -->
-<section class="section gv-goes" id="gv-goes" aria-labelledby="goes-h">
-  <div class="container">
-    <div class="sec-head reveal">
-      <p class="eyebrow" style="justify-content:center">Where your gift goes</p>
-      <h2 id="goes-h">Every dollar stays on <em style="font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--brand-strong)">the block.</em></h2>
-      <p class="lead" style="margin-inline:auto">No far-off headquarters. No layers to pass through. Your gift travels a few blocks &mdash; from this page to a table on Morgan Avenue &mdash; and turns into something a neighbor can hold the same week.</p>
-    </div>
-
-    <div class="gv-tiers">
-      <article class="gv-tcard reveal" data-d="1">
-        <span class="gv-tcard__amt">$25</span>
-        <h3 class="gv-tcard__ttl">Hot meals</h3>
-        <p class="gv-tcard__txt">A warm plate for a family this week &mdash; nobody goes to bed hungry on our watch.</p>
-      </article>
-      <article class="gv-tcard reveal" data-d="2">
-        <span class="gv-tcard__amt">$50</span>
-        <h3 class="gv-tcard__ttl">Cooling &amp; hygiene kit</h3>
-        <p class="gv-tcard__txt">A fan, water, and hygiene basics for someone facing a 110&deg; Las Vegas afternoon.</p>
-      </article>
-      <article class="gv-tcard reveal" data-d="3">
-        <span class="gv-tcard__amt">$100</span>
-        <h3 class="gv-tcard__ttl">A free clinic visit</h3>
-        <p class="gv-tcard__txt">Care at the clinic we built with UNLV &mdash; for a neighbor with nowhere else to turn.</p>
-      </article>
-      <article class="gv-tcard reveal" data-d="4">
-        <span class="gv-tcard__amt">$250</span>
-        <h3 class="gv-tcard__ttl">Groceries, delivered</h3>
-        <p class="gv-tcard__txt">A full week of groceries carried to the door of a homebound senior.</p>
-      </article>
-      <article class="gv-tcard reveal" data-d="5">
-        <span class="gv-tcard__amt">$500</span>
-        <h3 class="gv-tcard__ttl">A home, kept</h3>
-        <p class="gv-tcard__txt">Rent or utility help that keeps a family under their own roof one more month.</p>
-      </article>
-    </div>
-
-    <div class="gv-split reveal">
-      <div class="gv-split__head">
-        <h3>How a typical dollar is stewarded</h3>
-        <span>Where it goes</span>
-      </div>
-      <div class="gv-split__bar" role="img" aria-label="How Al-Maun aims to steward a gift: about 85 percent to direct neighbor aid, 10 percent to food and supplies, 5 percent to keeping the doors open.">
-        <span class="gv-split__seg" style="width:85%;background:var(--brand)"></span>
-        <span class="gv-split__seg" style="width:10%;background:var(--accent)"></span>
-        <span class="gv-split__seg" style="width:5%;background:var(--cta)"></span>
-      </div>
-      <div class="gv-split__legend">
-        <span class="gv-split__item"><span class="gv-split__sw" style="background:var(--brand)"></span><b>~85&cent;</b>&nbsp;Direct aid to a neighbor</span>
-        <span class="gv-split__item"><span class="gv-split__sw" style="background:var(--accent)"></span><b>~10&cent;</b>&nbsp;Food, kits &amp; supplies</span>
-        <span class="gv-split__item"><span class="gv-split__sw" style="background:var(--cta)"></span><b>~5&cent;</b>&nbsp;Keeping the doors open</span>
-      </div>
-      <p class="gv-split__note">Al-Maun is volunteer-run, so overhead stays remarkably small &mdash; the overwhelming share of every gift reaches the block.</p>
     </div>
   </div>
 </section>
@@ -699,7 +524,7 @@
           </button>
         </h3>
         <div class="gv-acc__panel" id="faq3-panel" role="region" aria-labelledby="faq3-btn">
-          <div class="gv-acc__panel-inner"><p>Straight to a neighbor on the Historic Westside &mdash; hot meals, cooling &amp; hygiene kits, free clinic visits, grocery deliveries to seniors, and rent or utility help. Because the work is volunteer-run, overhead stays small and the overwhelming share reaches the block. See <a href="#gv-goes">Where your gift goes</a> for the breakdown.</p></div>
+          <div class="gv-acc__panel-inner"><p>Straight to a neighbor on the Historic Westside &mdash; hot meals, cooling &amp; hygiene kits, free clinic visits, grocery deliveries to seniors, and rent or utility help. Because the work is volunteer-run, overhead stays small and the overwhelming share reaches the block.</p></div>
         </div>
       </div>
 
@@ -726,31 +551,6 @@
           <div class="gv-acc__panel-inner"><p>Giving runs through an encrypted, PCI-compliant payment processor. Your card details are handled securely by the processor and never touch our servers.</p></div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== FINAL: TESTIMONIAL + CTA ===================== -->
-<section class="section gv-final" id="gv-final" aria-labelledby="final-h">
-  <div class="container gv-final__grid">
-    <div class="reveal">
-      <figure class="photo-frame">
-        <span class="tape tape--tl" aria-hidden="true"></span>
-        <img src="images/feature-hug.jpg" alt="An older neighbor warmly embracing two smiling young women volunteers in green Al-Maun aprons at a Humanitarian Day tent." width="1099" height="732">
-        <figcaption class="hero__cap">This is what neighbors look like.</figcaption>
-      </figure>
-    </div>
-    <div class="reveal" data-d="2">
-      <p class="eyebrow" style="color:var(--accent)">Give today</p>
-      <blockquote class="gv-final__q">
-        &ldquo;I came for a hot plate and left with a <span class="mk">haircut, a fan for the heat, and people who knew my name.</span> That&#39;s not charity. That&#39;s neighbors.&rdquo;
-      </blockquote>
-      <p class="gv-final__by">&mdash; A neighbor served on Humanitarian Day, Historic Westside</p>
-      <div class="gv-final__cta">
-        <a class="btn btn--cta btn--lg" href="#give">Give a small kindness</a>
-        <a class="btn btn--ghost btn--lg" href="mailto:almaun@gmail.com?subject=A%20question%20about%20giving">Ask a question</a>
-      </div>
-      <p class="gv-final__note">Zakat-eligible &middot; Tax-deductible 501(c)(3) &middot; Every dollar stays on the Westside.</p>
     </div>
   </div>
 </section>
