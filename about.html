@@ -101,6 +101,14 @@
 .ab-person .ab-role{font-family:var(--font-head);font-weight:700;font-size:.74rem;letter-spacing:.1em;
   text-transform:uppercase;color:var(--brand-strong);margin-bottom:.75rem}
 .ab-person p{color:var(--text-muted);font-size:.95rem}
+/* in-memoriam treatment (dignified, warm — not heavy) */
+.ab-person--memoriam{border-color:rgba(245,166,35,.55);background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 9%,var(--surface)),var(--surface));position:relative;overflow:hidden}
+.ab-person--memoriam::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--brand),var(--accent))}
+.ab-memoriam__label{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--font-head);font-weight:700;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem}
+.ab-memoriam__label svg{width:15px;height:15px}
+.ab-memoriam__ar{font-family:var(--font-ar);font-size:1.5rem;color:var(--brand-strong);margin:.15rem 0 .1rem;line-height:1.7}
+.ab-memoriam__dua{color:var(--text);font-family:var(--font-accent);font-style:italic;font-size:.92rem;margin-top:.75rem}
+.rahima{font-family:var(--font-accent);font-style:italic;font-weight:500;color:var(--text-muted);font-size:.92em}
 .ab-soon{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.6rem;
   font-family:var(--font-head);font-weight:600;font-size:.82rem;color:var(--text-muted);
   background:var(--surface);border-radius:var(--r-pill);padding:.5rem .95rem;box-shadow:inset 0 0 0 1.5px var(--border)}
@@ -325,7 +333,7 @@
           <span class="ab-tl-year">2003</span>
           <div class="ab-tl-card">
             <h3>Al-Maun is founded</h3>
-            <p><b>Imam Fateen</b> and <b>Sister Nisaa Seifullah</b> launched Al-Maun (Neighborly Needs) as the masjid&#39;s service arm &mdash; a way to answer Surah Al-Ma&#39;un with hot meals, groceries, and a hand up for anyone who knocked. Muslim or not.</p>
+            <p><b>Imam Fateen</b> and <b>Sister Nisaa Seifullah</b> <em class="rahima">(raḥimahā Allāh)</em> launched Al-Maun (Neighborly Needs) as the masjid&#39;s service arm &mdash; a way to answer Surah Al-Ma&#39;un with hot meals, groceries, and a hand up for anyone who knocked. Muslim or not.</p>
           </div>
         </li>
         <li class="ab-tl-item reveal" data-d="1">
@@ -402,11 +410,14 @@
         <p class="ab-role">Imam &amp; Co-founder</p>
         <p>Spiritual leader of Masjid As-Sabur and a co-founder of Al-Maun &mdash; the steady voice behind &ldquo;serve the neighbor first, ask questions never.&rdquo;</p>
       </article>
-      <article class="ab-person reveal" data-d="2">
+      <article class="ab-person ab-person--memoriam reveal" data-d="2">
+        <p class="ab-memoriam__label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg> In loving memory</p>
         <div class="ab-avatar" aria-hidden="true">NS</div>
         <h3>Sister Nisaa Seifullah</h3>
-        <p class="ab-role">Co-founder</p>
-        <p>Co-founder and the organizing heart of the work &mdash; from the pantry to Nisaa&#39;s Academy, she&#39;s spent two decades turning compassion into logistics.</p>
+        <p class="ab-role">Co-founder of Al-Maun</p>
+        <p class="ab-memoriam__ar" lang="ar" dir="rtl">رحمها الله</p>
+        <p>The organizing heart of the work &mdash; from the food pantry to the classes of <b>Nisaa&#39;s Academy</b> that carry her name, she gave two decades to turning compassion into logistics for her neighbors. Her sadaqah continues in every meal served on the block.</p>
+        <p class="ab-memoriam__dua">Innā lillāhi wa innā ilayhi rājiʿūn &mdash; may Allah have mercy on her and grant her Jannah.</p>
       </article>
       <article class="ab-person reveal" data-d="3">
         <div class="ab-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="3.5"/><path d="M17 4a3.5 3.5 0 0 1 0 6.6M23 20v-2a4 4 0 0 0-3-3.8"/></svg></div>
