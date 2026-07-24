@@ -711,7 +711,9 @@ p{margin:0}
 
 /* footer legal links (Privacy/Terms/Donor) */
 .footer__bar{flex-wrap:wrap;gap:.5rem 1.4rem}
-.footer__legal{display:inline-flex;flex-wrap:wrap;gap:.35rem .6rem;align-items:center}
+.footer__legal{display:inline-flex;flex-wrap:wrap;gap:.35rem .6rem;align-items:center;margin-left:auto}
+.footer__bar>.footer__theme{margin-left:.4rem}
+@media(max-width:640px){.footer__legal{margin-left:0}.footer__bar>.footer__theme{margin-left:0}}
 .footer__legal a{color:rgba(237,228,214,.82);border-bottom:1px solid transparent;transition:color .15s ease,border-color .15s ease}
 .footer__legal a:hover{color:#fff;border-bottom-color:currentColor}
 
