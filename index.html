@@ -1,79 +1,1506 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Al-Maun — Redesign Directions</title>
-<meta name="robots" content="noindex">
+<title>Al-Maun Neighborly Needs — Neighbors Helping Neighbors · Las Vegas</title>
+<link rel="canonical" href="https://www.almaunlv.org/">
+<meta property="og:site_name" content="Al-Maun Neighborly Needs">
+<meta property="og:title" content="Al-Maun Neighborly Needs — Neighbors Helping Neighbors · Las Vegas">
+<meta property="og:description" content="Since 2003, Al-Maun Neighborly Needs — the humanitarian arm of Masjid As-Sabur — feeds, heals, and stands with neighbors on the Historic Westside of Las Vegas. Everyone welcome.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.almaunlv.org/">
+<meta property="og:image" content="https://www.almaunlv.org/images/hero-line.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Since 2003, Al-Maun Neighborly Needs — the humanitarian arm of Masjid As-Sabur — feeds, heals, and stands with neighbors on the Historic Westside of Las Vegas. Everyone welcome.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
-  @font-face{font-family:'Sora';font-weight:700;font-display:swap;src:url('fonts/sora-700.woff2') format('woff2')}
-  @font-face{font-family:'Sora';font-weight:800;font-display:swap;src:url('fonts/sora-800.woff2') format('woff2')}
-  @font-face{font-family:'Inter';font-weight:400;font-display:swap;src:url('fonts/inter-400.woff2') format('woff2')}
-  @font-face{font-family:'Inter';font-weight:500;font-display:swap;src:url('fonts/inter-500.woff2') format('woff2')}
-  @font-face{font-family:'Inter';font-weight:600;font-display:swap;src:url('fonts/inter-600.woff2') format('woff2')}
-  :root{--green:#0E7A46;--green-d:#08301F;--ink:#16160F;--paper:#F7F5EE;--card:#fff;--muted:#5e6b60;--line:#e4e6dc;--coral:#FF5A3C}
-  @media(prefers-color-scheme:dark){:root{--paper:#0c130e;--card:#121a14;--ink:#eef2e8;--muted:#9db0a2;--line:#243029;--green:#25b06a}}
-  *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,44px)}
-  header.top{padding:clamp(40px,6vw,72px) 0 clamp(24px,3vw,36px)}
-  .kick{display:inline-flex;align-items:center;gap:9px;font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
-  .kick .d{width:8px;height:8px;border-radius:50%;background:var(--coral)}
-  h1{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(2.1rem,5vw,3.4rem);letter-spacing:-.03em;line-height:1.03;margin:16px 0 0}
-  header.top p{color:var(--muted);font-size:clamp(1.02rem,1.5vw,1.18rem);max-width:60ch;margin:18px 0 0}
-  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;padding:12px 0 64px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s ease,box-shadow .2s ease}
-  .card:hover{transform:translateY(-5px);box-shadow:0 30px 60px -34px rgba(8,48,31,.5)}
-  .thumb{position:relative;height:320px;overflow:hidden;background:#ddd;border-bottom:1px solid var(--line)}
-  .thumb iframe{border:0;transform-origin:top left;pointer-events:none;width:1440px;height:1000px}
-  .thumb .go{position:absolute;inset:0;z-index:2}
-  .tag{position:absolute;top:14px;left:14px;z-index:3;background:rgba(8,48,31,.82);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:100px;backdrop-filter:blur(4px)}
-  .bd{padding:24px 24px 26px;display:flex;flex-direction:column;flex:1}
-  .bd h2{font-family:'Sora',sans-serif;font-weight:700;font-size:1.5rem;letter-spacing:-.02em;margin:0}
-  .bd .vibe{color:var(--muted);font-size:.95rem;margin:10px 0 0;flex:1}
-  .chips{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 0}
-  .chips span{font-size:.72rem;color:var(--green);background:color-mix(in srgb,var(--green) 12%,transparent);padding:5px 11px;border-radius:100px;font-weight:600}
-  .open{margin-top:20px;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--green);color:#fff;font-weight:600;font-size:.95rem;padding:13px 20px;border-radius:100px;align-self:flex-start;transition:.18s}
-  .card:hover .open{background:var(--coral)}
-  .open svg{width:16px;height:16px}
-  footer{border-top:1px solid var(--line);padding:28px 0 60px;color:var(--muted);font-size:.86rem;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+/* ============================================================
+   FONTS
+   ============================================================ */
+@font-face{font-family:'Sora';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/sora-400.woff2') format('woff2');}
+@font-face{font-family:'Sora';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/sora-500.woff2') format('woff2');}
+@font-face{font-family:'Sora';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/sora-600.woff2') format('woff2');}
+@font-face{font-family:'Sora';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/sora-700.woff2') format('woff2');}
+@font-face{font-family:'Sora';font-style:normal;font-weight:800;font-display:swap;src:url('fonts/sora-800.woff2') format('woff2');}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/dm-sans-400.woff2') format('woff2');}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/dm-sans-500.woff2') format('woff2');}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/dm-sans-700.woff2') format('woff2');}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:400;font-display:swap;src:url('fonts/fraunces-italic-400.woff2') format('woff2');}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:600;font-display:swap;src:url('fonts/fraunces-italic-600.woff2') format('woff2');}
+
+/* ============================================================
+   TOKENS  (light-first)
+   ============================================================ */
+:root{
+  /* raw warm palette */
+  --cream:#FFF6E9;
+  --green:#2E9E5B;
+  --green-deep:#1F7A44;
+  --green-ink:#14532B;
+  --marigold:#F5A623;
+  --tomato:#EE5B3B;
+  --tomato-deep:#D2451F;
+  --ink:#2B2620;
+
+  /* semantic */
+  --bg:#FFF6E9;
+  --band-cream:#FFF6E9;
+  --band-mint:#E7F4EB;
+  --band-marigold:#FCEFD3;
+  --band-deep:#14532B;
+  --surface:#FFFFFF;
+  --surface-2:#FFFBF3;
+  --text:#2B2620;
+  --text-muted:#6E6459;
+  --text-invert:#FFF6E9;
+  --brand:#2E9E5B;
+  --brand-strong:#1F7A44;
+  --accent:#F5A623;
+  --cta:#EE5B3B;
+  --cta-strong:#D2451F;
+  --border:rgba(43,38,32,.12);
+  --border-strong:rgba(43,38,32,.20);
+  --tape:rgba(245,166,35,.42);
+  --focus:#D2451F;
+
+  --shadow-sm:0 4px 14px -8px rgba(43,38,32,.30);
+  --shadow-md:0 14px 34px -16px rgba(43,38,32,.30);
+  --shadow-lg:0 30px 60px -24px rgba(43,38,32,.34);
+  --shadow-photo:0 18px 40px -20px rgba(43,38,32,.42);
+
+  /* radii */
+  --r-sm:12px; --r-md:18px; --r-lg:26px; --r-xl:36px; --r-pill:999px;
+
+  /* type */
+  --font-head:'Sora',system-ui,-apple-system,Segoe UI,sans-serif;
+  --font-body:'DM Sans',system-ui,-apple-system,Segoe UI,sans-serif;
+  --font-accent:'Fraunces',Georgia,'Times New Roman',serif;
+  --font-ar:"Geeza Pro","Noto Naskh Arabic","Times New Roman",serif;
+
+  --fs-hero:clamp(2.55rem,7.2vw,5.1rem);
+  --fs-h2:clamp(1.9rem,4.4vw,3.15rem);
+  --fs-h3:clamp(1.2rem,2.3vw,1.55rem);
+  --fs-lead:clamp(1.06rem,1.55vw,1.28rem);
+  --container:min(1200px,92vw);
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]):not([data-theme="dark"]){
+    --bg:#191510;
+    --band-cream:#211C15;
+    --band-mint:#182A1F;
+    --band-marigold:#282016;
+    --band-deep:#0E3A20;
+    --surface:#26201A;
+    --surface-2:#2C251D;
+    --text:#F4ECDD;
+    --text-muted:#B7AB99;
+    --text-invert:#FFF6E9;
+    --brand:#48B978;
+    --brand-strong:#5FCB8B;
+    --accent:#F7B740;
+    --cta:#F26F51;
+    --cta-strong:#F5866C;
+    --border:rgba(244,236,221,.14);
+    --border-strong:rgba(244,236,221,.24);
+    --tape:rgba(247,183,64,.30);
+    --focus:#F7B740;
+    --shadow-sm:0 4px 14px -8px rgba(0,0,0,.6);
+    --shadow-md:0 16px 34px -16px rgba(0,0,0,.62);
+    --shadow-lg:0 30px 60px -24px rgba(0,0,0,.7);
+    --shadow-photo:0 18px 40px -20px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#191510;
+  --band-cream:#211C15;
+  --band-mint:#182A1F;
+  --band-marigold:#282016;
+  --band-deep:#0E3A20;
+  --surface:#26201A;
+  --surface-2:#2C251D;
+  --text:#F4ECDD;
+  --text-muted:#B7AB99;
+  --text-invert:#FFF6E9;
+  --brand:#48B978;
+  --brand-strong:#5FCB8B;
+  --accent:#F7B740;
+  --cta:#F26F51;
+  --cta-strong:#F5866C;
+  --border:rgba(244,236,221,.14);
+  --border-strong:rgba(244,236,221,.24);
+  --tape:rgba(247,183,64,.30);
+  --focus:#F7B740;
+  --shadow-sm:0 4px 14px -8px rgba(0,0,0,.6);
+  --shadow-md:0 16px 34px -16px rgba(0,0,0,.62);
+  --shadow-lg:0 30px 60px -24px rgba(0,0,0,.7);
+  --shadow-photo:0 18px 40px -20px rgba(0,0,0,.7);
+}
+
+/* ============================================================
+   RESET / BASE
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--font-body);font-size:1rem;line-height:1.65;
+  font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  transition:background .4s ease,color .4s ease;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+h1,h2,h3,h4{font-family:var(--font-head);line-height:1.05;margin:0;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:6px}
+
+.container{width:var(--container);margin-inline:auto}
+.section{padding-block:clamp(3.6rem,7.5vw,6.6rem)}
+.eyebrow{
+  font-family:var(--font-head);font-weight:700;font-size:.82rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--brand-strong);
+  display:inline-flex;align-items:center;gap:.55rem;margin:0 0 1rem;
+}
+.eyebrow::before{content:"";width:26px;height:3px;border-radius:3px;background:var(--accent)}
+.lead{font-size:var(--fs-lead);color:var(--text-muted);line-height:1.7;max-width:56ch}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:.7rem 1.1rem;border-radius:0 0 10px 0;z-index:200}
+.skip:focus{left:0}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{
+  --_bg:var(--brand);--_fg:#fff;
+  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+  font-family:var(--font-head);font-weight:700;font-size:.98rem;letter-spacing:-.01em;
+  padding:.92rem 1.5rem;border:none;border-radius:var(--r-pill);
+  background:var(--_bg);color:var(--_fg);
+  box-shadow:var(--shadow-sm);transition:transform .18s ease,box-shadow .25s ease,background .2s ease;
+  will-change:transform;
+}
+.btn:hover{transform:translateY(-2px) scale(1.02);box-shadow:var(--shadow-md)}
+.btn:active{transform:translateY(0) scale(.99)}
+.btn--cta{--_bg:var(--cta)}
+.btn--cta:hover{--_bg:var(--cta-strong)}
+.btn--ghost{--_bg:transparent;--_fg:var(--text);box-shadow:inset 0 0 0 2px var(--border-strong)}
+.btn--ghost:hover{--_bg:var(--surface);box-shadow:inset 0 0 0 2px var(--brand)}
+.btn--lg{padding:1.05rem 1.85rem;font-size:1.05rem}
+.btn--block{width:100%}
+.btn svg{flex:none}
+
+/* pill chips */
+.chip{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-family:var(--font-head);font-weight:600;font-size:.78rem;letter-spacing:.01em;
+  padding:.42rem .8rem;border-radius:var(--r-pill);
+  background:var(--surface);color:var(--text);box-shadow:inset 0 0 0 1.5px var(--border);
+}
+.chip--mint{background:var(--band-mint);box-shadow:inset 0 0 0 1.5px rgba(46,158,91,.28);color:var(--brand-strong)}
+.chip .dot{width:8px;height:8px;border-radius:50%;background:var(--brand)}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.header{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:saturate(1.3) blur(12px);-webkit-backdrop-filter:saturate(1.3) blur(12px);
+  border-bottom:1px solid var(--border);transition:box-shadow .3s ease}
+.header.scrolled{box-shadow:var(--shadow-sm)}
+.header__in{display:flex;align-items:center;gap:1.2rem;padding-block:.7rem;min-height:78px}
+
+/* logo / brand lockup (real wordmark, swaps green→white in dark) */
+.brand{display:inline-flex;align-items:center;flex:none;line-height:0}
+.brand__logo{height:48px;width:auto;display:block}
+.brand__logo--dark{display:none}
+:root[data-theme="dark"] .brand__logo--light{display:none}
+:root[data-theme="dark"] .brand__logo--dark{display:block}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]):not([data-theme="dark"]) .brand__logo--light{display:none}
+  :root:not([data-theme="light"]):not([data-theme="dark"]) .brand__logo--dark{display:block}
+}
+@media (max-width:400px){.brand__logo{height:40px}}
+.lockup{display:flex;align-items:center;gap:.6rem;flex:none}
+
+/* ---------- primary nav + dropdowns ---------- */
+.nav{margin-left:auto}
+.nav__list{list-style:none;display:flex;align-items:center;gap:.1rem;margin:0;padding:0}
+.nav__item{position:relative;display:flex;align-items:center}
+.nav__link{font-family:var(--font-head);font-weight:600;font-size:.94rem;color:var(--text);
+  padding:.5rem .7rem;border-radius:var(--r-pill);transition:background .2s ease,color .2s ease;white-space:nowrap}
+.nav__link:hover{background:var(--band-mint);color:var(--brand-strong)}
+.nav__link[aria-current="page"]{background:var(--band-mint);color:var(--brand-strong)}
+.nav__toggle{border:none;background:transparent;color:var(--text-muted);
+  width:24px;height:30px;margin-left:-.4rem;display:grid;place-items:center;border-radius:var(--r-pill);
+  transition:color .2s ease}
+.nav__toggle:hover{color:var(--brand-strong)}
+.nav__toggle svg{width:13px;height:13px;transition:transform .25s ease}
+.nav__item:hover .nav__toggle svg,
+.nav__item:focus-within .nav__toggle svg,
+.nav__item.is-open .nav__toggle svg{transform:rotate(180deg)}
+
+.dd{position:absolute;top:calc(100% + 12px);left:0;min-width:210px;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);
+  box-shadow:var(--shadow-lg);padding:.5rem;display:grid;gap:.08rem;z-index:120;
+  opacity:0;visibility:hidden;transform:translateY(8px);pointer-events:none;
+  transition:opacity .2s ease,transform .2s ease,visibility .2s ease}
+.dd::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}   /* hover bridge */
+.nav__item:hover>.dd,.nav__item:focus-within>.dd,.nav__item.is-open>.dd{
+  opacity:1;visibility:visible;transform:none;pointer-events:auto}
+.nav__item:last-child>.dd{left:auto;right:0}
+.dd__link{display:flex;align-items:center;gap:.6rem;
+  font-family:var(--font-head);font-weight:600;font-size:.9rem;color:var(--text);
+  padding:.58rem .7rem;border-radius:var(--r-md);transition:background .18s ease,color .18s ease}
+.dd__link:hover,.dd__link:focus-visible{background:var(--band-mint);color:var(--brand-strong)}
+.dd__ic{width:30px;height:30px;flex:none;border-radius:9px;display:grid;place-items:center;
+  background:var(--band-mint);color:var(--brand-strong);box-shadow:inset 0 0 0 1px rgba(46,158,91,.2)}
+.dd__ic svg{width:17px;height:17px}
+.dd--programs{min-width:360px;grid-template-columns:1fr 1fr;gap:.1rem}
+
+.header__cta{display:flex;align-items:center;gap:.5rem;flex:none}
+.header__soc{display:inline-flex;align-items:center;gap:.5rem}
+@media (max-width:560px){.header__soc{display:none}}
+
+.icon-btn{width:42px;height:42px;border-radius:50%;border:none;background:var(--surface);
+  box-shadow:inset 0 0 0 1.5px var(--border);color:var(--text);display:grid;place-items:center;transition:transform .2s ease,background .2s}
+.icon-btn:hover{transform:translateY(-1px);background:var(--band-mint)}
+.icon-btn svg{width:20px;height:20px}
+.theme-toggle .moon{display:none}
+:root[data-theme="dark"] .theme-toggle .sun{display:none}
+:root[data-theme="dark"] .theme-toggle .moon{display:block}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]):not([data-theme="dark"]) .theme-toggle .sun{display:none}
+  :root:not([data-theme="light"]):not([data-theme="dark"]) .theme-toggle .moon{display:block}
+}
+
+.burger{display:none}
+@media (max-width:900px){
+  .header__cta{margin-left:auto}
+  .nav{display:none;position:absolute;top:calc(100% + 8px);right:2vw;left:2vw;margin:0;
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);
+    padding:.6rem;box-shadow:var(--shadow-lg);max-height:calc(100dvh - 88px);overflow:auto}
+  .nav.open{display:block}
+  .nav__list{flex-direction:column;align-items:stretch;gap:.05rem}
+  .nav__item{flex-wrap:wrap;justify-content:space-between}
+  .nav__link{flex:1 1 auto;padding:.85rem 1rem;font-size:1.05rem}
+  .nav__toggle{width:48px;height:48px;margin:0;color:var(--text)}
+  .nav__toggle svg{width:18px;height:18px}
+  .dd{position:static;left:auto;right:auto;min-width:0;display:none;
+    opacity:1;visibility:visible;transform:none;pointer-events:auto;
+    background:transparent;border:none;border-radius:0;box-shadow:none;
+    padding:.1rem 0 .5rem;margin:0 .3rem .2rem 1rem;border-left:2px solid var(--border);gap:.05rem}
+  .nav__item.is-open>.dd{display:grid}
+  .nav__item:last-child>.dd{right:auto;left:auto}
+  .dd--programs{grid-template-columns:1fr;min-width:0}
+  .dd__link{font-size:1rem;padding:.7rem .8rem}
+  .burger{display:grid}
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative;background:
+  radial-gradient(120% 80% at 88% -10%,color-mix(in srgb,var(--accent) 22%,transparent) 0%,transparent 55%),
+  radial-gradient(90% 70% at -5% 110%,color-mix(in srgb,var(--brand) 16%,transparent) 0%,transparent 50%),
+  var(--band-cream);overflow:hidden}
+.bunting{display:block;width:100%;height:30px}
+.hero__in{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1.5rem,4vw,3.4rem);
+  align-items:center;padding-block:clamp(2.2rem,5vw,4.2rem)}
+@media (max-width:940px){.hero__in{grid-template-columns:1fr;padding-bottom:3.2rem}}
+
+.hero__kicker{display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--font-head);font-weight:600;font-size:.82rem;letter-spacing:.02em;
+  padding:.44rem .5rem .44rem .55rem;border-radius:var(--r-pill);
+  background:var(--surface);box-shadow:inset 0 0 0 1.5px var(--border);color:var(--text-muted);margin-bottom:1.3rem}
+.hero__kicker b{color:var(--brand-strong);font-weight:700}
+.hero__kicker .pin{width:20px;height:20px;border-radius:50%;background:var(--band-mint);display:grid;place-items:center}
+.hero__kicker .pin svg{width:12px;height:12px}
+
+.hero h1{font-size:var(--fs-hero);font-weight:800;letter-spacing:-.035em}
+.hero h1 .soft{color:var(--text)}
+.hero h1 .accent{font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--brand-strong);letter-spacing:-.01em}
+.mark{position:relative;display:inline-block;white-space:nowrap}
+.mark__line{position:absolute;left:-2%;right:-2%;bottom:-.14em;width:104%;height:.36em;overflow:visible;pointer-events:none}
+.mark__line path{fill:none;stroke:var(--cta);stroke-width:9;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:640;stroke-dashoffset:640;transition:stroke-dashoffset 1s ease .35s}
+.hero.revealed .mark__line path{stroke-dashoffset:0}
+
+.hero__sub{margin-top:1.5rem;font-size:var(--fs-lead);color:var(--text-muted);max-width:50ch}
+.hero__cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.9rem}
+.hero__badges{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.7rem}
+
+/* live "busy" pill */
+.live{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.6rem;
+  font-family:var(--font-body);font-weight:500;font-size:.9rem;color:var(--text);
+  background:var(--surface);border-radius:var(--r-pill);padding:.5rem .95rem .5rem .8rem;box-shadow:var(--shadow-sm)}
+.live__dot{width:10px;height:10px;border-radius:50%;background:var(--cta);position:relative;flex:none}
+.live__dot::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid var(--cta);opacity:.5;animation:ping 1.8s ease-out infinite}
+@keyframes ping{0%{transform:scale(.6);opacity:.6}100%{transform:scale(1.8);opacity:0}}
+.live__txt{transition:opacity .4s ease}
+
+/* hero photo */
+.hero__media{position:relative;justify-self:center;width:100%;max-width:520px}
+.photo-frame{position:relative;background:#fff;padding:14px 14px 16px;border-radius:var(--r-lg);
+  box-shadow:var(--shadow-photo);transform:rotate(1.4deg)}
+.photo-frame img{border-radius:16px;aspect-ratio:3/2;object-fit:cover;width:100%}
+.tape{position:absolute;width:104px;height:30px;background:var(--tape);
+  box-shadow:0 2px 6px rgba(43,38,32,.14);z-index:3;backdrop-filter:blur(1px)}
+.tape--tl{top:-13px;left:22px;transform:rotate(-7deg)}
+.tape--br{bottom:-11px;right:26px;transform:rotate(-6deg)}
+.hero__cap{position:absolute;left:12px;bottom:26px;background:var(--ink);color:#fff;
+  font-family:var(--font-head);font-weight:600;font-size:.8rem;padding:.4rem .75rem;border-radius:10px;transform:rotate(-2deg);z-index:4;box-shadow:var(--shadow-sm)}
+
+/* stamp */
+.stamp{position:absolute;z-index:6;width:clamp(96px,16vw,132px);height:clamp(96px,16vw,132px);
+  right:-22px;top:-26px;filter:drop-shadow(0 8px 16px rgba(43,38,32,.28))}
+.stamp__ring{transform-origin:60px 60px;animation:spin 26s linear infinite}
+.stamp text{font-family:var(--font-head);font-weight:700;font-size:9.1px;letter-spacing:.12em;fill:#fff}
+.stamp__disc{fill:var(--cta)}
+.stamp__edge{fill:none;stroke:#fff;stroke-width:1.6;stroke-dasharray:2.5 3}
+.stamp__center{font-family:var(--font-head);font-weight:800;font-size:15px;fill:#fff;letter-spacing:.02em}
+.stamp__star{fill:var(--accent)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:520px){.stamp{right:-8px;top:-14px}.tape--tl{left:14px}}
+
+/* ============================================================
+   IMPACT STATS
+   ============================================================ */
+.stats{background:var(--band-mint)}
+.stats__head{text-align:center;max-width:56ch;margin:0 auto 2.6rem}
+.stats__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(.9rem,2vw,1.4rem)}
+@media (max-width:820px){.stats__grid{grid-template-columns:repeat(2,1fr)}}
+.stat{background:var(--surface);border-radius:var(--r-lg);padding:1.7rem 1.4rem;text-align:center;
+  box-shadow:var(--shadow-sm);border:1px solid var(--border);position:relative;overflow:hidden}
+.stat::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:var(--_bar,var(--brand))}
+.stat:nth-child(1){--_bar:var(--brand)}
+.stat:nth-child(2){--_bar:var(--accent)}
+.stat:nth-child(3){--_bar:var(--cta)}
+.stat:nth-child(4){--_bar:var(--green-deep)}
+.stat__num{font-family:var(--font-head);font-weight:800;font-size:clamp(2.1rem,4.6vw,3.1rem);
+  line-height:1;letter-spacing:-.04em;color:var(--text);display:block}
+.stat__label{margin-top:.6rem;font-size:.92rem;color:var(--text-muted);font-weight:500}
+.stats__foot{text-align:center;margin-top:1.9rem;font-size:1rem;color:var(--text-muted)}
+.stats__foot b{color:var(--brand-strong);font-weight:700}
+
+/* ============================================================
+   STORY
+   ============================================================ */
+.story{background:var(--band-cream)}
+.story__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.6rem,4vw,3.6rem);align-items:center}
+@media (max-width:900px){.story__grid{grid-template-columns:1fr}}
+.story h2{font-size:var(--fs-h2);font-weight:800;max-width:16ch;margin-bottom:1.1rem}
+.story h2 em{font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--brand-strong)}
+.story p+p{margin-top:1.05rem}
+.story__media{position:relative}
+.story__media .photo-frame{transform:rotate(-1.6deg);max-width:none}
+.story__media .tape--tl{left:auto;right:30px;transform:rotate(6deg)}
+
+/* ayah card */
+.ayah{margin-top:1.8rem;background:var(--surface);border-radius:var(--r-lg);
+  padding:1.5rem 1.6rem;box-shadow:var(--shadow-sm);border:1px solid var(--border);
+  border-left:6px solid var(--accent)}
+.ayah__ar{font-family:var(--font-ar);font-size:clamp(1.4rem,3vw,1.9rem);line-height:2;color:var(--text);
+  direction:rtl;text-align:right;font-weight:400}
+.ayah__tr{margin-top:.9rem;font-family:var(--font-accent);font-style:italic;font-weight:400;
+  font-size:1.08rem;color:var(--text);line-height:1.6}
+.ayah__src{margin-top:.5rem;font-family:var(--font-head);font-weight:600;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-strong)}
+
+/* heritage inline notes */
+.heritage{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.5rem}
+
+/* ============================================================
+   PROGRAMS
+   ============================================================ */
+.programs{background:var(--band-marigold)}
+.sec-head{max-width:60ch;margin-bottom:2.6rem}
+.sec-head h2{font-size:var(--fs-h2);font-weight:800;margin-bottom:.8rem}
+.sec-head h2 em{font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--cta)}
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2.2vw,1.5rem)}
+@media (max-width:940px){.prog-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.prog-grid{grid-template-columns:1fr}}
+.card{background:var(--surface);border-radius:var(--r-lg);overflow:hidden;
+  box-shadow:var(--shadow-sm);border:1px solid var(--border);
+  display:flex;flex-direction:column;transition:transform .22s ease,box-shadow .3s ease}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
+.card__bar{height:7px;background:var(--_c,var(--brand))}
+.card__media{aspect-ratio:3/2;overflow:hidden}
+.card__media img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.card:hover .card__media img{transform:scale(1.05)}
+.card__body{padding:1.25rem 1.35rem 1.5rem;display:flex;flex-direction:column;flex:1}
+.card__kicker{font-family:var(--font-head);font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--_c,var(--brand))}
+.card h3{font-size:var(--fs-h3);font-weight:700;margin:.35rem 0 .5rem}
+.card__blurb{color:var(--text-muted);font-size:.96rem;font-style:italic;font-family:var(--font-accent);line-height:1.5}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
+.tag{font-family:var(--font-head);font-weight:600;font-size:.72rem;padding:.3rem .6rem;border-radius:var(--r-pill);
+  background:var(--band-mint);color:var(--brand-strong);box-shadow:inset 0 0 0 1px rgba(46,158,91,.2)}
+
+/* ============================================================
+   MARQUEE
+   ============================================================ */
+.marquee{background:var(--band-deep);color:var(--text-invert);overflow:hidden;padding-block:1.15rem;
+  border-block:3px solid var(--green-deep)}
+.marquee__track{display:flex;width:max-content;gap:0;animation:slide 34s linear infinite}
+.marquee:hover .marquee__track{animation-play-state:paused}
+.marquee__item{font-family:var(--font-head);font-weight:700;font-size:1.06rem;letter-spacing:.01em;
+  padding-inline:1.15rem;display:inline-flex;align-items:center;gap:1.15rem;white-space:nowrap}
+.marquee__item::after{content:"\2726";color:var(--accent);font-size:.85rem}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ============================================================
+   GALLERY / SCRAPBOOK
+   ============================================================ */
+.gallery{background:var(--band-cream);position:relative}
+/* clean editorial gallery (replaces polaroid pinboard) */
+.hd-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.9rem,1.6vw,1.05rem);margin-top:clamp(1.4rem,3vw,2.2rem)}
+.hd-figure{position:relative;margin:0;overflow:hidden;border-radius:16px;background:#fff;
+  box-shadow:0 1px 2px rgba(20,24,17,.05),0 20px 38px -28px rgba(20,24,17,.34)}
+.hd-figure .hd-zoom{display:block;line-height:0;cursor:zoom-in}
+.hd-figure img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:3/2;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.hd-figure:hover img{transform:scale(1.05)}
+.hd-figure figcaption{position:absolute;left:0;right:0;bottom:0;pointer-events:none;
+  padding:1.7rem 1rem .85rem;color:#fff;font-weight:600;font-size:.9rem;font-style:normal;
+  background:linear-gradient(transparent,rgba(16,22,15,.82));
+  opacity:0;transform:translateY(8px);transition:opacity .3s ease,transform .3s ease}
+.hd-figure:hover figcaption,.hd-figure:focus-within figcaption{opacity:1;transform:none}
+.hd-more{text-align:center;margin-top:clamp(1.6rem,3vw,2.2rem)}
+@media(max-width:820px){.hd-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.hd-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.hd-figure img,.hd-figure figcaption{transition:none}.hd-figure figcaption{opacity:1;transform:none}}
+.gallery .sec-head{text-align:center;margin-inline:auto}
+.pinboard{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(.7rem,1.8vw,1.3rem);align-items:start}
+.polaroid{background:#fff;padding:11px 11px 14px;border-radius:14px;box-shadow:var(--shadow-photo);
+  transform:rotate(var(--rot,0deg));transition:transform .3s ease,box-shadow .3s ease;position:relative}
+.polaroid img{border-radius:8px;width:100%;object-fit:cover;aspect-ratio:3/2}
+.polaroid figcaption{font-family:var(--font-accent);font-style:italic;font-weight:400;
+  font-size:.95rem;color:var(--ink);text-align:center;padding-top:.6rem;line-height:1.3}
+.polaroid .tape{width:78px;height:24px;top:-10px;left:50%;margin-left:-39px;transform:rotate(-3deg)}
+.polaroid:hover{transform:rotate(0deg) translateY(-6px) scale(1.03);box-shadow:var(--shadow-lg);z-index:5}
+/* dark theme keeps polaroid paper white for authenticity */
+:root[data-theme="dark"] .polaroid,:root[data-theme="dark"] .photo-frame{background:#F4ECDD}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]):not([data-theme="dark"]) .polaroid,
+  :root:not([data-theme="light"]):not([data-theme="dark"]) .photo-frame{background:#F4ECDD}
+}
+.polaroid figcaption{color:#2B2620}
+/* grid placement */
+.p1{grid-column:span 5;--rot:-2.5deg}
+.p2{grid-column:span 4;--rot:2deg;margin-top:1.8rem}
+.p3{grid-column:span 3;--rot:-1.5deg;margin-top:.6rem}
+.p4{grid-column:span 4;--rot:2.4deg}
+.p5{grid-column:span 4;--rot:-2deg;margin-top:-.4rem}
+.p6{grid-column:span 4;--rot:1.6deg;margin-top:1.2rem}
+@media (max-width:820px){
+  .pinboard{grid-template-columns:repeat(2,1fr)}
+  .p1,.p2,.p3,.p4,.p5,.p6{grid-column:span 1;margin-top:0}
+}
+
+/* ============================================================
+   DONATION
+   ============================================================ */
+.donate{background:var(--band-mint)}
+.donate__grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(1.4rem,3vw,3rem);align-items:stretch}
+@media (max-width:960px){.donate__grid{grid-template-columns:1fr}}
+.donate__intro h2{font-size:var(--fs-h2);font-weight:800;margin-bottom:1rem}
+.donate__intro h2 em{font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--cta)}
+.donate__intro .photo-frame{transform:rotate(-1.5deg);max-width:420px;margin-top:1.8rem}
+.donate__intro .tape--tl{left:24px}
+.give-list{list-style:none;padding:0;margin:1.6rem 0 0;display:grid;gap:.7rem}
+.give-list li{display:flex;gap:.7rem;align-items:flex-start;font-size:.98rem;color:var(--text)}
+.give-list .ck{flex:none;width:24px;height:24px;border-radius:50%;background:var(--brand);display:grid;place-items:center;margin-top:1px}
+.give-list .ck svg{width:13px;height:13px;stroke:#fff}
+
+/* widget */
+.widget{background:var(--surface);border-radius:var(--r-xl);padding:clamp(1.3rem,2.6vw,2rem);
+  box-shadow:var(--shadow-lg);border:1px solid var(--border);position:relative;overflow:hidden}
+.widget__flag{position:absolute;top:0;right:0;background:var(--accent);color:var(--ink);
+  font-family:var(--font-head);font-weight:800;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:.4rem 2.2rem;transform:rotate(45deg) translate(28%,-30%);transform-origin:center;box-shadow:var(--shadow-sm)}
+.widget__title{font-family:var(--font-head);font-weight:800;font-size:1.35rem;letter-spacing:-.02em}
+.widget__sub{color:var(--text-muted);font-size:.92rem;margin-top:.3rem}
+
+.seg{display:inline-flex;background:var(--band-cream);border-radius:var(--r-pill);padding:4px;margin-top:1.2rem;box-shadow:inset 0 0 0 1px var(--border)}
+.seg button{border:none;background:transparent;font-family:var(--font-head);font-weight:700;font-size:.9rem;
+  color:var(--text-muted);padding:.5rem 1.1rem;border-radius:var(--r-pill);transition:color .2s}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--text);box-shadow:var(--shadow-sm)}
+
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-top:1.1rem}
+@media (max-width:420px){.tiers{grid-template-columns:repeat(2,1fr)}}
+.tier{position:relative;border:2px solid var(--border);background:var(--surface-2);border-radius:var(--r-md);
+  padding:.85rem .6rem;text-align:center;transition:transform .15s ease,border-color .2s,background .2s}
+.tier:hover{transform:translateY(-2px);border-color:var(--brand)}
+.tier__amt{font-family:var(--font-head);font-weight:800;font-size:1.2rem;color:var(--text);display:block;line-height:1}
+.tier__note{font-size:.68rem;color:var(--text-muted);margin-top:.28rem;display:block;line-height:1.25}
+.tier[aria-pressed="true"]{border-color:var(--cta);background:color-mix(in srgb,var(--cta) 10%,var(--surface))}
+.tier[aria-pressed="true"] .tier__amt{color:var(--cta-strong)}
+.tier__check{position:absolute;top:-8px;right:-8px;width:22px;height:22px;border-radius:50%;background:var(--cta);
+  display:none;place-items:center}
+.tier__check svg{width:12px;height:12px;stroke:#fff}
+.tier[aria-pressed="true"] .tier__check{display:grid}
+
+.impact-line{margin-top:1.15rem;background:var(--band-marigold);border-radius:var(--r-md);
+  padding:.95rem 1.1rem;font-size:.98rem;color:var(--text);line-height:1.5;border:1px solid var(--border)}
+.impact-line b{color:var(--cta-strong)}
+.impact-line strong{font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--brand-strong)}
+
+/* goal bar */
+.goal{margin-top:1.3rem}
+.goal__row{display:flex;justify-content:space-between;align-items:baseline;font-size:.85rem;color:var(--text-muted);margin-bottom:.5rem}
+.goal__row b{font-family:var(--font-head);color:var(--text);font-size:1rem}
+.goal__track{height:14px;border-radius:var(--r-pill);background:var(--band-cream);overflow:hidden;box-shadow:inset 0 0 0 1px var(--border)}
+.goal__fill{height:100%;width:0;border-radius:var(--r-pill);
+  background:linear-gradient(90deg,var(--brand) 0%,var(--accent) 100%);transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
+.goal__cap{margin-top:.5rem;font-size:.8rem;color:var(--text-muted)}
+
+.widget__give{margin-top:1.3rem}
+.badges{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:1rem}
+.badge{display:inline-flex;align-items:center;gap:.35rem;font-family:var(--font-head);font-weight:600;
+  font-size:.76rem;color:var(--text-muted)}
+.badge svg{width:14px;height:14px;color:var(--brand)}
+
+.thanks{display:none;text-align:center;padding:.5rem 0}
+.thanks.show{display:block;animation:pop .5s cubic-bezier(.2,.9,.3,1.3)}
+@keyframes pop{0%{transform:scale(.8);opacity:0}100%{transform:scale(1);opacity:1}}
+.thanks__ar{font-family:var(--font-ar);direction:rtl;font-size:1.7rem;color:var(--brand-strong);font-weight:400}
+.thanks__en{font-family:var(--font-accent);font-style:italic;font-size:1.15rem;margin-top:.5rem;color:var(--text)}
+.thanks__sm{font-size:.9rem;color:var(--text-muted);margin-top:.6rem}
+.thanks .btn{margin-top:1rem}
+
+/* ============================================================
+   PARTNERS
+   ============================================================ */
+.partners{background:var(--band-cream);text-align:center}
+.partners__lbl{font-family:var(--font-head);font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.4rem}
+.partners__row{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem}
+.partner{font-family:var(--font-head);font-weight:700;font-size:1rem;color:var(--text);
+  background:var(--surface);border-radius:var(--r-pill);padding:.65rem 1.25rem;box-shadow:var(--shadow-sm);border:1px solid var(--border)}
+
+/* ============================================================
+   GET INVOLVED
+   ============================================================ */
+.involved{background:var(--band-marigold)}
+.involved .sec-head{text-align:center;margin-inline:auto}
+.inv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2.2vw,1.5rem)}
+@media (max-width:860px){.inv-grid{grid-template-columns:1fr}}
+.inv{background:var(--surface);border-radius:var(--r-lg);padding:1.8rem 1.6rem;box-shadow:var(--shadow-sm);
+  border:1px solid var(--border);display:flex;flex-direction:column;transition:transform .22s ease,box-shadow .3s}
+.inv:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+.inv__ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;margin-bottom:1.1rem;
+  background:var(--_bg,var(--band-mint))}
+.inv:nth-child(1) .inv__ic{--_bg:color-mix(in srgb,var(--brand) 18%,var(--surface))}
+.inv:nth-child(2) .inv__ic{--_bg:color-mix(in srgb,var(--accent) 22%,var(--surface))}
+.inv:nth-child(3) .inv__ic{--_bg:color-mix(in srgb,var(--cta) 16%,var(--surface))}
+.inv__ic svg{width:28px;height:28px}
+.inv h3{font-size:var(--fs-h3);font-weight:700;margin-bottom:.5rem}
+.inv p{color:var(--text-muted);font-size:.96rem;flex:1}
+.inv a.link{font-family:var(--font-head);font-weight:700;color:var(--brand-strong);margin-top:1.1rem;display:inline-flex;align-items:center;gap:.4rem}
+.inv a.link svg{width:16px;height:16px;transition:transform .2s}
+.inv a.link:hover svg{transform:translateX(3px)}
+
+/* ============================================================
+   NEWSLETTER
+   ============================================================ */
+.news{background:var(--band-deep);color:var(--text-invert)}
+.news__card{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
+@media (max-width:820px){.news__card{grid-template-columns:1fr;gap:1.4rem}}
+.news h2{font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:800;color:var(--text-invert)}
+.news h2 em{font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--accent)}
+.news p{color:color-mix(in srgb,var(--text-invert) 78%,transparent);margin-top:.7rem;max-width:44ch}
+.news__form{display:flex;gap:.6rem;flex-wrap:wrap}
+.news__form input{flex:1;min-width:200px;border:none;border-radius:var(--r-pill);padding:.95rem 1.3rem;
+  font-family:var(--font-body);font-size:1rem;background:rgba(255,246,233,.95);color:var(--ink)}
+.news__form input:focus-visible{outline:3px solid var(--accent)}
+.news__note{font-size:.82rem;margin-top:.8rem;color:color-mix(in srgb,var(--text-invert) 65%,transparent)}
+.news__ok{display:none;font-family:var(--font-accent);font-style:italic;font-size:1.15rem;color:var(--accent)}
+.news__ok.show{display:block}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{background:var(--ink);color:#EDE4D6;padding-block:clamp(3rem,6vw,4.5rem) 2rem}
+:root[data-theme="dark"] .footer{background:#120F0B}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]):not([data-theme="dark"]) .footer{background:#120F0B}}
+.footer__top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem}
+@media (max-width:800px){.footer__top{grid-template-columns:1fr;gap:1.6rem}}
+.footer__logo{height:52px;width:auto;margin-bottom:1.1rem}
+.footer__tag{color:rgba(237,228,214,.72);max-width:38ch;font-size:.96rem}
+.footer h4{font-family:var(--font-head);font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.footer address{font-style:normal;line-height:1.9;color:rgba(237,228,214,.86);font-size:.95rem}
+.footer address a:hover{color:#fff;text-decoration:underline}
+.footer__soc{display:inline-flex;align-items:center;gap:.5rem;margin-top:.4rem;color:#fff;font-weight:600}
+.footer__soc svg{width:18px;height:18px}
+.footer__jum{background:rgba(46,158,91,.2);border:1px solid rgba(46,158,91,.4);border-radius:var(--r-md);padding:.9rem 1.1rem;margin-top:1rem}
+.footer__jum b{color:#fff}
+.footer__jum span{display:block;color:rgba(237,228,214,.75);font-size:.88rem;margin-top:.2rem}
+.footer__bar{border-top:1px solid rgba(237,228,214,.16);margin-top:2.4rem;padding-top:1.4rem;
+  display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;justify-content:space-between;align-items:center;
+  font-size:.83rem;color:rgba(237,228,214,.62)}
+.footer__bar .proto{background:rgba(245,166,35,.16);color:var(--accent);padding:.3rem .7rem;border-radius:var(--r-pill);font-weight:600}
+
+/* ============================================================
+   REVEAL
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-d="1"]{transition-delay:.08s}
+.reveal[data-d="2"]{transition-delay:.16s}
+.reveal[data-d="3"]{transition-delay:.24s}
+.reveal[data-d="4"]{transition-delay:.32s}
+.reveal[data-d="5"]{transition-delay:.4s}
+
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .stamp__ring{animation:none}
+  .live__dot::after{animation:none}
+  .marquee__track{animation:none}
+  .mark__line path{transition:none;stroke-dashoffset:0}
+  .card:hover,.inv:hover,.polaroid:hover,.btn:hover,.tier:hover{transform:none}
+  *{scroll-behavior:auto !important}
+}
+
+/* ============================================================
+   FULL-BLEED PHOTO HERO  (homepage)
+   ============================================================ */
+.hero-full{position:relative;width:100%;min-height:clamp(560px,84vh,860px);
+  display:flex;align-items:flex-end;overflow:hidden;isolation:isolate;background:#11220f}
+.hero-full__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 32%;z-index:0}
+@media (prefers-reduced-motion:no-preference){
+  .hero-full__img{animation:heroZoom 26s ease-in-out infinite alternate;transform-origin:58% 42%}
+}
+@keyframes heroZoom{from{transform:scale(1.04)}to{transform:scale(1.15)}}
+.hero-full__scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:
+  linear-gradient(to top, rgba(9,22,12,.94) 0%, rgba(12,26,15,.82) 20%, rgba(16,30,19,.42) 48%, rgba(20,32,22,.12) 74%, rgba(20,32,22,.02) 100%),
+  linear-gradient(105deg, rgba(8,20,11,.86) 0%, rgba(11,24,14,.52) 34%, rgba(14,26,16,.08) 62%, rgba(14,26,16,0) 78%)}
+.hero-full__inner{position:relative;z-index:2;width:var(--container);margin-inline:auto;
+  padding-block:clamp(2.6rem,6vw,4.6rem) clamp(2.4rem,5vw,3.6rem);padding-top:clamp(4rem,14vh,9rem)}
+.hero-full__copy{max-width:46rem}
+.hero-full__eyebrow{font-family:var(--font-head);font-weight:700;font-size:.82rem;letter-spacing:.14em;
+  text-transform:uppercase;color:#FCEFD3;display:inline-flex;align-items:center;gap:.6rem;margin:0 0 1.1rem;
+  text-shadow:0 1px 10px rgba(0,0,0,.6)}
+.hero-full__eyebrow::before{content:"";width:28px;height:3px;border-radius:3px;background:var(--accent);
+  box-shadow:0 0 12px rgba(245,166,35,.5)}
+.hero-full__title{font-size:var(--fs-hero);font-weight:800;letter-spacing:-.035em;line-height:1.02;color:#fff;
+  text-shadow:0 3px 30px rgba(0,0,0,.55),0 1px 3px rgba(0,0,0,.55)}
+.hero-full__title .mark{color:#fff}
+.hero-full__title .mark__line path{stroke:var(--cta);stroke-width:10;filter:drop-shadow(0 2px 8px rgba(0,0,0,.4))}
+.hero-full__deck{margin-top:1.5rem;font-size:var(--fs-lead);line-height:1.7;
+  color:rgba(255,246,233,.95);max-width:50ch;text-shadow:0 2px 16px rgba(0,0,0,.6)}
+.hero-full__cta{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:2.1rem}
+.hero-full__ghost{color:#fff;background:rgba(255,246,233,.1);
+  box-shadow:inset 0 0 0 2px rgba(255,246,233,.55);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.hero-full__ghost:hover{background:rgba(255,246,233,.2);box-shadow:inset 0 0 0 2px #fff}
+.hero-full__signals{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;margin-top:2rem}
+.hero-full .live{background:rgba(16,30,19,.62);color:#FFF6E9;
+  box-shadow:inset 0 0 0 1.5px rgba(255,246,233,.24);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.hero-full__badge{display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--font-head);font-weight:800;font-size:.82rem;letter-spacing:.02em;
+  color:var(--ink);background:var(--accent);border-radius:var(--r-pill);
+  padding:.55rem 1rem;transform:rotate(-1.5deg);box-shadow:var(--shadow-md)}
+.hero-full__badge svg{width:15px;height:15px}
+@media (max-width:600px){.hero-full__badge{transform:none}}
+.hero-full.revealed .mark__line path{stroke-dashoffset:0}
+
+/* gallery polaroid → lightbox trigger */
+.polaroid__zoom{display:block;border-radius:8px;overflow:hidden;cursor:zoom-in}
+
+/* ============================================================
+   MODAL SYSTEM  +  IMAGE LIGHTBOX   (driven by assets/site.js)
+   ============================================================ */
+.modal{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;
+  padding:clamp(1rem,4vw,2.5rem)}
+.modal[hidden]{display:none}
+.modal__backdrop{position:absolute;inset:0;background:rgba(20,18,12,.55);
+  backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);opacity:0;transition:opacity .3s ease}
+.modal.is-open .modal__backdrop{opacity:1}
+.modal__panel{position:relative;z-index:1;width:100%;max-width:min(32rem,94vw);
+  max-height:calc(100dvh - 2.5rem);overflow:auto;
+  background:var(--surface);color:var(--text);border:1px solid var(--border);
+  border-radius:var(--r-xl);box-shadow:var(--shadow-lg);padding:clamp(1.7rem,3.4vw,2.5rem);
+  opacity:0;transform:translateY(16px) scale(.98);
+  transition:opacity .3s ease,transform .32s cubic-bezier(.2,.7,.2,1)}
+.modal.is-open .modal__panel{opacity:1;transform:none}
+.modal__panel::before{content:"";position:absolute;inset:0 0 auto;height:6px;
+  border-radius:var(--r-xl) var(--r-xl) 0 0;background:linear-gradient(90deg,var(--brand),var(--accent),var(--cta))}
+.modal__x{position:absolute;top:.85rem;right:.85rem;width:40px;height:40px;border-radius:50%;
+  border:none;background:var(--surface-2);box-shadow:inset 0 0 0 1.5px var(--border);
+  color:var(--text);display:grid;place-items:center;transition:transform .2s ease,background .2s ease}
+.modal__x:hover{background:var(--band-mint);transform:rotate(90deg)}
+.modal__x svg{width:20px;height:20px}
+.modal__panel h2{font-family:var(--font-head);font-weight:800;font-size:clamp(1.3rem,3vw,1.7rem);
+  letter-spacing:-.02em;margin:.4rem 0 .6rem;line-height:1.1}
+.modal__panel h2 em{font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--brand-strong)}
+.modal__panel p{color:var(--text-muted);line-height:1.6}
+.modal__panel .btn{margin-top:1.3rem}
+.modal__ic{width:66px;height:66px;border-radius:20px;display:grid;place-items:center;margin-bottom:.6rem;
+  background:color-mix(in srgb,var(--brand) 16%,var(--surface));color:var(--brand-strong)}
+.modal__ic svg{width:34px;height:34px}
+@media (prefers-reduced-motion:reduce){
+  .modal__backdrop,.modal__panel{transition:none}
+  .modal__panel{transform:none}
+  .modal__x:hover{transform:none}
+}
+.lightbox .modal__backdrop{background:rgba(8,10,6,.88)}
+.lightbox .modal__panel{background:transparent;border:none;box-shadow:none;padding:0;overflow:visible;
+  max-width:min(64rem,94vw);width:auto}
+.lightbox .modal__panel::before{display:none}
+.lightbox__figure{margin:0;display:flex;flex-direction:column;align-items:center}
+.lightbox__img{display:block;max-width:100%;max-height:80vh;width:auto;height:auto;
+  border-radius:var(--r-md);box-shadow:var(--shadow-lg);background:#0d0f0a}
+.lightbox__cap{margin-top:.9rem;text-align:center;color:#FFF6E9;
+  font-family:var(--font-accent);font-style:italic;font-size:1.05rem;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.lightbox__counter{display:block;text-align:center;margin-top:.4rem;
+  font-family:var(--font-head);font-weight:600;font-size:.78rem;letter-spacing:.06em;color:rgba(255,246,233,.72)}
+.lightbox .modal__x{top:-.6rem;right:-.6rem;background:rgba(10,12,8,.7);color:#fff;
+  box-shadow:inset 0 0 0 1.5px rgba(255,246,233,.32)}
+.lightbox .modal__x:hover{background:rgba(10,12,8,.95)}
+.lightbox__nav{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;
+  border:none;background:rgba(10,12,8,.6);color:#fff;display:none;place-items:center;
+  box-shadow:inset 0 0 0 1.5px rgba(255,246,233,.28);transition:background .2s ease}
+.lightbox__nav:hover{background:rgba(10,12,8,.92)}
+.lightbox__nav svg{width:24px;height:24px}
+.lightbox__prev{left:-1.4rem}
+.lightbox__next{right:-1.4rem}
+.lightbox--multi .lightbox__nav{display:grid}
+@media (max-width:680px){
+  .lightbox .modal__x{top:.2rem;right:.2rem}
+  .lightbox__prev{left:.3rem}
+  .lightbox__next{right:.3rem}
+  .lightbox__nav{width:42px;height:42px;background:rgba(10,12,8,.72)}
+}
+@media (prefers-reduced-motion:reduce){.lightbox__nav{transition:none}}
+
+/* === sync home page with shared bp.css fixes (this page uses inline CSS) === */
+.btn svg{flex:none;width:1.15em;height:1.15em}
+.footer__soc{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;border:1px solid rgba(237,228,214,.22);color:#EDE4D6;margin-top:1.2rem;transition:background .18s ease,color .18s ease,border-color .18s ease}
+.footer__soc+.footer__soc{margin-left:.55rem}
+.footer__soc:hover{background:var(--accent);color:#120F0B;border-color:var(--accent)}
+.footer__soc svg{width:18px;height:18px}
+.footer__legal{margin-left:auto}
+.footer__legal a{color:rgba(237,228,214,.82);border-bottom:1px solid transparent;transition:color .15s ease,border-color .15s ease}
+.footer__legal a:hover{color:#fff;border-bottom-color:currentColor}
+.footer__theme{display:inline-flex;align-items:center;gap:.42rem;background:transparent;border:1px solid rgba(237,228,214,.22);color:rgba(237,228,214,.8);border-radius:var(--r-pill);padding:.42rem .85rem;cursor:pointer;font-family:var(--font-head);font-weight:600;font-size:.8rem;line-height:1;transition:color .18s ease,border-color .18s ease}
+.footer__theme:hover{color:#fff;border-color:rgba(237,228,214,.5)}
+.footer__theme svg{width:15px;height:15px}
+.footer__bar>.footer__theme{margin-left:.4rem}
+@media(max-width:640px){.footer__legal{margin-left:0}.footer__bar>.footer__theme{margin-left:0}}
+/* footer layout: match the 4-column grid + Explore nav used on every other page */
+.footer__top{display:grid;grid-template-columns:1.7fr 1fr 1.25fr 1fr;gap:34px;align-items:start}
+.footer__nav{display:flex;flex-direction:column;gap:11px}
+.footer__nav a{color:inherit;opacity:.82;font-size:.95rem;width:max-content;text-decoration:none}
+.footer__nav a:hover{opacity:1;text-decoration:underline}
+@media(max-width:980px){.footer__top{grid-template-columns:1fr 1fr;gap:2rem}}
+@media(max-width:560px){.footer__top{grid-template-columns:1fr;gap:1.6rem}}
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,var(--brand),var(--accent),var(--cta));z-index:300;pointer-events:none;will-change:transform}
+.give-bar{position:fixed;left:50%;bottom:18px;transform:translate(-50%,150%);z-index:160;display:flex;align-items:center;gap:.9rem;max-width:min(94vw,620px);background:var(--ink);color:#fff;border-radius:var(--r-pill);padding:.5rem .55rem .5rem 1.35rem;box-shadow:var(--shadow-lg);opacity:0;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .4s ease}
+.give-bar.is-on{transform:translate(-50%,0);opacity:1}
+.give-bar__msg{font-family:var(--font-head);font-weight:600;font-size:.95rem}
+.give-bar__cta{white-space:nowrap;padding:.62rem 1.4rem;font-size:.92rem}
+.give-bar__x{background:transparent;border:0;color:rgba(255,255,255,.6);font-size:1.5rem;line-height:1;cursor:pointer;padding:0 .35rem}
+.give-bar__x:hover{color:#fff}
+@media (max-width:560px){.give-bar{left:12px;right:12px;bottom:12px;max-width:none;transform:translateY(150%);padding-left:1.1rem}.give-bar.is-on{transform:translateY(0)}.give-bar__msg{font-size:.85rem}}
+@media (prefers-reduced-motion:reduce){.scroll-progress{display:none}.give-bar{transition:opacity .3s ease}}
 </style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"NGO","name":"Al-Maun Neighborly Needs","alternateName":"Al-Maun LV","url":"https://www.almaunlv.org/","logo":"https://www.almaunlv.org/images/logo-green.png","email":"almaun@gmail.com","telephone":"+1-702-647-2500","foundingDate":"2003","description":"The grassroots humanitarian arm of Masjid As-Sabur, serving the Historic Westside of Las Vegas since 2003.","address":{"@type":"PostalAddress","streetAddress":"711 Morgan Ave","addressLocality":"Las Vegas","addressRegion":"NV","postalCode":"89106","addressCountry":"US"},"sameAs":["https://instagram.com/almaunlv_official","https://www.facebook.com/almaun.org/"]}
+</script>
 </head>
 <body>
-  <div class="wrap">
-    <header class="top">
-      <span class="kick"><span class="d"></span> Al-Maun Neighborly Needs · Redesign</span>
-      <h1>Four directions.<br>Pick the one that feels like Al-Maun.</h1>
-      <p>Same story, same real photos, same donation-first goal — three brand-new light, photo-forward directions plus the green version you liked. Click any preview to explore the full page.</p>
-    </header>
-    <main class="grid" id="grid">
-      <article class="card">
-        <div class="thumb"><span class="tag">A · Magazine</span><iframe src="magazine.html" title="Magazine preview" loading="lazy" tabindex="-1"></iframe><a class="go" href="magazine.html" aria-label="Open Magazine version"></a></div>
-        <div class="bd"><h2>The Community Magazine</h2><p class="vibe">Refined editorial photo-essay — warm ivory, elegant Fraunces serif, documentary photography, a magazine-cover hero. Calm, dignified, image-led.</p><div class="chips"><span>Editorial</span><span>Serif</span><span>Photo essay</span></div><a class="open" href="magazine.html">Open full page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-      </article>
-      <article class="card">
-        <div class="thumb"><span class="tag">★ Block Party — complete site</span><iframe src="blockparty.html" title="Block Party preview" loading="lazy" tabindex="-1"></iframe><a class="go" href="blockparty.html" aria-label="Enter the Block Party site"></a></div>
-        <div class="bd"><h2>Block Party <span style="font-size:.7em;color:var(--coral)">· the full build</span></h2><p class="vibe">The chosen direction, built out into a complete, clickable 8-page site: full-width hero, dropdown nav, real logo &amp; favicon, and working modals (program details, volunteer &amp; RSVP forms, image lightbox). Home · Our Story · Programs · Impact · Events &amp; Prayer · Get Involved · Give · Contact.</p><div class="chips"><span>8 pages</span><span>Modals</span><span>Clickable</span></div><a class="open" href="blockparty.html">Enter the site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-      </article>
-      <article class="card">
-        <div class="thumb"><span class="tag">C · Bright &amp; Bold</span><iframe src="bold.html" title="Bright and Bold preview" loading="lazy" tabindex="-1"></iframe><a class="go" href="bold.html" aria-label="Open Bright and Bold version"></a></div>
-        <div class="bd"><h2>Bright &amp; Bold</h2><p class="vibe">Spectacular modern, but light — vivid emerald + coral on white, oversized Sora headlines, a bento photo gallery, big animated stats. Energetic and optimistic.</p><div class="chips"><span>Modern</span><span>Kinetic</span><span>Bento</span></div><a class="open" href="bold.html">Open full page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-      </article>
-      <article class="card">
-        <div class="thumb"><span class="tag">Emerald · earlier</span><iframe src="emerald.html" title="Emerald preview" loading="lazy" tabindex="-1"></iframe><a class="go" href="emerald.html" aria-label="Open Emerald version"></a></div>
-        <div class="bd"><h2>Emerald</h2><p class="vibe">The green, Bricolage-type version from the last round — kept here for comparison. Modern and on-brand, but runs darker than the three new light directions.</p><div class="chips"><span>Green</span><span>Reference</span></div><a class="open" href="emerald.html">Open full page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-      </article>
-    </main>
-    <footer>
-      <span>Al-Maun Neighborly Needs · redesign concept · photos © Al-Maun</span>
-      <span>Run locally: <code>python3 -m http.server</code></span>
-    </footer>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ===================== HEADER (shared template — identical on every page) ===================== -->
+<header class="header" id="top">
+  <div class="container header__in">
+    <a class="brand" href="index.html" aria-label="Al-Maun Neighborly Needs, home">
+      <img class="brand__logo brand__logo--light" src="images/logo-green.png" alt="Al-Maun Neighborly Needs" width="667" height="266">
+      <img class="brand__logo brand__logo--dark" src="images/logo-white.png" alt="" aria-hidden="true" width="800" height="305">
+    </a>
+    <nav class="nav" id="nav" aria-label="Primary">
+      <ul class="nav__list">
+        <li class="nav__item has-dd">
+          <a class="nav__link" href="about.html">Our Story</a>
+          <button class="nav__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Our Story submenu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd">
+            <a class="dd__link" href="about.html#ab-name">Mission</a>
+            <a class="dd__link" href="about.html#ab-heritage">Our History</a>
+            <a class="dd__link" href="about.html#ab-people">Leadership</a>
+            <a class="dd__link" href="about.html#ab-trust">Transparency</a>
+          </div>
+        </li>
+        <li class="nav__item has-dd">
+          <a class="nav__link" href="programs.html">Programs</a>
+          <button class="nav__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Programs submenu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd dd--programs">
+            <a class="dd__link" href="programs.html#food"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11h17a8.5 8.5 0 0 1-17 0Z"/><path d="M8 7.5c0-1 1-1.2 1-2.2M12 7c0-1 1-1.2 1-2.2M16 7.5c0-1 1-1.2 1-2.2"/></svg></span>Food &amp; Nutrition</a>
+            <a class="dd__link" href="programs.html#health"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></span>Free Health Clinic</a>
+            <a class="dd__link" href="programs.html#education"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9 12 5l9.5 4L12 13 2.5 9Z"/><path d="M6.5 10.7V15c0 1.2 2.5 2.2 5.5 2.2s5.5-1 5.5-2.2v-4.3"/></svg></span>Education &amp; Workshops</a>
+            <a class="dd__link" href="programs.html#reentry"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 5l8 6"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg></span>Stabilization &amp; Reentry</a>
+            <a class="dd__link" href="programs.html#youth"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M8.5 14a4 4 0 0 0 7 0"/></svg></span>Youth Development</a>
+            <a class="dd__link" href="programs.html#community"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 18.5V20"/><circle cx="10" cy="8" r="3"/><path d="M20 20v-1.5a3.5 3.5 0 0 0-2.6-3.4M15.5 5.2a3 3 0 0 1 0 5.6"/></svg></span>Community &amp; Culture</a>
+          </div>
+        </li>
+        <li class="nav__item"><a class="nav__link" href="nutrition-passport.html">NutriPass</a></li>
+        <li class="nav__item"><a class="nav__link" href="impact.html">Impact</a></li>
+        <li class="nav__item has-dd">
+          <a class="nav__link" href="get-involved.html">Get Involved</a>
+          <button class="nav__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Get Involved submenu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd">
+            <a class="dd__link" href="get-involved.html#volunteer">Volunteer</a>
+            <a class="dd__link" href="get-involved.html#goods">Donate Goods</a>
+            <a class="dd__link" href="get-involved.html#partners">Partners</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="header__cta">
+      <span class="header__soc">
+        <a class="icon-btn" href="https://instagram.com/almaunlv_official" target="_blank" rel="noopener" aria-label="Al-Maun on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a class="icon-btn" href="https://www.facebook.com/almaun.org/" target="_blank" rel="noopener" aria-label="Al-Maun on Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3l.5-3H14V4.5c0-.9.3-1.5 1.7-1.5H18V.2C17.5.1 16.3 0 15 0c-2.7 0-4.5 1.6-4.5 4.6V6H8v3h2.5v9H14z"/></svg></a>
+        <a class="icon-btn" href="https://www.youtube.com/@ALMAUNLV" target="_blank" rel="noopener" aria-label="Al-Maun on YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.11-2.12C19.6 3.55 12 3.55 12 3.55s-7.6 0-9.39.53A3 3 0 0 0 .5 6.2 31.1 31.1 0 0 0 0 12a31.1 31.1 0 0 0 .5 5.8 3 3 0 0 0 2.11 2.12c1.79.53 9.39.53 9.39.53s7.6 0 9.39-.53A3 3 0 0 0 23.5 17.8 31.1 31.1 0 0 0 24 12a31.1 31.1 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6Z"/></svg></a>
+      </span>
+      <a class="btn btn--cta" href="give.html">Donate</a>
+      <button class="icon-btn burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
   </div>
+</header>
+
+<main id="main">
+
+<!-- ===================== HERO (full-bleed photographic) ===================== -->
+<section class="hero-full" id="hero" aria-labelledby="hero-h">
+  <img class="hero-full__img" src="images/hero-line.jpg" alt="Al-Maun volunteers and neighbors gathered shoulder to shoulder on the Historic Westside of Las Vegas." width="1300" height="866" fetchpriority="high">
+  <div class="hero-full__scrim" aria-hidden="true"></div>
+
+  <div class="hero-full__inner">
+    <div class="hero-full__copy">
+      <p class="hero-full__eyebrow">Grassroots since 2003 &middot; Historic Westside, Las Vegas</p>
+
+      <h1 class="hero-full__title" id="hero-h">
+        Neighbors helping
+        <span class="mark">neighbors<svg class="mark__line" viewBox="0 0 320 24" preserveAspectRatio="none" aria-hidden="true"><path d="M6 15 C 70 5, 130 22, 190 12 S 292 6, 314 17"/></svg></span>
+      </h1>
+
+      <p class="hero-full__deck">The humanitarian arm of Masjid As-Sabur — the oldest mosque in Las Vegas. Hot meals, a free clinic, and a hand up for anyone who needs one. Muslim or not, no paperwork, no judgment.</p>
+
+      <div class="hero-full__cta">
+        <a class="btn btn--cta btn--lg" href="give.html">Donate</a>
+        <a class="btn btn--lg hero-full__ghost" href="#programs">See our work</a>
+      </div>
+
+      <div class="hero-full__signals">
+        <div class="live" role="status" aria-live="polite">
+          <span class="live__dot" aria-hidden="true"></span>
+          <span class="live__txt" id="liveTxt">Happening now: sorting Kits 4 Kidz on Morgan Ave</span>
+        </div>
+        <span class="hero-full__badge">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.5 6.5L21 9l-5 4.2L17.6 21 12 17.1 6.4 21 8 13.2 3 9l6.5-.5L12 2Z"/></svg>
+          500+ served in a day
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== IMPACT STATS ===================== -->
+<section class="section stats" id="impact" aria-labelledby="impact-h">
+  <div class="container">
+    <div class="stats__head reveal">
+      <p class="eyebrow" style="justify-content:center">By the numbers</p>
+      <h2 id="impact-h" style="font-size:var(--fs-h2);font-weight:800">We stay <em style="font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--brand-strong)">busy</em> — because our neighbors need us to.</h2>
+    </div>
+
+    <div class="stats__grid">
+      <div class="stat reveal" data-d="1">
+        <span class="stat__num" data-count="20" data-suffix="+">0</span>
+        <span class="stat__label">Years serving the Westside</span>
+      </div>
+      <div class="stat reveal" data-d="2">
+        <span class="stat__num" data-count="500" data-suffix="+">0</span>
+        <span class="stat__label">Neighbors served in a single day</span>
+      </div>
+      <div class="stat reveal" data-d="3">
+        <span class="stat__num" data-count="20000" data-prefix="$" data-suffix="+">0</span>
+        <span class="stat__label">In direct aid given that day</span>
+      </div>
+      <div class="stat reveal" data-d="4">
+        <span class="stat__num" data-count="6">0</span>
+        <span class="stat__label">Core programs, run by neighbors</span>
+      </div>
+    </div>
+    <p class="stats__foot reveal">&hellip;plus a <b>free health clinic</b> we built hand-in-hand with UNLV, for folks with nowhere else to turn.</p>
+  </div>
+</section>
+
+<!-- ===================== STORY ===================== -->
+<section class="section story" id="story" aria-labelledby="story-h">
+  <div class="container story__grid">
+    <div class="story__copy reveal">
+      <p class="eyebrow">Our story</p>
+      <h2 id="story-h">A name that means <em>small kindnesses.</em></h2>
+      <p class="lead" style="color:var(--text);max-width:none">Al-Ma&#39;un is the 107th chapter of the Qur&#39;an — a short, piercing surah that measures faith not by grand gestures, but by whether you feed the orphan and help your neighbor. That is our whole job description.</p>
+      <p>We were born inside <b>Masjid As-Sabur</b>, the oldest mosque in Las Vegas, rooted in the Historic Westside since long before the neighborhood had many friends. From that little corner on Morgan Avenue, volunteers started showing up for whoever knocked — the hungry, the homeless, seniors, veterans, returning citizens, kids. That&#39;s still exactly how it works today.</p>
+      <p>Along the way the work got noticed: nationally recognized relief after Hurricane Katrina, and a visit from Muhammad Ali himself. But the point was never the recognition. The point is the neighbor in front of you, right now.</p>
+
+      <div class="heritage">
+        <span class="chip chip--mint"><span class="dot" aria-hidden="true"></span>Oldest mosque in Las Vegas</span>
+        <span class="chip">Katrina relief, nationally recognized</span>
+        <span class="chip">Visited by Muhammad Ali</span>
+      </div>
+
+      <blockquote class="ayah reveal">
+        <p class="ayah__ar" lang="ar" dir="rtl">فَوَيْلٌ لِّلْمُصَلِّينَ &hellip; وَيَمْنَعُونَ الْمَاعُونَ</p>
+        <p class="ayah__tr">&ldquo;&hellip;who are heedless of their prayer — and withhold al-Ma&#39;un, the small kindnesses.&rdquo;</p>
+        <p class="ayah__src">Qur&#39;an &middot; Surah Al-Ma&#39;un 107</p>
+      </blockquote>
+    </div>
+
+    <div class="story__media reveal" data-d="2">
+      <figure class="photo-frame">
+        <span class="tape tape--tl" aria-hidden="true"></span>
+        <img src="images/story-banner.jpg" alt="Volunteers in green shirts proudly hanging the green Al-Maun Neighborly Needs Humanitarian banner celebrating over 20 years of service, under a bright blue Las Vegas sky." width="1200" height="800">
+        <figcaption class="hero__cap" style="right:14px;left:auto;bottom:22px">Over 20 years &amp; counting.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROGRAMS ===================== -->
+<section class="section programs" id="programs" aria-labelledby="prog-h">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow">What we do</p>
+      <h2 id="prog-h">Six ways we show up for <em>the block.</em></h2>
+      <p class="lead">No red tape. No means test at the door. Just neighbors covering the gaps the system leaves behind — from a hot plate of food to a second chance.</p>
+    </div>
+
+    <div class="prog-grid">
+      <!-- 1 -->
+      <article class="card reveal" data-d="1" style="--_c:var(--brand)">
+        <div class="card__bar"></div>
+        <div class="card__media"><img src="images/prog-food.jpg" alt="Volunteers handing out fresh food and sack lunches at an Al-Maun distribution table." width="378" height="252"></div>
+        <div class="card__body">
+          <span class="card__kicker">Program 01</span>
+          <h3>Food &amp; Nutrition</h3>
+          <p class="card__blurb">Nobody goes to bed hungry on our watch.</p>
+          <div class="tags"><span class="tag">Food pantry</span><span class="tag">Hot meals</span><span class="tag">Grocery delivery</span><span class="tag">Community garden</span><span class="tag">NutriPass</span></div>
+        </div>
+      </article>
+      <!-- 2 -->
+      <article class="card reveal" data-d="2" style="--_c:var(--cta)">
+        <div class="card__bar"></div>
+        <div class="card__media"><img src="images/prog-health.jpg" alt="A neighbor receiving care at the Al-Maun free health clinic built with UNLV." width="378" height="252"></div>
+        <div class="card__body">
+          <span class="card__kicker">Program 02</span>
+          <h3>Free Health Clinic</h3>
+          <p class="card__blurb">A community clinic, built with UNLV, for those with nowhere to turn.</p>
+          <div class="tags"><span class="tag">Check-ups</span><span class="tag">Wound care</span><span class="tag">Eye exams</span><span class="tag">Rx help</span></div>
+        </div>
+      </article>
+      <!-- 3 -->
+      <article class="card reveal" data-d="3" style="--_c:var(--accent)">
+        <div class="card__bar"></div>
+        <div class="card__media"><img src="images/prog-education.jpg" alt="A community education workshop hosted by Al-Maun volunteers." width="378" height="252"></div>
+        <div class="card__body">
+          <span class="card__kicker">Program 03</span>
+          <h3>Education &amp; Workshops</h3>
+          <p class="card__blurb">Knowledge that protects &amp; heals.</p>
+          <div class="tags"><span class="tag">Trauma support</span><span class="tag">Legal rights</span><span class="tag">Grief groups</span><span class="tag">Nisaa&#39;s Academy</span></div>
+        </div>
+      </article>
+      <!-- 4 -->
+      <article class="card reveal" data-d="1" style="--_c:var(--green-deep)">
+        <div class="card__bar"></div>
+        <div class="card__media"><img src="images/prog-reentry.jpg" alt="A mentor and participant in the Al-Maun stabilization and reentry program." width="378" height="252"></div>
+        <div class="card__body">
+          <span class="card__kicker">Program 04</span>
+          <h3>Stabilization &amp; Reentry</h3>
+          <p class="card__blurb">A second chance is sacred.</p>
+          <div class="tags"><span class="tag">Reentry (CHANCES)</span><span class="tag">Recovery (Millati Islami)</span><span class="tag">Rent &amp; utility aid</span></div>
+        </div>
+      </article>
+      <!-- 5 -->
+      <article class="card reveal" data-d="2" style="--_c:var(--accent)">
+        <div class="card__bar"></div>
+        <div class="card__media"><img src="images/prog-youth.jpg" alt="Young people being mentored through Al-Maun youth development." width="378" height="252"></div>
+        <div class="card__body">
+          <span class="card__kicker">Program 05</span>
+          <h3>Youth Development</h3>
+          <p class="card__blurb">The next generation — mentored &amp; believed in.</p>
+          <div class="tags"><span class="tag">Mentorship</span><span class="tag">Chess club</span><span class="tag">Youth talks</span></div>
+        </div>
+      </article>
+      <!-- 6 -->
+      <article class="card reveal" data-d="3" style="--_c:var(--brand)">
+        <div class="card__bar"></div>
+        <div class="card__media"><img src="images/prog-community.jpg" alt="Neighbors of all ages sharing a communal outdoor meal at golden hour at an Al-Maun community gathering." width="1200" height="800"></div>
+        <div class="card__body">
+          <span class="card__kicker">Program 06</span>
+          <h3>Community &amp; Culture</h3>
+          <p class="card__blurb">The glue of a neighborhood.</p>
+          <div class="tags"><span class="tag">Arts &amp; culture</span><span class="tag">Interfaith</span><span class="tag">Cleanups</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MARQUEE ===================== -->
+<div class="marquee" aria-label="Services distributed on Humanitarian Day 2025">
+  <div class="marquee__track" aria-hidden="true">
+    <span class="marquee__item">Hot meals</span><span class="marquee__item">Medical services</span><span class="marquee__item">Hygiene kits</span><span class="marquee__item">Mobile showers</span><span class="marquee__item">Shoes</span><span class="marquee__item">Cooling fans</span><span class="marquee__item">Baby formula</span><span class="marquee__item">Diapers</span><span class="marquee__item">Water</span><span class="marquee__item">Haircuts</span><span class="marquee__item">Jackets</span><span class="marquee__item">Backpacks</span>
+    <span class="marquee__item">Hot meals</span><span class="marquee__item">Medical services</span><span class="marquee__item">Hygiene kits</span><span class="marquee__item">Mobile showers</span><span class="marquee__item">Shoes</span><span class="marquee__item">Cooling fans</span><span class="marquee__item">Baby formula</span><span class="marquee__item">Diapers</span><span class="marquee__item">Water</span><span class="marquee__item">Haircuts</span><span class="marquee__item">Jackets</span><span class="marquee__item">Backpacks</span>
+  </div>
+</div>
+
+<!-- ===================== GALLERY / SCRAPBOOK ===================== -->
+<section class="section gallery" aria-labelledby="gal-h">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow" style="justify-content:center">Humanitarian Day 2025 &middot; March 22</p>
+      <h2 id="gal-h">One day. Five hundred <em>neighbors.</em></h2>
+      <p class="lead" style="margin-inline:auto">Hot meals, haircuts, mobile showers, medical care, cooling fans for a 110&deg; desert — over $20,000 in aid handed to real people in a single afternoon. Here&#39;s what it looked like.</p>
+    </div>
+
+    <div class="hd-grid">
+      <figure class="hd-figure reveal">
+        <a class="hd-zoom" data-lightbox href="images/g-haircut.jpg" data-gallery="humday" data-caption="Fresh cut, biggest smile of the day" aria-label="Enlarge photo: Fresh cut, biggest smile of the day">
+          <img src="images/g-haircut.jpg" alt="A young boy beaming with a huge smile while a barber gives him a fresh free haircut outdoors." width="1000" height="667">
+        </a>
+        <figcaption>Fresh cut, biggest smile of the day</figcaption>
+      </figure>
+      <figure class="hd-figure reveal">
+        <a class="hd-zoom" data-lightbox href="images/g-feeding.jpg" data-gallery="humday" data-caption="A hot meal, shared at the table" aria-label="Enlarge photo: A hot meal, shared at the table">
+          <img src="images/g-feeding.jpg" alt="Neighbors seated at tables with green tablecloths sharing a hot meal together outdoors." width="1200" height="800">
+        </a>
+        <figcaption>A hot meal, shared at the table</figcaption>
+      </figure>
+      <figure class="hd-figure reveal">
+        <a class="hd-zoom" data-lightbox href="images/g-serve.jpg" data-gallery="humday" data-caption="Sack lunches &amp; juice, all day" aria-label="Enlarge photo: Sack lunches and juice, all day">
+          <img src="images/g-serve.jpg" alt="A young male volunteer in a green Al-Maun shirt standing behind boxes of fresh produce beside juice and sack-lunch signs." width="1200" height="800">
+        </a>
+        <figcaption>Sack lunches &amp; juice, all day</figcaption>
+      </figure>
+      <figure class="hd-figure reveal">
+        <a class="hd-zoom" data-lightbox href="images/g-126.jpg" data-gallery="humday" data-caption="Supplies with UnitedHealthcare" aria-label="Enlarge photo: Supplies with UnitedHealthcare">
+          <img src="images/g-126.jpg" alt="Neighbors receiving supplies at a UnitedHealthcare partner booth, with a senior woman volunteer in a green apron helping." width="1200" height="800">
+        </a>
+        <figcaption>Supplies with UnitedHealthcare</figcaption>
+      </figure>
+      <figure class="hd-figure reveal">
+        <a class="hd-zoom" data-lightbox href="images/g-348.jpg" data-gallery="humday" data-caption="Teens sorting Kits 4 Kidz" aria-label="Enlarge photo: Teens sorting Kits 4 Kidz">
+          <img src="images/g-348.jpg" alt="Teen volunteers in green aprons sorting Kits 4 Kidz hygiene supplies at a table." width="1200" height="800">
+        </a>
+        <figcaption>Teens sorting Kits 4 Kidz</figcaption>
+      </figure>
+      <figure class="hd-figure reveal">
+        <a class="hd-zoom" data-lightbox href="images/g-volunteers.jpg" data-gallery="humday" data-caption="Green aprons, ready to serve" aria-label="Enlarge photo: Green aprons, ready to serve">
+          <img src="images/g-volunteers.jpg" alt="Two women volunteers in green Al-Maun aprons smiling side by side at a booth under a tent." width="1000" height="667">
+        </a>
+        <figcaption>Green aprons, ready to serve</figcaption>
+      </figure>
+    </div>
+    <div class="hd-more">
+      <a class="btn btn--ghost" href="impact.html">See all of Humanitarian Day &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DONATION ===================== -->
+<section class="section donate" id="donate" aria-labelledby="don-h">
+  <div class="container donate__grid">
+    <div class="donate__intro reveal">
+      <p class="eyebrow">Give a small kindness</p>
+      <h2 id="don-h">Your gift becomes <em>someone&#39;s good day.</em></h2>
+      <p class="lead" style="color:var(--text);max-width:none">We under-ask and over-deliver — but a hot meal still costs money, and a cooling fan in July isn&#39;t free. Pick an amount and watch exactly what it does for a neighbor down the street.</p>
+      <ul class="give-list">
+        <li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span> Every dollar is stewarded by volunteers — not overhead.</li>
+        <li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span> Zakat-eligible &amp; tax-deductible — a registered 501(c)(3).</li>
+        <li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span> Served to everyone — Muslim &amp; non-Muslim, no questions asked.</li>
+      </ul>
+      <figure class="photo-frame">
+        <span class="tape tape--tl" aria-hidden="true"></span>
+        <img src="images/feature-hug.jpg" alt="An elder embracing two young Al-Maun volunteers at a community gathering on the Historic Westside." width="600" height="400">
+      </figure>
+    </div>
+
+    <div class="widget reveal" data-d="2" aria-labelledby="widget-h">
+      <span class="widget__flag" aria-hidden="true">Preview</span>
+      <h3 class="widget__title" id="widget-h">Fund a kindness</h3>
+      <p class="widget__sub">Choose an amount to see what your gift does.</p>
+
+      <div class="seg" role="group" aria-label="Giving frequency">
+        <button type="button" id="freqOnce" aria-pressed="true">One-time</button>
+        <button type="button" id="freqMonthly" aria-pressed="false">Monthly</button>
+      </div>
+
+      <div class="tiers" id="tiers" role="group" aria-label="Choose a donation amount">
+        <button type="button" class="tier" data-amt="25" aria-pressed="false">
+          <span class="tier__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
+          <span class="tier__amt">$25</span><span class="tier__note">Hot meals for a family</span>
+        </button>
+        <button type="button" class="tier" data-amt="50" aria-pressed="true">
+          <span class="tier__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
+          <span class="tier__amt">$50</span><span class="tier__note">Cooling &amp; hygiene kit</span>
+        </button>
+        <button type="button" class="tier" data-amt="100" aria-pressed="false">
+          <span class="tier__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
+          <span class="tier__amt">$100</span><span class="tier__note">A free clinic visit</span>
+        </button>
+        <button type="button" class="tier" data-amt="250" aria-pressed="false">
+          <span class="tier__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
+          <span class="tier__amt">$250</span><span class="tier__note">Groceries for a senior</span>
+        </button>
+        <button type="button" class="tier" data-amt="500" aria-pressed="false">
+          <span class="tier__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
+          <span class="tier__amt">$500</span><span class="tier__note">Keep a family housed</span>
+        </button>
+        <button type="button" class="tier" data-amt="75" aria-pressed="false">
+          <span class="tier__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>
+          <span class="tier__amt">Other</span><span class="tier__note">You choose the amount</span>
+        </button>
+      </div>
+
+      <p class="impact-line" id="impactLine" aria-live="polite"></p>
+
+      <div class="goal">
+        <div class="goal__row">
+          <span>2026 goal progress</span>
+          <span><b id="goalNum">$20,000</b> of $50,000</span>
+        </div>
+        <div class="goal__track"><div class="goal__fill" id="goalFill"></div></div>
+        <p class="goal__cap">In 2025 you helped us invest <b>$20,000+</b> back into the block. Help us reach <b>$50,000</b> in 2026.</p>
+      </div>
+
+      <div class="widget__give" id="giveWrap">
+        <button type="button" class="btn btn--cta btn--lg btn--block" id="giveBtn">Give $50</button>
+        <div class="badges">
+          <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Secure</span>
+          <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v18M7 8h7a3 3 0 0 1 0 6H7"/></svg>Zakat-eligible</span>
+          <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>Tax-deductible 501(c)(3)</span>
+        </div>
+      </div>
+
+      <div class="thanks" id="thanks" role="status" aria-live="polite">
+        <p class="thanks__ar" lang="ar" dir="rtl">جَزَاكَ اللهُ خَيْرًا</p>
+        <p class="thanks__en">Taking you to our secure donation page&hellip;</p>
+        <p class="thanks__sm" id="thanksSm"></p>
+        <a class="btn btn--cta" href="https://www.almaunlv.org/donate-almaun" target="_blank" rel="noopener">Continue to donate securely</a>
+        <button type="button" class="btn btn--ghost" id="giveAgain">Choose another amount</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PARTNERS ===================== -->
+<section class="section partners" id="partners" aria-label="Our partners">
+  <div class="container">
+    <p class="partners__lbl reveal">In good company &mdash; our partners on the block</p>
+    <div class="partners__row reveal" data-d="1">
+      <span class="partner">ILM Foundation</span>
+      <span class="partner">Las Vegas Raiders</span>
+      <span class="partner">Albertsons</span>
+      <span class="partner">Raising Cane&#39;s</span>
+      <span class="partner">UnitedHealthcare</span>
+      <span class="partner">UNLV</span>
+      <span class="partner">Vituity Cares</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GET INVOLVED ===================== -->
+<section class="section involved" id="involved" aria-labelledby="inv-h">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow" style="justify-content:center">Get involved</p>
+      <h2 id="inv-h">Pull up a chair. There&#39;s <em>a place for you.</em></h2>
+      <p class="lead" style="margin-inline:auto">You don&#39;t need a title or a big check to help — just a couple of hours and a willing heart. Here&#39;s where to start.</p>
+    </div>
+
+    <div class="inv-grid">
+      <article class="inv reveal" data-d="1">
+        <div class="inv__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1F7A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h3>Volunteer</h3>
+        <p>Pull on a green apron. Serve meals, sort kits, staff the pantry, or help run the next Humanitarian Day. First-timers and families welcome.</p>
+        <a class="link" href="mailto:almaun@gmail.com?subject=I%20want%20to%20volunteer">Sign me up <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="inv reveal" data-d="2">
+        <div class="inv__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#B67908" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l1 12H5L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></div>
+        <h3>Donate goods</h3>
+        <p>Drop off food, hygiene supplies, jackets, diapers, backpacks &mdash; the everyday stuff neighbors need. Bring it by <b>711 Morgan Ave</b> anytime we&#39;re open.</p>
+        <a class="link" href="#donate">What we need <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="inv reveal" data-d="3">
+        <div class="inv__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#C0421E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2 2 3-1 1 3 3 1-1 3 1 3-3 1-1 3-3-1-2 2-2-2-3 1-1-3-3-1 1-3-1-3 3-1 1-3 3 1 2-2Z"/></svg></div>
+        <h3>Worship with us</h3>
+        <p>All are welcome at Masjid As-Sabur. Come as a guest, come as a neighbor.</p>
+        <div class="footer__jum" style="background:var(--band-mint);border-color:rgba(46,158,91,.4);margin-top:1rem">
+          <b style="color:var(--brand-strong)">Jumu&#39;ah &middot; Fridays 1:00 PM</b>
+          <span style="color:var(--text-muted)">Masjid As-Sabur &middot; 711 Morgan Ave, Las Vegas</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== NEWSLETTER ===================== -->
+<section class="section news" aria-labelledby="news-h">
+  <div class="container news__card">
+    <div class="reveal">
+      <h2 id="news-h">Get the <em>good news.</em></h2>
+      <p>A short note now and then — the next Humanitarian Day, volunteer call-outs, and stories from the block. No spam, ever.</p>
+    </div>
+    <div class="reveal" data-d="1">
+      <form class="news__form" id="newsForm" data-modal-success="subscribed">
+        <input type="email" id="newsEmail" name="email" placeholder="you@email.com" aria-label="Your email address" required>
+        <button type="submit" class="btn btn--cta">Keep me posted</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <img class="footer__logo" src="images/logo-white.png" alt="Al-Maun Neighborly Needs">
+        <p class="footer__tag">The humanitarian arm of Masjid As-Sabur, serving the Historic Westside of Las Vegas since 2003. Neighbors helping neighbors &mdash; measured in small kindnesses.</p>
+        <a class="footer__soc" href="https://instagram.com/almaunlv_official" target="_blank" rel="noopener" aria-label="Al-Maun on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a class="footer__soc" href="https://www.facebook.com/almaun.org/" target="_blank" rel="noopener" aria-label="Al-Maun on Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3l.5-3H14V4.5c0-.9.3-1.5 1.7-1.5H18V.2C17.5.1 16.3 0 15 0c-2.7 0-4.5 1.6-4.5 4.6V6H8v3h2.5v9H14z"/></svg></a>
+        <a class="footer__soc" href="https://www.youtube.com/@ALMAUNLV" target="_blank" rel="noopener" aria-label="Al-Maun on YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.11-2.12C19.6 3.55 12 3.55 12 3.55s-7.6 0-9.39.53A3 3 0 0 0 .5 6.2 31.1 31.1 0 0 0 0 12a31.1 31.1 0 0 0 .5 5.8 3 3 0 0 0 2.11 2.12c1.79.53 9.39.53 9.39.53s7.6 0 9.39-.53A3 3 0 0 0 23.5 17.8 31.1 31.1 0 0 0 24 12a31.1 31.1 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6Z"/></svg></a>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <nav class="footer__nav" aria-label="Footer">
+          <a href="about.html">Our Story</a>
+          <a href="programs.html">Programs</a>
+          <a href="nutrition-passport.html">NutriPass</a>
+          <a href="impact.html">Impact</a>
+          <a href="events.html">Events &amp; Prayer</a>
+          <a href="get-involved.html">Get Involved</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <h4>Visit &amp; Contact</h4>
+        <address>
+          711 Morgan Ave<br>
+          Las Vegas, NV 89106<br>
+          <a href="tel:+17026472500">(702) 647-2500</a><br>
+          <a href="mailto:almaun@gmail.com">almaun@gmail.com</a>
+        </address>
+        <div class="footer__jum"><b>Jumu&#39;ah &middot; Fridays 1:00 PM</b><span>All are welcome at Masjid As-Sabur.</span></div>
+      </div>
+      <div>
+        <h4>Give &amp; Support</h4>
+        <address>
+          Registered 501(c)(3)<br>
+          EIN 32-0087926<br>
+          Zakat-eligible &amp; tax-deductible<br>
+          <a href="give.html">Make a donation &rarr;</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <span>&copy; 2003&ndash;2026 Al-Maun Neighborly Needs. All kindnesses welcome.</span>
+      <span class="footer__legal"><a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="donor-policy.html">Donor Policy</a></span>
+      <button class="footer__theme theme-toggle" id="themeBtn" type="button" aria-label="Switch between light and dark mode"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg><span>Light / dark</span></button>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== MODALS ===================== -->
+<div class="modal" id="subscribed" role="dialog" aria-modal="true" aria-labelledby="subscribed-title" hidden>
+  <div class="modal__backdrop" data-modal-close></div>
+  <div class="modal__panel" role="document">
+    <button class="modal__x" type="button" data-modal-close aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <span class="modal__ic" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-5-5"/></svg>
+    </span>
+    <h2 id="subscribed-title">You&#39;re <em>subscribed!</em></h2>
+    <p>Jaz&#257;k All&#257;hu khayran &mdash; you&#39;re on the list. Watch your inbox for the next Humanitarian Day, volunteer call-outs, and good news from the block. No spam, ever.</p>
+    <button class="btn btn--cta" type="button" data-modal-close>Back to the block</button>
+  </div>
+</div>
+
+<script src="assets/site.js?v=3" defer></script>
 <script>
-  // scale each preview iframe to fill its card width
-  function fit(){document.querySelectorAll('.thumb').forEach(function(t){var f=t.querySelector('iframe');var s=t.clientWidth/1440;f.style.transform='scale('+s+')';});}
-  window.addEventListener('load',fit);window.addEventListener('resize',fit);fit();
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- THEME (applied inline to avoid a flash; toggle lives in site.js) ---------- */
+  var root = document.documentElement;
+  var themeBtn = document.getElementById('themeBtn');
+  try{
+    var saved = localStorage.getItem('almaun-theme');
+    if(saved){ root.setAttribute('data-theme', saved); }
+  }catch(e){}
+  themeBtn.addEventListener('click', function(){
+    var isDark;
+    var cur = root.getAttribute('data-theme');
+    if(cur){ isDark = cur === 'dark'; }
+    else { isDark = window.matchMedia('(prefers-color-scheme: dark)').matches; }
+    var next = isDark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try{ localStorage.setItem('almaun-theme', next); }catch(e){}
+  });
+
+  /* ---------- HEADER SHADOW ---------- */
+  var header = document.querySelector('.header');
+  var onScroll = function(){ header.classList.toggle('scrolled', window.scrollY > 8); };
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* ---------- REVEAL + hero marker ---------- */
+  var heroSec = document.getElementById('hero');
+  if(reduce){
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+    heroSec.classList.add('revealed');
+  } else {
+    setTimeout(function(){ heroSec.classList.add('revealed'); }, 200);
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, {threshold:0.14, rootMargin:'0px 0px -8% 0px'});
+      document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+    } else {
+      document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+    }
+  }
+
+  /* ---------- COUNT-UP ---------- */
+  function fmt(n){ return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+  function animateCount(el){
+    var target = parseFloat(el.getAttribute('data-count')) || 0;
+    var prefix = el.getAttribute('data-prefix') || '';
+    var suffix = el.getAttribute('data-suffix') || '';
+    if(reduce){ el.textContent = prefix + fmt(target) + suffix; return; }
+    var dur = 1500, start = null;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start)/dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + fmt(Math.round(target * eased)) + suffix;
+      if(p < 1) requestAnimationFrame(step);
+      else el.textContent = prefix + fmt(target) + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+  var nums = document.querySelectorAll('.stat__num');
+  if('IntersectionObserver' in window && !reduce){
+    var co = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ animateCount(en.target); co.unobserve(en.target); } });
+    }, {threshold:0.5});
+    nums.forEach(function(n){ co.observe(n); });
+  } else {
+    nums.forEach(animateCount);
+  }
+
+  /* ---------- LIVE "busy" TICKER ---------- */
+  var liveTxt = document.getElementById('liveTxt');
+  var msgs = [
+    'Happening now: sorting Kits 4 Kidz on Morgan Ave',
+    'Happening now: hot meals going out the pantry door',
+    'This Friday: doors open for Jumu’ah at 1:00 PM',
+    'This summer: cooling fans for a 110° desert',
+    'Ongoing: groceries delivered to homebound seniors'
+  ];
+  if(!reduce){
+    var mi = 0;
+    setInterval(function(){
+      mi = (mi + 1) % msgs.length;
+      liveTxt.style.opacity = '0';
+      setTimeout(function(){ liveTxt.textContent = msgs[mi]; liveTxt.style.opacity = '1'; }, 400);
+    }, 3800);
+  }
+
+  /* ---------- GOAL BAR ---------- */
+  var goalFill = document.getElementById('goalFill');
+  var goalPct = 40; /* 20,000 of 50,000 */
+  var fillGoal = function(){ goalFill.style.width = (reduce ? goalPct + '%' : goalPct + '%'); };
+  if('IntersectionObserver' in window){
+    var go = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ fillGoal(); go.unobserve(en.target); } });
+    }, {threshold:0.4});
+    go.observe(goalFill);
+  } else { fillGoal(); }
+
+  /* ---------- DONATION WIDGET ---------- */
+  var tiersWrap = document.getElementById('tiers');
+  var tierBtns = Array.prototype.slice.call(tiersWrap.querySelectorAll('.tier'));
+  var impactLine = document.getElementById('impactLine');
+  var giveBtn = document.getElementById('giveBtn');
+  var onceBtn = document.getElementById('freqOnce');
+  var monthlyBtn = document.getElementById('freqMonthly');
+  var giveWrap = document.getElementById('giveWrap');
+  var thanks = document.getElementById('thanks');
+  var thanksSm = document.getElementById('thanksSm');
+  var giveAgain = document.getElementById('giveAgain');
+
+  var IMPACT = {
+    '25':  {short:'hot meals for a family this week', long:'funds <b>hot meals for a family</b> this week'},
+    '50':  {short:'a summer cooling &amp; hygiene kit', long:'sends a <b>summer cooling &amp; hygiene kit</b> into a 110&deg; desert'},
+    '75':  {short:'a mix of meals &amp; supplies', long:'covers <b>a little bit of everything</b> &mdash; meals, hygiene, and supplies'},
+    '100': {short:'a free clinic visit', long:'covers <b>a visit to our free health clinic</b> for someone with nowhere to turn'},
+    '250': {short:'a week of delivered groceries', long:'delivers <b>a week of groceries</b> to a homebound senior'},
+    '500': {short:'a family kept in their home', long:'helps <b>keep a family in their home</b> with rent &amp; utility aid'}
+  };
+
+  var state = { amt: 50, monthly: false };
+
+  function currentImpact(){ return IMPACT[state.amt] || IMPACT['50']; }
+
+  function render(){
+    var imp = currentImpact();
+    var per = state.monthly ? '/mo' : '';
+    var every = state.monthly ? ' <strong>every month</strong>' : '';
+    impactLine.innerHTML = 'Your <b>$' + state.amt + per + '</b> ' + imp.long + every + '.';
+    giveBtn.textContent = 'Give $' + state.amt + per;
+  }
+
+  function selectTier(btn){
+    var amt = btn.getAttribute('data-amt');
+    tierBtns.forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+    state.amt = amt;
+    render();
+  }
+  tierBtns.forEach(function(b){ b.addEventListener('click', function(){ selectTier(b); }); });
+
+  function setFreq(monthly){
+    state.monthly = monthly;
+    onceBtn.setAttribute('aria-pressed', monthly ? 'false' : 'true');
+    monthlyBtn.setAttribute('aria-pressed', monthly ? 'true' : 'false');
+    render();
+  }
+  onceBtn.addEventListener('click', function(){ setFreq(false); });
+  monthlyBtn.addEventListener('click', function(){ setFreq(true); });
+
+  giveBtn.addEventListener('click', function(){
+    var per = state.monthly ? ' every month' : ' one time';
+    var imp = currentImpact();
+    thanksSm.innerHTML = 'Your gift of <b>$' + state.amt + per + '</b> funds ' + imp.short + '. Complete it on our secure donation page.';
+    giveWrap.style.display = 'none';
+    thanks.classList.add('show');
+    thanks.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center'});
+    window.open('https://www.almaunlv.org/donate-almaun', '_blank', 'noopener');
+  });
+  giveAgain.addEventListener('click', function(){
+    thanks.classList.remove('show');
+    giveWrap.style.display = '';
+  });
+
+  render();
+
+  /* Newsletter success now runs through the shared modal system:
+     <form data-modal-success="subscribed"> is wired in assets/site.js */
+})();
 </script>
 </body>
 </html>
