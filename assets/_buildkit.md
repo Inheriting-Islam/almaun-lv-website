@@ -44,7 +44,7 @@ Keep the tiny inline theme-apply script if you copy it from blockparty.html (pre
             <a class="dd__link" href="programs.html#community"><span class="dd__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 18.5V20"/><circle cx="10" cy="8" r="3"/><path d="M20 20v-1.5a3.5 3.5 0 0 0-2.6-3.4M15.5 5.2a3 3 0 0 1 0 5.6"/></svg></span>Community &amp; Culture</a>
           </div>
         </li>
-        <li class="nav__item"><a class="nav__link" href="nutrition-passport.html">Nutrition Passport</a></li>
+        <li class="nav__item"><a class="nav__link" href="nutrition-passport.html">NutriPass</a></li>
         <li class="nav__item"><a class="nav__link" href="impact.html">Impact</a></li>
         <li class="nav__item has-dd">
           <a class="nav__link" href="get-involved.html">Get Involved</a>
@@ -89,7 +89,7 @@ Keep the tiny inline theme-apply script if you copy it from blockparty.html (pre
         <nav class="footer__nav" aria-label="Footer">
           <a href="about.html">Our Story</a>
           <a href="programs.html">Programs</a>
-          <a href="nutrition-passport.html">Nutrition Passport</a>
+          <a href="nutrition-passport.html">NutriPass</a>
           <a href="impact.html">Impact</a>
           <a href="events.html">Events &amp; Prayer</a>
           <a href="get-involved.html">Get Involved</a>
@@ -148,7 +148,7 @@ Note: footer now has a 4-column top (brand / Explore / Visit / Give). If bp.css 
 - Address: **711 Morgan Ave, Las Vegas, NV 89106** (use 89106). Phone **(702) 647-2500**. Email **almaun@gmail.com**. IG **@almaunlv_official** (https://instagram.com/almaunlv_official). FB **https://www.facebook.com/almaun.org/**. Jumu'ah **Fridays 1:00 PM**. **501(c)(3), EIN 32-0087926**.
 - Stats: **20+ years** · **500+** neighbors served in ONE day · **$20,000+** in aid that day · **6** core programs · a **free health clinic** (built with UNLV). Flagship event: **Humanitarian Day 2025 — March 22, 2025**.
 - 6 PROGRAMS:
-  1. **Food & Nutrition** (#food) — food pantry, hot meals, grocery delivery, community garden, farmers market, Nutrition Passport. img: images/prog-food.jpg
+  1. **Food & Nutrition** (#food) — food pantry, hot meals, grocery delivery, community garden, farmers market, NutriPass (the Nutrition Passport program). img: images/prog-food.jpg
   2. **Free Health Clinic** (#health) — with UNLV: check-ups, wound care, eye exams, prescription help. img: images/prog-health.jpg
   3. **Education & Workshops** (#education) — trauma support, legal-rights workshops, grief support, Nisaa's Academy. img: images/prog-education.jpg
   4. **Stabilization & Reentry** (#reentry) — reentry (CHANCES), recovery (Millati Islami), rent & utility assistance. img: images/prog-reentry.jpg
