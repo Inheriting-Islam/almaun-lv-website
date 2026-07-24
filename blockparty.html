@@ -778,11 +778,20 @@ p{margin:0}
 .footer__soc:hover{background:var(--accent);color:#120F0B;border-color:var(--accent)}
 .footer__soc svg{width:18px;height:18px}
 .footer__legal{margin-left:auto}
+.footer__legal a{color:rgba(237,228,214,.82);border-bottom:1px solid transparent;transition:color .15s ease,border-color .15s ease}
+.footer__legal a:hover{color:#fff;border-bottom-color:currentColor}
 .footer__theme{display:inline-flex;align-items:center;gap:.42rem;background:transparent;border:1px solid rgba(237,228,214,.22);color:rgba(237,228,214,.8);border-radius:var(--r-pill);padding:.42rem .85rem;cursor:pointer;font-family:var(--font-head);font-weight:600;font-size:.8rem;line-height:1;transition:color .18s ease,border-color .18s ease}
 .footer__theme:hover{color:#fff;border-color:rgba(237,228,214,.5)}
 .footer__theme svg{width:15px;height:15px}
 .footer__bar>.footer__theme{margin-left:.4rem}
 @media(max-width:640px){.footer__legal{margin-left:0}.footer__bar>.footer__theme{margin-left:0}}
+/* footer layout: match the 4-column grid + Explore nav used on every other page */
+.footer__top{display:grid;grid-template-columns:1.7fr 1fr 1.25fr 1fr;gap:34px;align-items:start}
+.footer__nav{display:flex;flex-direction:column;gap:11px}
+.footer__nav a{color:inherit;opacity:.82;font-size:.95rem;width:max-content;text-decoration:none}
+.footer__nav a:hover{opacity:1;text-decoration:underline}
+@media(max-width:980px){.footer__top{grid-template-columns:1fr 1fr;gap:2rem}}
+@media(max-width:560px){.footer__top{grid-template-columns:1fr;gap:1.6rem}}
 .scroll-progress{position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,var(--brand),var(--accent),var(--cta));z-index:300;pointer-events:none;will-change:transform}
 .give-bar{position:fixed;left:50%;bottom:18px;transform:translate(-50%,150%);z-index:160;display:flex;align-items:center;gap:.9rem;max-width:min(94vw,620px);background:var(--ink);color:#fff;border-radius:var(--r-pill);padding:.5rem .55rem .5rem 1.35rem;box-shadow:var(--shadow-lg);opacity:0;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .4s ease}
 .give-bar.is-on{transform:translate(-50%,0);opacity:1}
