@@ -7,7 +7,27 @@
 (function () {
   "use strict";
 
+  /* ── Web3Forms: paste your access key below to make every form deliver to your inbox.
+        Get a free key at web3forms.com (enter almaun@gmail.com). Until then, forms just
+        confirm on submit without sending. One key powers every form on the site. ── */
+  var WEB3FORMS_KEY = 'REPLACE_WITH_WEB3FORMS_KEY';
+
+  /* ── Google Analytics 4: paste your Measurement ID (G-XXXXXXXXXX) to enable site-wide
+        analytics. Stays completely inert until a real ID is set. ── */
+  var GA4_ID = 'G-XXXXXXXXXX';
+
   var doc = document;
+
+  /* Load GA4 once configured (single place, every page — no per-page snippet). */
+  if (GA4_ID && GA4_ID.indexOf('G-XXX') !== 0) {
+    var _ga = doc.createElement('script'); _ga.async = true;
+    _ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+    doc.head.appendChild(_ga);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', GA4_ID);
+  }
   var mqReduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
   function reduced() { return !!(mqReduce && mqReduce.matches); }
 
@@ -196,8 +216,24 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (form.checkValidity && !form.checkValidity()) { if (form.reportValidity) form.reportValidity(); return; }
-      openModal(form.getAttribute('data-modal-success'));
-      try { form.reset(); } catch (err) {}
+      var success = function () { openModal(form.getAttribute('data-modal-success')); try { form.reset(); } catch (err) {} };
+
+      /* No real key configured yet (or no fetch) → just confirm, don't call the network. */
+      if (!WEB3FORMS_KEY || WEB3FORMS_KEY.indexOf('REPLACE_') === 0 || !window.fetch) { success(); return; }
+
+      var data = new FormData(form);
+      data.set('access_key', WEB3FORMS_KEY);
+      if (!data.get('subject'))   data.set('subject', 'Al-Maun website: ' + (doc.title || 'form submission'));
+      if (!data.get('from_name')) data.set('from_name', 'Al-Maun Website');
+
+      var btn = form.querySelector('[type="submit"]'), label = btn && btn.textContent;
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+      var fail = function () { alert('Sorry — something went wrong sending that. Please email almaun@gmail.com or call (702) 647-2500.'); };
+      fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Accept': 'application/json' }, body: data })
+        .then(function (r) { return r.json(); })
+        .then(function (res) { if (res && res.success) { success(); } else { fail(); } })
+        .catch(fail)
+        .then(function () { if (btn) { btn.disabled = false; btn.textContent = label; } });
     });
   });
 

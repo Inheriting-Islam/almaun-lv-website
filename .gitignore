@@ -8,3 +8,6 @@ fonts/gf*.css
 *.output
 *.log
 images/_ai-backup/
+node_modules/
+test/node_modules/
+test/node_modules
