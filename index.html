@@ -873,6 +873,27 @@ a.partner:hover{text-decoration:underline}
   <img class="hero-full__img" src="images/hero-line.jpg" alt="Al-Maun volunteers and neighbors gathered shoulder to shoulder on the Historic Westside of Las Vegas." width="1300" height="866" fetchpriority="high">
   <div class="hero-full__scrim" aria-hidden="true"></div>
 
+  <style>
+  .hero-count{position:absolute;top:clamp(4.5rem,9vw,6.5rem);right:clamp(1rem,3vw,2.2rem);z-index:4;
+    display:inline-flex;align-items:center;gap:.55rem;text-decoration:none;
+    background:rgba(20,83,43,.9);color:#fff;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,.28);border-radius:16px;padding:.6rem .95rem;
+    box-shadow:0 14px 34px -14px rgba(0,0,0,.65);transform:rotate(1.5deg);transition:transform .2s ease}
+  .hero-count:hover{transform:rotate(0) translateY(-2px)}
+  .hero-count__num{font-family:var(--font-head);font-weight:800;font-size:2rem;line-height:.9;color:#F5A623}
+  .hero-count__lbl{font-family:var(--font-head);font-weight:600;font-size:.72rem;line-height:1.15;letter-spacing:.02em;text-align:left}
+  @media (max-width:600px){.hero-count{top:auto;bottom:1rem;right:1rem;padding:.5rem .75rem}.hero-count__num{font-size:1.5rem}}
+  </style>
+  <a class="hero-count" href="https://irusa.org/day-of-dignity/" target="_blank" rel="noopener" aria-label="Days until the next Day of Dignity">
+    <span class="hero-count__num" id="dodDays">&mdash;</span>
+    <span class="hero-count__lbl">days to<br><b>Day of Dignity</b></span>
+  </a>
+  <script>
+  /* Day of Dignity countdown. TODO: confirm exact date on irusa.org (LV 2025 was Nov 1). */
+  (function(){var DOD=new Date('2026-11-07T00:00:00');var el=document.getElementById('dodDays');
+   if(el){var d=Math.max(0,Math.ceil((DOD-new Date())/86400000));el.textContent=d;}})();
+  </script>
+
   <div class="hero-full__inner">
     <div class="hero-full__copy">
       <p class="hero-full__eyebrow">Grassroots since 2003 &middot; Historic Westside, Las Vegas</p>
