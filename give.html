@@ -73,6 +73,14 @@
    ============================================================ */
 #don-h{font-size:var(--fs-h2);font-weight:800;line-height:1.05;letter-spacing:-.02em;margin-bottom:1rem;color:var(--text)}
 #don-h em{font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--cta)}
+/* fills the intro column beside the tall donate widget so it doesn't leave a void */
+.donate__grid{align-items:start}
+.donate__photo{margin:1.7rem 0 0}
+.donate__photo img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-xl);
+  border:1px solid var(--border);box-shadow:var(--shadow-md);display:block}
+.donate__photo figcaption{margin-top:.65rem;font-size:.9rem;color:var(--text-muted);
+  font-style:italic;font-family:var(--font-accent)}
+@media (max-width:960px){.donate__photo{display:none}}
 .gv-zakat{background:var(--band-marigold)}
 .gv-zgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1.6rem,4vw,3.2rem);align-items:center}
 @media(max-width:940px){.gv-zgrid{grid-template-columns:1fr}}
@@ -242,6 +250,10 @@
         <span class="chip">Tax-deductible 501(c)(3)</span>
         <span class="chip">100% stays on the Westside</span>
       </div>
+      <figure class="donate__photo reveal" data-d="1">
+        <img src="images/g-feeding.jpg" alt="A warm meal handed to a neighbor at an Al-Maun distribution on the Historic Westside." width="1100" height="733" loading="lazy">
+        <figcaption>Your gift, the same week &mdash; a real meal, handed neighbor to neighbor.</figcaption>
+      </figure>
     </div>
 
     <div class="widget reveal" data-d="2" aria-labelledby="widget-h">
