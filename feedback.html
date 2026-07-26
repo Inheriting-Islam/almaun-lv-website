@@ -3,53 +3,77 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Page not found — Al-Maun Neighborly Needs</title>
-<meta name="description" content="That page wandered off the block. Head back to the Al-Maun Neighborly Needs home page, or use the quick links to find your way.">
-<meta name="robots" content="noindex, follow">
+<title>Feedback — Al-Maun Neighborly Needs</title>
+<link rel="canonical" href="https://www.almaunlv.org/feedback.html">
 <meta property="og:site_name" content="Al-Maun Neighborly Needs">
-<meta property="og:title" content="Page not found — Al-Maun Neighborly Needs">
-<meta property="og:description" content="That page wandered off the block. Head back home, or use the quick links to find your way.">
+<meta property="og:title" content="Feedback — Al-Maun Neighborly Needs">
+<meta property="og:description" content="Share private feedback with the Al-Maun team. Your note goes straight to us and is never posted publicly.">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="assets/bp.css?v=3">
+<meta property="og:url" content="https://www.almaunlv.org/feedback.html">
+<meta property="og:image" content="https://www.almaunlv.org/images/hero-line.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Share private feedback with the Al-Maun team. Your note goes straight to us and is never posted publicly.">
+<meta name="robots" content="noindex">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/bp.css?v=3">
+<script>try{var t=localStorage.getItem('almaun-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 <style>
 /* ============================================================
-   404 — page-specific styles (reuse bp.css; new classes = nf-)
+   FEEDBACK — page-scoped (prefix fb-). Reuse bp.css.
+   Private → team only. Not a public comment board.
    ============================================================ */
-.nf-wrap{min-height:58vh;display:flex;align-items:center;justify-content:center;
-  text-align:center;padding-block:clamp(3rem,8vw,6rem)}
-.nf{max-width:60ch;margin-inline:auto}
-.nf__eyebrow{justify-content:center}
-.nf__eyebrow svg{width:16px;height:16px}
-.nf__num{font-family:var(--font-head);font-weight:800;font-size:clamp(4.6rem,19vw,9.5rem);
-  line-height:.9;letter-spacing:-.05em;color:var(--brand-strong);display:inline-block;margin:.2rem 0 .6rem}
-.nf__num .mid{color:var(--cta)}
-.nf h1{font-size:clamp(1.9rem,5.4vw,3.1rem);font-weight:800;letter-spacing:-.03em}
-.nf h1 em{font-family:var(--font-accent);font-style:italic;font-weight:600;color:var(--brand-strong)}
-.nf__lead{font-size:var(--fs-lead);color:var(--text-muted);line-height:1.7;max-width:52ch;margin:1.1rem auto 0}
-.nf__cta{margin-top:2rem}
-.nf-links{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-top:2.4rem}
-.nf-links__lbl{width:100%;font-family:var(--font-head);font-weight:700;font-size:.76rem;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.3rem}
-.nf-links a{font-family:var(--font-head);font-weight:600;font-size:.9rem;color:var(--text);
-  background:var(--surface);border-radius:var(--r-pill);padding:.6rem 1.1rem;
-  box-shadow:inset 0 0 0 1.5px var(--border);
-  transition:transform .18s ease,background .2s ease,color .2s ease,box-shadow .2s ease}
-.nf-links a:hover,.nf-links a:focus-visible{background:var(--band-mint);color:var(--brand-strong);
-  transform:translateY(-2px);box-shadow:inset 0 0 0 1.5px rgba(46,158,91,.35)}
+.fb-head{background:
+  radial-gradient(120% 90% at 86% -18%,color-mix(in srgb,var(--brand) 14%,transparent) 0%,transparent 55%),
+  var(--band-cream)}
+.fb-wrap{max-width:680px;margin-inline:auto}
+.fb-private{display:flex;gap:.8rem;align-items:flex-start;background:var(--band-mint);
+  border:1px solid rgba(46,158,91,.3);border-radius:var(--r-lg);padding:1.05rem 1.25rem;margin-bottom:1.6rem}
+.fb-private svg{flex:none;width:22px;height:22px;color:var(--brand-strong);margin-top:1px}
+.fb-private p{font-size:.94rem;line-height:1.55;color:var(--text)}
+.fb-private b{color:var(--brand-strong)}
 
-/* ---- FOOTER: canonical footer is 4-column; widen + style the legal line ---- */
-.footer__top{grid-template-columns:1.6fr 1fr 1.1fr 1fr}
-@media (max-width:1000px){.footer__top{grid-template-columns:1fr 1fr}}
-@media (max-width:640px){.footer__top{grid-template-columns:1fr}}
-.footer__legal a{color:inherit;text-decoration:underline;text-underline-offset:2px}
-.footer__legal a:hover{color:#fff}
+.fb-form{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);
+  box-shadow:var(--shadow-md);padding:clamp(1.4rem,3vw,2.2rem);position:relative;overflow:hidden}
+.fb-form::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;
+  background:linear-gradient(90deg,var(--brand),var(--accent),var(--cta))}
+.fb-field{display:grid;gap:.42rem;margin-top:1.2rem}
+.fb-field:first-of-type{margin-top:.3rem}
+.fb-field label{font-family:var(--font-head);font-weight:700;font-size:.74rem;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--text-muted)}
+.fb-field .req{color:var(--cta);margin-left:.15rem}
+.fb-input,.fb-select,.fb-textarea{width:100%;font-family:var(--font-body);font-size:1rem;color:var(--text);
+  background:var(--surface-2);border:2px solid var(--border);border-radius:var(--r-md);
+  padding:.8rem .95rem;transition:border-color .2s ease,background .2s ease}
+.fb-input::placeholder,.fb-textarea::placeholder{color:var(--text-muted)}
+.fb-input:focus-visible,.fb-select:focus-visible,.fb-textarea:focus-visible{outline:none;
+  border-color:var(--cta);background:color-mix(in srgb,var(--cta) 6%,var(--surface))}
+.fb-textarea{min-height:150px;resize:vertical;line-height:1.55}
+.fb-count{margin-top:.35rem;font-size:.8rem;color:var(--text-muted);text-align:right;font-variant-numeric:tabular-nums}
+.fb-selectwrap{position:relative}
+.fb-select{appearance:none;-webkit-appearance:none;padding-right:2.6rem;cursor:pointer}
+.fb-selectwrap::after{content:"";position:absolute;right:1.05rem;top:50%;width:.6rem;height:.6rem;
+  border-right:2.5px solid var(--text-muted);border-bottom:2.5px solid var(--text-muted);
+  transform:translateY(-72%) rotate(45deg);pointer-events:none}
+.fb-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:1.2rem}
+@media (max-width:520px){.fb-row{grid-template-columns:1fr}}
+.fb-row .fb-field{margin-top:0}
+.fb-optional{margin-top:1.4rem;padding-top:1.3rem;border-top:1px solid var(--border)}
+.fb-optional__lbl{font-family:var(--font-head);font-weight:700;font-size:1rem;color:var(--text)}
+.fb-optional__hint{font-size:.85rem;color:var(--text-muted);margin-top:.2rem}
+.fb-actions{margin-top:1.6rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
+.fb-note{font-size:.83rem;color:var(--text-muted);line-height:1.5;flex:1;min-width:200px}
+.fb-note a{color:var(--brand-strong);font-weight:600}
 
-@media (prefers-reduced-motion: reduce){
-  .nf-links a:hover,.nf-links a:focus-visible{transform:none}
-}
+.footer__top{grid-template-columns:1.5fr 1fr 1.1fr 1fr}
+@media (max-width:860px){.footer__top{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.footer__top{grid-template-columns:1fr}}
+.footer__nav{display:flex;flex-direction:column;gap:.55rem}
+.footer__nav a{color:rgba(237,228,214,.86);font-size:.95rem;width:fit-content}
+.footer__nav a:hover{color:#fff;text-decoration:underline}
+.footer__legal a{color:rgba(237,228,214,.8);border-bottom:1px solid transparent}
+.footer__legal a:hover{color:#fff;border-bottom-color:currentColor}
 </style>
 </head>
 <body>
@@ -111,40 +135,89 @@
 </header>
 
 <main id="main">
-<section class="hero" aria-labelledby="nf-h">
-  <div class="container nf-wrap">
-    <div class="nf">
-      <p class="eyebrow nf__eyebrow">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5 5-2Z"/></svg>
-        Lost on the block
-      </p>
 
-      <p class="nf__num" aria-hidden="true">4<span class="mid">0</span>4</p>
-
-      <h1 id="nf-h">This page <em>wandered off the block.</em></h1>
-      <p class="nf__lead">We looked up and down Morgan Avenue and couldn&#39;t find it. The link may be old, or the page may have moved &mdash; but the door&#39;s still open. Let&#39;s get you back home.</p>
-
-      <div class="nf__cta">
-        <a class="btn btn--cta btn--lg" href="index.html">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>
-          Back to home
-        </a>
-      </div>
-
-      <nav class="nf-links" aria-label="Quick links">
-        <span class="nf-links__lbl">Or try one of these</span>
-        <a href="about.html">Our Story</a>
-        <a href="programs.html">Programs</a>
-        <a href="nutrition-passport.html">Nutrition</a>
-        <a href="impact.html">Impact</a>
-        <a href="get-involved.html">Get Involved</a>
-        <a href="give.html">Give</a>
-        <a href="contact.html">Contact</a><a href="survey.html">Survey</a>
-      </nav>
+<!-- ===================== PAGE HEADER ===================== -->
+<section class="page-header fb-head">
+  <div class="container">
+    <div class="page-header__in">
+      <p class="eyebrow">Feedback</p>
+      <h1>Tell us how we&rsquo;re <em>doing.</em></h1>
+      <p class="lead">A kind word, a suggestion, or a concern &mdash; we want to hear it. This goes privately to the Al-Maun team so we can keep getting better for our neighbors.</p>
     </div>
   </div>
 </section>
+
+<!-- ===================== FEEDBACK FORM ===================== -->
+<section class="section" style="padding-top:clamp(1.6rem,3.4vw,2.4rem)">
+  <div class="container fb-wrap">
+
+    <div class="fb-private reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-3.5 8-9V5l-8-3-8 3v8c0 5.5 8 9 8 9Z"/><path d="M9 12l2 2 4-4"/></svg>
+      <p><b>This is private.</b> Your note goes straight to the Al-Maun team &mdash; it is <b>never posted on the website</b> and there is no public comment board. Say what you really think.</p>
+    </div>
+
+    <form class="fb-form reveal" data-d="1" id="feedbackForm" data-modal-success="feedback-thanks">
+      <input type="hidden" name="subject" value="New website feedback — Al-Maun">
+      <input type="hidden" name="from_name" value="Al-Maun Website">
+      <input type="hidden" name="form_type" value="Private feedback">
+
+      <div class="fb-field">
+        <label for="fb-type">What kind of feedback is this? <span class="req" aria-hidden="true">*</span></label>
+        <div class="fb-selectwrap">
+          <select class="fb-select" id="fb-type" name="feedback_type" required>
+            <option value="" disabled selected>Choose one&hellip;</option>
+            <option>A kind word</option>
+            <option>A suggestion</option>
+            <option>A concern</option>
+            <option>A problem with the website</option>
+            <option>Something else</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="fb-field">
+        <label for="fb-message">Your message <span class="req" aria-hidden="true">*</span></label>
+        <textarea class="fb-textarea" id="fb-message" name="message" maxlength="800" placeholder="Tell us what&rsquo;s on your mind&hellip;" required></textarea>
+        <p class="fb-count" id="fb-count" aria-live="polite">800 characters left</p>
+      </div>
+
+      <div class="fb-optional">
+        <p class="fb-optional__lbl">Want a reply? (optional)</p>
+        <p class="fb-optional__hint">Leave your name and email only if you&rsquo;d like us to follow up. You can send feedback anonymously.</p>
+        <div class="fb-row">
+          <div class="fb-field">
+            <label for="fb-name">Name</label>
+            <input class="fb-input" type="text" id="fb-name" name="name" autocomplete="name" placeholder="Your name">
+          </div>
+          <div class="fb-field">
+            <label for="fb-email">Email</label>
+            <input class="fb-input" type="email" id="fb-email" name="email" autocomplete="email" placeholder="you@email.com">
+          </div>
+        </div>
+      </div>
+
+      <div class="fb-actions">
+        <button type="submit" class="btn btn--cta btn--lg">Send feedback</button>
+        <p class="fb-note">Need help today instead? <a href="contact.html">Contact us</a> or call <a href="tel:+17026472500">(702) 647-2500</a>.</p>
+      </div>
+    </form>
+
+  </div>
+</section>
+
 </main>
+
+<!-- ===================== SUCCESS MODAL ===================== -->
+<div class="modal" id="feedback-thanks" role="dialog" aria-modal="true" aria-labelledby="feedback-thanks-title" hidden>
+  <div class="modal__backdrop" data-modal-close></div>
+  <div class="modal__panel" role="document">
+    <button class="modal__x" type="button" data-modal-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <span class="modal__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-5-5"/></svg></span>
+    <h2 id="feedback-thanks-title">Got it &mdash; <em>thank you.</em></h2>
+    <p>Your feedback is with the Al-Maun team, and only the team. Jaz&#257;k All&#257;hu khayran for helping us do this better. If you asked for a reply, we&rsquo;ll be in touch, in shaa Allah.</p>
+    <button class="btn btn--cta" type="button" data-modal-close>Back to the site</button>
+  </div>
+</div>
 
 <!-- ===================== FOOTER ===================== -->
 <footer class="footer">
@@ -162,10 +235,10 @@
         <nav class="footer__nav" aria-label="Footer">
           <a href="about.html">Our Story</a>
           <a href="programs.html">Programs</a>
-          <a href="nutrition-passport.html">Nutrition</a>
           <a href="impact.html">Impact</a>
-          <a href="events.html">Events &amp; Prayer</a>
           <a href="get-involved.html">Get Involved</a>
+          <a href="survey.html">Community Survey</a>
+          <a href="feedback.html">Feedback</a>
           <a href="contact.html">Contact</a>
         </nav>
       </div>
@@ -201,27 +274,37 @@
 <script>
 (function(){
   "use strict";
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var root = document.documentElement;
-
-  /* ---------- THEME (applied inline to avoid a flash; toggle lives in site.js) ---------- */
   var themeBtn = document.getElementById('themeBtn');
   try{ var saved = localStorage.getItem('almaun-theme'); if(saved){ root.setAttribute('data-theme', saved); } }catch(e){}
-  if(themeBtn){
-    themeBtn.addEventListener('click', function(){
-      var cur = root.getAttribute('data-theme'), isDark;
-      if(cur){ isDark = cur === 'dark'; }
-      else { isDark = window.matchMedia('(prefers-color-scheme: dark)').matches; }
-      var next = isDark ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      try{ localStorage.setItem('almaun-theme', next); }catch(e){}
-    });
+  themeBtn.addEventListener('click', function(){
+    var cur = root.getAttribute('data-theme'), isDark;
+    if(cur){ isDark = cur === 'dark'; } else { isDark = window.matchMedia('(prefers-color-scheme: dark)').matches; }
+    var next = isDark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try{ localStorage.setItem('almaun-theme', next); }catch(e){}
+  });
+  var header = document.querySelector('.header');
+  var onScroll = function(){ header.classList.toggle('scrolled', window.scrollY > 8); };
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  var ta = document.getElementById('fb-message'), cnt = document.getElementById('fb-count');
+  if(ta && cnt){
+    var max = parseInt(ta.getAttribute('maxlength'),10) || 800;
+    var upd = function(){ var left = max - ta.value.length; cnt.textContent = left + ' character' + (left===1?'':'s') + ' left'; };
+    ta.addEventListener('input', upd); upd();
   }
 
-  /* ---------- HEADER SHADOW ---------- */
-  var header = document.querySelector('.header');
-  if(header){
-    var onScroll = function(){ header.classList.toggle('scrolled', window.scrollY > 8); };
-    onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+  if(reduce){
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  } else if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, {threshold:0.08, rootMargin:'0px 0px -6% 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
   }
 })();
 </script>
