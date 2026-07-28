@@ -143,6 +143,18 @@
 .ab-cta-card p b{color:#fff}
 .ab-cta-card .btn{align-self:flex-start}
 .ab-jum{display:block;font-size:.9rem;color:color-mix(in srgb,var(--text-invert) 66%,transparent);margin-top:.9rem}
+
+/* ---------------- FROM THE ARCHIVES ---------------- */
+.ab-archives{margin-top:clamp(2.4rem,5vw,3.8rem)}
+.ab-arch-head{display:flex;align-items:center;gap:.9rem;margin-bottom:1.7rem}
+.ab-arch-head .eyebrow{margin:0;white-space:nowrap}
+.ab-arch-line{flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent)}
+.ab-arch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1rem,2.4vw,1.7rem);align-items:start}
+@media(max-width:900px){.ab-arch-grid{grid-template-columns:repeat(2,1fr);gap:1.6rem 1.2rem}}
+@media(max-width:520px){.ab-arch-grid{grid-template-columns:1fr;max-width:320px;margin-inline:auto}}
+.ab-arch-photo{margin:0}
+.ab-arch-photo img{width:100%;height:auto;display:block;filter:sepia(.16) saturate(.92) contrast(1.02)}
+.ab-arch-note{text-align:center;margin-top:1.5rem;font-family:var(--font-accent);font-style:italic;color:var(--text-muted);font-size:.96rem}
 </style>
 </head>
 <body>
@@ -317,6 +329,37 @@
           </div>
         </li>
       </ol>
+    </div>
+
+    <!-- ===================== FROM THE ARCHIVES ===================== -->
+    <div class="ab-archives reveal">
+      <div class="ab-arch-head">
+        <p class="eyebrow">From the archives</p>
+        <span class="ab-arch-line" aria-hidden="true"></span>
+      </div>
+      <div class="ab-arch-grid">
+        <figure class="polaroid ab-arch-photo" style="--rot:-2deg">
+          <span class="tape" aria-hidden="true"></span>
+          <img src="images/archive-1.jpg" alt="An early, humble single-story masjid building on the Historic Westside." width="367" height="167" loading="lazy">
+          <figcaption>Humble beginnings on the Westside</figcaption>
+        </figure>
+        <figure class="polaroid ab-arch-photo" style="--rot:1.5deg">
+          <span class="tape" aria-hidden="true"></span>
+          <img src="images/archive-2.jpg" alt="A construction company sign reading &lsquo;New Home of Masjid As-Sabur.&rsquo;" width="650" height="351" loading="lazy">
+          <figcaption>Breaking ground on a new home</figcaption>
+        </figure>
+        <figure class="polaroid ab-arch-photo" style="--rot:-1.5deg">
+          <span class="tape" aria-hidden="true"></span>
+          <img src="images/archive-3.jpg" alt="The masjid under construction, walls going up behind scaffolding." width="400" height="266" loading="lazy">
+          <figcaption>Raising the walls, brick by brick</figcaption>
+        </figure>
+        <figure class="polaroid ab-arch-photo" style="--rot:2deg">
+          <span class="tape" aria-hidden="true"></span>
+          <img src="images/archive-4.jpg" alt="The masjid with cream walls, green trim and arched windows." width="367" height="227" loading="lazy">
+          <figcaption>The masjid Al-Ma&rsquo;un still calls home</figcaption>
+        </figure>
+      </div>
+      <p class="ab-arch-note">Photos courtesy of Masjid As-Sabur.</p>
     </div>
   </div>
 </section>
@@ -503,7 +546,7 @@
       </div>
     </div>
     <div class="footer__bar">
-      <span>&copy; 2003&ndash;2026 Al-Maun Neighborly Needs. All kindnesses welcome.</span>
+      <span>&copy; 2003&ndash;2026 Al-Maun Neighborly Needs. All kindnesses welcome. &middot; <a href="https://inheritingislam.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Site by Inheriting Islam</a></span>
       <span class="footer__legal"><a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="donor-policy.html">Donor Policy</a> &middot; <a href="contact.html#photo-removal">Photo removal</a> &middot; <a href="feedback.html">Feedback</a></span>
       <button class="footer__theme theme-toggle" id="themeBtn" type="button" aria-label="Switch between light and dark mode"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg><span>Light / dark</span></button>
     </div>
